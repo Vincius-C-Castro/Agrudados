@@ -51,8 +51,12 @@ public class Agrudados_FXMLController implements Initializable{
     {
               
         Media media = new Media();
-        atualizaVetor();
-        resultMedia.setText(Double.toString(media.calculaMedia(valores)));   
+        
+        // Atualiza o vetor com os dados inseridos        
+        atualizaVetor();            
+        
+        // Envia a média calculada para a label "resultMedia"
+        resultMedia.setText(Double.toString(media.calculaMedia(valores)));    
         
     }
     
@@ -61,11 +65,14 @@ public class Agrudados_FXMLController implements Initializable{
     {
  
         Moda moda = new Moda();
+        
+        // Atualiza o vetor com os dados inseridos 
         atualizaVetor();
         
-        
+        // Obtém o indice da posição do vetor em que se encontra o valor modal
         int indice = moda.calculaModa(valores);
         
+        // O conjunto é amodal?
         if(indice == -1)
         {
             

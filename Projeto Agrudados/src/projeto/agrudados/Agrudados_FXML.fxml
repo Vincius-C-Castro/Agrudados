@@ -27,5 +27,10 @@
             <Image url="@../../../../../../../Downloads/agrudados.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="155.0" fitWidth="200.0" layoutX="386.0" layoutY="232.0" opacity="0.23">
+         <image>
+            <Image url="@agrudados.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

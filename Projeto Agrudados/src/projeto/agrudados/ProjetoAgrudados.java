@@ -9,7 +9,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
 
 /**
  *
@@ -23,8 +25,12 @@ public class ProjetoAgrudados extends Application {
         
         Scene scene = new Scene(root);
         
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("agrudados.png")));
+        stage.setTitle("AGRUDADOS");
+        
         stage.setScene(scene);
         stage.show();
+
     }
 
     /**

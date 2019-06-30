@@ -9,7 +9,7 @@ package estatistica;
  *
  * @author viny-
  */
-public class Media extends Calculos {
+public class Media extends CalculosEstatisticos {
     
     
     public double calculaMedia(double vetor[])

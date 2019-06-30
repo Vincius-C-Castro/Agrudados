@@ -9,7 +9,7 @@ package estatistica;
  *
  * @author viny-
  */
-public class Moda extends Calculos {
+public class Moda extends CalculosEstatisticos {
     
     public int calculaModa (double vetor[])
     {

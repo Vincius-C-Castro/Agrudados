@@ -9,7 +9,7 @@ package estatistica;
  *
  * @author viny-
  */
-public class Mediana extends Calculos {
+public class Mediana extends CalculosEstatisticos {
     
     public double calculaMediana(double vetor[])
     {

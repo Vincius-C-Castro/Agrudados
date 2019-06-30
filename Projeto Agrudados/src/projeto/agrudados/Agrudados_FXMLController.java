@@ -5,6 +5,10 @@
  */
 package projeto.agrudados;
 
+import estatistica.Media;
+import estatistica.Moda;
+import estatistica.Mediana;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -18,8 +22,16 @@ import javafx.scene.control.TextField;
  *
  * @author viny-
  */
-public class Agrudados_FXMLController implements Initializable {
+public class Agrudados_FXMLController implements Initializable{
     
+    private double valores[] = new double[6];
+
+    @FXML
+    private Label resultMedia;
+    @FXML
+    private Label resultModa;
+    @FXML
+    private Label resultMediana;
     
     @FXML
     private TextField celula1;
@@ -33,81 +45,59 @@ public class Agrudados_FXMLController implements Initializable {
     private TextField celula5;
     @FXML
     private TextField celula6;
-    @FXML
-    private Label resultMedia;
-    @FXML
-    private Label resultModa;
-    @FXML
-    private Label resultMediana;
-    
             
     @FXML
     private void calculaMedia(ActionEvent event)
     {
-        double[] vet = {Double.parseDouble(celula1.getText()), Double.parseDouble(celula2.getText()), 
-                        Double.parseDouble(celula3.getText()), Double.parseDouble(celula4.getText()),
-                            Double.parseDouble(celula5.getText()), Double.parseDouble(celula6.getText())};      
-        double media = 0;
+              
+        Media media = new Media();
+        atualizaVetor();
+        resultMedia.setText(Double.toString(media.calculaMedia(valores)));   
         
-        for (int i = 0; i < vet.length; i++) {
-            media += vet[i];
-        }
-        media = media/vet.length;
-        
-        resultMedia.setText(Double.toString( media ));       
     }
     
     @FXML
     private void calculaModa(ActionEvent event)
     {
-        double[] vet = {Double.parseDouble(celula1.getText()), Double.parseDouble(celula2.getText()), 
-                        Double.parseDouble(celula3.getText()), Double.parseDouble(celula4.getText()),
-                            Double.parseDouble(celula5.getText()), Double.parseDouble(celula6.getText())};
+ 
+        Moda moda = new Moda();
+        atualizaVetor();
         
-        int[] cont = new int[6];
-        int vezes = 0;
-        int indice = 0;
         
-        for (int i=0; i < 6; i++) {
-            for (int j=0;j <6; j++) {
-                
-                if(vet[i] == vet[j]) {
-                    cont[i] = cont[i] + 1;
-                }
-            }
+        int indice = moda.calculaModa(valores);
+        
+        if(indice == -1)
+        {
+            
+            resultModa.setText("Conjunto Amodal");
+            
+        }else{
+            
+            resultModa.setText(Double.toString(valores[indice] ));
+            
         }
-        
-        vezes = cont[0];
-        for (int i=0; i < cont.length; i++) {
-            if (cont[i] > vezes) {
-                vezes = cont[i];
-                indice = i;
-            }
-        }
-        
-        resultModa.setText(Double.toString( vet[indice] )); 
         
     }
     
     @FXML
     private void calculaMediana(ActionEvent event)
     {
-        double[] vet = {Double.parseDouble(celula1.getText()), Double.parseDouble(celula2.getText()), 
+                     
+        Mediana mediana = new Mediana();
+        atualizaVetor();
+        
+        resultMediana.setText(Double.toString( mediana.calculaMediana(valores) ));
+    }
+    
+    public void atualizaVetor()
+    {
+        double vetor[] = {Double.parseDouble(celula1.getText()), Double.parseDouble(celula2.getText()), 
                         Double.parseDouble(celula3.getText()), Double.parseDouble(celula4.getText()),
                             Double.parseDouble(celula5.getText()), Double.parseDouble(celula6.getText())};
-                            
-        double mediana;
         
-        if(vet.length%2 == 0)
-        {
-            mediana = (vet[vet.length/2] + vet[vet.length/2 -1])/2;
-        }
-        else
-        {
-            mediana = vet[vet.length/2 +1];
-        }
-        resultMediana.setText(Double.toString( mediana ));
+        this.valores = vetor;
     }
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

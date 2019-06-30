@@ -44,15 +44,15 @@ public class Agrudados_FXMLController implements Initializable {
     @FXML
     private void calculaMedia(ActionEvent event)
     {
-        double[] vetor = {Integer.parseInt(celula1.getText()), Integer.parseInt(celula2.getText()), 
-                        Integer.parseInt(celula3.getText()), Integer.parseInt(celula4.getText()),
-                            Integer.parseInt(celula5.getText()), Integer.parseInt(celula6.getText())};        
+        double[] vet = {Double.parseDouble(celula1.getText()), Double.parseDouble(celula2.getText()), 
+                        Double.parseDouble(celula3.getText()), Double.parseDouble(celula4.getText()),
+                            Double.parseDouble(celula5.getText()), Double.parseDouble(celula6.getText())};      
         double media = 0;
         
-        for (int i = 0; i < vetor.length; i++) {
-            media += vetor[i];
+        for (int i = 0; i < vet.length; i++) {
+            media += vet[i];
         }
-        media = media/vetor.length;
+        media = media/vet.length;
         
         resultMedia.setText(Double.toString( media ));       
     }
@@ -60,9 +60,9 @@ public class Agrudados_FXMLController implements Initializable {
     @FXML
     private void calculaModa(ActionEvent event)
     {
-        double[] vet = {Integer.parseInt(celula1.getText()), Integer.parseInt(celula2.getText()), 
-                        Integer.parseInt(celula3.getText()), Integer.parseInt(celula4.getText()),
-                            Integer.parseInt(celula5.getText()), Integer.parseInt(celula6.getText())};
+        double[] vet = {Double.parseDouble(celula1.getText()), Double.parseDouble(celula2.getText()), 
+                        Double.parseDouble(celula3.getText()), Double.parseDouble(celula4.getText()),
+                            Double.parseDouble(celula5.getText()), Double.parseDouble(celula6.getText())};
         
         int[] cont = new int[6];
         int vezes = 0;
@@ -92,9 +92,9 @@ public class Agrudados_FXMLController implements Initializable {
     @FXML
     private void calculaMediana(ActionEvent event)
     {
-        double[] vet = {Integer.parseInt(celula1.getText()), Integer.parseInt(celula2.getText()), 
-                        Integer.parseInt(celula3.getText()), Integer.parseInt(celula4.getText()),
-                            Integer.parseInt(celula5.getText()), Integer.parseInt(celula6.getText())};
+        double[] vet = {Double.parseDouble(celula1.getText()), Double.parseDouble(celula2.getText()), 
+                        Double.parseDouble(celula3.getText()), Double.parseDouble(celula4.getText()),
+                            Double.parseDouble(celula5.getText()), Double.parseDouble(celula6.getText())};
                             
         double mediana;
         

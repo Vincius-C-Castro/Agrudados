@@ -1,8 +1,5 @@
 
-import java.awt.Button;
-import java.awt.PopupMenu;
-import javax.swing.JButton;
-
+import javax.swing.ImageIcon;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,8 +15,15 @@ public class menu extends javax.swing.JFrame {
     /**
      * Creates new form menu
      */
-    public menu() {
+    public menu(){
+        this.carregarIconeAplicacao();
         initComponents();
+    }
+    
+    private void carregarIconeAplicacao(){
+        ImageIcon imageIcon;
+        imageIcon = new ImageIcon(getClass().getResource("/imagens/agrudadosIco.png"));
+        this.setIconImage(imageIcon.getImage());
     }
 
     /**
@@ -34,6 +38,7 @@ public class menu extends javax.swing.JFrame {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jDesktopPane2 = new javax.swing.JDesktopPane();
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -60,15 +65,24 @@ public class menu extends javax.swing.JFrame {
         jDesktopPane1.setBackground(new java.awt.Color(0, 0, 255));
         jDesktopPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/agrudados.png"))); // NOI18N
+
+        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 439, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap(206, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addGap(0, 266, Short.MAX_VALUE)
+                .addComponent(jLabel1))
         );
 
         jMenuBar1.setToolTipText("");
@@ -139,7 +153,7 @@ public class menu extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
        
          medidasdetendenciacentral tela = new medidasdetendenciacentral();
-         jDesktopPane1.add(tela);
+         jDesktopPane1.add(tela);        
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -162,7 +176,7 @@ public class menu extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-            Historia tela3 = new Historia();
+        Historia tela3 = new Historia();
         jDesktopPane1.add(tela3);
         tela3.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -207,6 +221,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;

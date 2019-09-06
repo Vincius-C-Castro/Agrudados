@@ -42,6 +42,8 @@ public class menu extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
@@ -68,25 +70,25 @@ public class menu extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 445, Short.MAX_VALUE)
+            .addGap(0, 497, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGap(0, 444, Short.MAX_VALUE)
         );
 
         jMenuBar1.setToolTipText("");
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/page.png"))); // NOI18N
-        jMenu2.setText("Arquivo");
+        jMenu2.setText("Medidas de Tendência Central");
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu2ActionPerformed(evt);
             }
         });
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/user_add.png"))); // NOI18N
-        jMenuItem1.setText("Medidas de Tendência Central");
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/user_edit.png"))); // NOI18N
+        jMenuItem1.setText("Simples");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -95,7 +97,7 @@ public class menu extends javax.swing.JFrame {
         jMenu2.add(jMenuItem1);
 
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/user_edit.png"))); // NOI18N
-        jMenuItem2.setText("Analise de Grandes Conjntos de Dados");
+        jMenuItem2.setText("Ponderada");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -104,6 +106,21 @@ public class menu extends javax.swing.JFrame {
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/page.png"))); // NOI18N
+        jMenu1.setText("AnalisedeGrandesConjntosdeDados");
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("AnalisedeGrandesConjntosdeDados");
+        jRadioButtonMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/user_edit.png"))); // NOI18N
+        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jRadioButtonMenuItem1);
+
+        jMenuBar1.add(jMenu1);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/information.png"))); // NOI18N
         jMenu4.setText("Sobre");
@@ -141,10 +158,9 @@ public class menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       
-         medidasdetendenciacentral tela = new medidasdetendenciacentral();
+        medidasdetendenciacentral tela = new medidasdetendenciacentral();
          jDesktopPane1.add(tela);        
-        tela.setVisible(true);
+         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
@@ -154,7 +170,7 @@ public class menu extends javax.swing.JFrame {
       
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        AnalisedeGrandesConjntosdeDados tela2 = new AnalisedeGrandesConjntosdeDados();
+        medidasdetendenciacentralPonderada tela2 = new medidasdetendenciacentralPonderada();
          jDesktopPane1.add(tela2);
          tela2.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -170,6 +186,14 @@ public class menu extends javax.swing.JFrame {
         jDesktopPane1.add(tela3);
         tela3.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        AnalisedeGrandesConjntosdeDados tela4 = new AnalisedeGrandesConjntosdeDados();
+        jDesktopPane1.add(tela4);
+        tela4.setVisible(true);
+        
+    }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,11 +235,13 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

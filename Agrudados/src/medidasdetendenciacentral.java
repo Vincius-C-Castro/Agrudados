@@ -72,6 +72,7 @@ public class medidasdetendenciacentral extends javax.swing.JInternalFrame {
         jLabel20 = new javax.swing.JLabel();
 
         setClosable(true);
+        setIconifiable(true);
         setMaximizable(true);
 
         jLabel1.setText("Média Aritmetica");

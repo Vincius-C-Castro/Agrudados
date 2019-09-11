@@ -69,6 +69,11 @@ public class ElementosModel extends AbstractTableModel{
      this.fireTableRowsDeleted(linha, linha);
     
     }
+    public void calculo(){
+     
+   
+        
+    }
     
     
 }

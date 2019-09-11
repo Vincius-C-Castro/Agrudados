@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
 public class PonderadaTableMode1  extends AbstractTableModel  {
     
    private List<ElementosPonderada> dados = new ArrayList<>();
-   private String[]colunas = {"numeros ","notas"};
+   private String[]colunas = {"Variaveis ","Pesos"};
 
     @Override
     public String getColumnName(int column) {

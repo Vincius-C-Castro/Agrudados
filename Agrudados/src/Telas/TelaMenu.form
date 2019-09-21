@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
@@ -47,93 +47,158 @@
         </DimensionLayout>
       </Layout>
     </Container>
+    <Component class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem1">
+      <Properties>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="jCheckBoxMenuItem1"/>
+      </Properties>
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
+          <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+            <MatteColorBorder/>
+          </Border>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="34" green="34" red="de" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Verdana" size="36" style="1"/>
+        </Property>
+        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+          <Insets value="[1, 1, 1, 1]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[2, 4]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[507, 35]"/>
         </Property>
       </Properties>
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder/>
+              </Border>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagem/sum.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Medidas de Tend&#xea;ncia Central"/>
+            <Property name="text" type="java.lang.String" value="   M&#xe9;dias"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="horizontalTextPosition" type="int" value="4"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[100, 50]"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu1ActionPerformed"/>
           </Events>
           <SubComponents>
-            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="botaoSimples">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="Simples"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="12" style="1"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Imagem/font.png"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Simples"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoSimplesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="PonderadaButtonMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="Ponderada"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="12" style="1"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Imagem/text_letter_omega.png"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Ponderada"/>
+                <Property name="inheritsPopupMenu" type="boolean" value="true"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PonderadaButtonMenuItem2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder/>
+              </Border>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagem/application_view_tile.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="AnalisedeGrandesConjntosdeDados"/>
+            <Property name="text" type="java.lang.String" value="Gr&#xe1;ficos e Tabelas"/>
+            <Property name="focusCycleRoot" type="boolean" value="true"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="12" style="1"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[157, 19]"/>
+            </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="AnaliseGrandesConjuntosDeDadosButtonMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="AnalisedeGrandesConjntosdeDados"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="12" style="1"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Imagem/chart_bar.png"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Analise de dados"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AnaliseGrandesConjuntosDeDadosButtonMenuItem3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder/>
+              </Border>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagem/information.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sobre"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="12" style="1"/>
+            </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="HistoriaButtonMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="Historia"/>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagem/zoom.png"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="12" style="1"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagem/rosette.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Historia"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HistoriaButtonMenuItem4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -217,7 +282,7 @@
         <Component class="javax.swing.JLabel" name="labelImagemFundo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/telaInicial.png"/>
+              <Image iconType="3" name="/imagens/telaInicialfinal.jpg"/>
             </Property>
           </Properties>
         </Component>

@@ -1,3 +1,5 @@
+package Telas;
+
 import model.ElementosModel;
 import model.elementos;
 
@@ -50,10 +52,13 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
 
         jLabel8.setText("jLabel7");
 
+        setBorder(new javax.swing.border.MatteBorder(null));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Media Simples");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/table.png"))); // NOI18N
 
         ElementoTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

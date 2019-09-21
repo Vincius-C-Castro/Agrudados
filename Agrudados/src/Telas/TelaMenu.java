@@ -33,16 +33,17 @@ public class TelaMenu extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jDesktopPane2 = new javax.swing.JDesktopPane();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         telaFundo = new javax.swing.JPanel();
         labelImagemFundo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        botaoSimples = new javax.swing.JRadioButtonMenuItem();
-        PonderadaButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        AnaliseGrandesConjuntosDeDadosButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        HistoriaButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -68,6 +69,9 @@ public class TelaMenu extends javax.swing.JFrame {
             .add(0, 100, Short.MAX_VALUE)
         );
 
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agrudados");
         setFocusCycleRoot(false);
@@ -76,7 +80,7 @@ public class TelaMenu extends javax.swing.JFrame {
         telaFundo.setBackground(new java.awt.Color(51, 51, 51));
         telaFundo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        labelImagemFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/telaInicial.png"))); // NOI18N
+        labelImagemFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/telaInicialfinal.jpg"))); // NOI18N
 
         org.jdesktop.layout.GroupLayout telaFundoLayout = new org.jdesktop.layout.GroupLayout(telaFundo);
         telaFundo.setLayout(telaFundoLayout);
@@ -94,65 +98,82 @@ public class TelaMenu extends javax.swing.JFrame {
         );
 
         jMenuBar1.setBackground(java.awt.Color.darkGray);
-        jMenuBar1.setBorder(null);
+        jMenuBar1.setBorder(new javax.swing.border.MatteBorder(null));
+        jMenuBar1.setForeground(new java.awt.Color(222, 52, 52));
+        jMenuBar1.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        jMenuBar1.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        jMenuBar1.setMinimumSize(new java.awt.Dimension(2, 4));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(507, 35));
 
+        jMenu1.setBorder(new javax.swing.border.MatteBorder(null));
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/sum.png"))); // NOI18N
-        jMenu1.setText("Medidas de Tendência Central");
+        jMenu1.setText("   Médias");
+        jMenu1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jMenu1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jMenu1.setPreferredSize(new java.awt.Dimension(100, 50));
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu1ActionPerformed(evt);
             }
         });
 
-        botaoSimples.setSelected(true);
-        botaoSimples.setText("Simples");
-        botaoSimples.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/font.png"))); // NOI18N
-        botaoSimples.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/font.png"))); // NOI18N
+        jMenuItem2.setText("Simples");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoSimplesActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu1.add(botaoSimples);
+        jMenu1.add(jMenuItem2);
 
-        PonderadaButtonMenuItem2.setSelected(true);
-        PonderadaButtonMenuItem2.setText("Ponderada");
-        PonderadaButtonMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/text_letter_omega.png"))); // NOI18N
-        PonderadaButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/text_letter_omega.png"))); // NOI18N
+        jMenuItem1.setText("Ponderada");
+        jMenuItem1.setInheritsPopupMenu(true);
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PonderadaButtonMenuItem2ActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(PonderadaButtonMenuItem2);
+        jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setBorder(new javax.swing.border.MatteBorder(null));
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/application_view_tile.png"))); // NOI18N
-        jMenu2.setText("AnalisedeGrandesConjntosdeDados");
+        jMenu2.setText("Gráficos e Tabelas");
+        jMenu2.setFocusCycleRoot(true);
+        jMenu2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jMenu2.setPreferredSize(new java.awt.Dimension(157, 19));
 
-        AnaliseGrandesConjuntosDeDadosButtonMenuItem3.setSelected(true);
-        AnaliseGrandesConjuntosDeDadosButtonMenuItem3.setText("AnalisedeGrandesConjntosdeDados");
-        AnaliseGrandesConjuntosDeDadosButtonMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/chart_bar.png"))); // NOI18N
-        AnaliseGrandesConjuntosDeDadosButtonMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/chart_bar.png"))); // NOI18N
+        jMenuItem3.setText("Analise de dados");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AnaliseGrandesConjuntosDeDadosButtonMenuItem3ActionPerformed(evt);
+                jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu2.add(AnaliseGrandesConjuntosDeDadosButtonMenuItem3);
+        jMenu2.add(jMenuItem3);
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setBorder(new javax.swing.border.MatteBorder(null));
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/information.png"))); // NOI18N
         jMenu3.setText("Sobre");
+        jMenu3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
 
-        HistoriaButtonMenuItem4.setSelected(true);
-        HistoriaButtonMenuItem4.setText("Historia");
-        HistoriaButtonMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/zoom.png"))); // NOI18N
-        HistoriaButtonMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/rosette.png"))); // NOI18N
+        jMenuItem4.setText("Historia");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HistoriaButtonMenuItem4ActionPerformed(evt);
+                jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu3.add(HistoriaButtonMenuItem4);
+        jMenu3.add(jMenuItem4);
 
         jMenuBar1.add(jMenu3);
 
@@ -176,38 +197,37 @@ public class TelaMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoSimplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSimplesActionPerformed
-
-        medidasdetendenciacentralSimpes tela = new medidasdetendenciacentralSimpes(); 
-         labelImagemFundo.add(tela);        
-         tela.setVisible(true);   
-    }//GEN-LAST:event_botaoSimplesActionPerformed
-
-    private void PonderadaButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PonderadaButtonMenuItem2ActionPerformed
-        
-         medidasdetendenciacentralPonderada tela2 = new medidasdetendenciacentralPonderada();
-         labelImagemFundo.add(tela2);
-         tela2.setVisible(true);
-      
-    }//GEN-LAST:event_PonderadaButtonMenuItem2ActionPerformed
-
-    private void AnaliseGrandesConjuntosDeDadosButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnaliseGrandesConjuntosDeDadosButtonMenuItem3ActionPerformed
-        
-        AnalisedeGrandesConjntosdeDados tela4 = new AnalisedeGrandesConjntosdeDados();
-        labelImagemFundo.add(tela4);
-        tela4.setVisible(true);
-    }//GEN-LAST:event_AnaliseGrandesConjuntosDeDadosButtonMenuItem3ActionPerformed
-
-    private void HistoriaButtonMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistoriaButtonMenuItem4ActionPerformed
-       
-        Historia tela3 = new Historia();
-        labelImagemFundo.add(tela3);
-        tela3.setVisible(true);
-    }//GEN-LAST:event_HistoriaButtonMenuItem4ActionPerformed
-
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+         medidasdetendenciacentralSimpes tela = new medidasdetendenciacentralSimpes(); 
+         labelImagemFundo.add(tela);        
+         tela.setVisible(true);   
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+         medidasdetendenciacentralPonderada tela2 = new medidasdetendenciacentralPonderada();
+         labelImagemFundo.add(tela2);
+         tela2.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        AnalisedeGrandesConjntosdeDados tela4 = new AnalisedeGrandesConjntosdeDados();
+        labelImagemFundo.add(tela4);
+        tela4.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        Historia tela3 = new Historia();
+        labelImagemFundo.add(tela3);
+        tela3.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,10 +265,7 @@ public class TelaMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButtonMenuItem AnaliseGrandesConjuntosDeDadosButtonMenuItem3;
-    private javax.swing.JRadioButtonMenuItem HistoriaButtonMenuItem4;
-    private javax.swing.JRadioButtonMenuItem PonderadaButtonMenuItem2;
-    private javax.swing.JRadioButtonMenuItem botaoSimples;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
@@ -256,6 +273,10 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JLabel labelImagemFundo;
     private javax.swing.JPanel telaFundo;
     // End of variables declaration//GEN-END:variables

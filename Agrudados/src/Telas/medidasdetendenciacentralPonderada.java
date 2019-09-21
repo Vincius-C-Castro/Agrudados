@@ -1,3 +1,5 @@
+package Telas;
+
 
 import model.ElementosPonderada;
 import model.PonderadaTableMode1;

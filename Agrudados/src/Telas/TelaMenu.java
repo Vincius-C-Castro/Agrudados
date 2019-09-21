@@ -1,3 +1,6 @@
+package Telas;
+
+import java.awt.Color;
 import javax.swing.ImageIcon;
 
 public class TelaMenu extends javax.swing.JFrame {
@@ -28,11 +31,13 @@ public class TelaMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox<>();
-        jPanel1 = new javax.swing.JPanel();
-        telaFundo = new javax.swing.JDesktopPane();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jDesktopPane2 = new javax.swing.JDesktopPane();
+        telaFundo = new javax.swing.JPanel();
+        labelImagemFundo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        SimplesButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        botaoSimples = new javax.swing.JRadioButtonMenuItem();
         PonderadaButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
         jMenu2 = new javax.swing.JMenu();
         AnaliseGrandesConjuntosDeDadosButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
@@ -41,55 +46,77 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        org.jdesktop.layout.GroupLayout jDesktopPane1Layout = new org.jdesktop.layout.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 100, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 100, Short.MAX_VALUE)
+        );
+
+        org.jdesktop.layout.GroupLayout jDesktopPane2Layout = new org.jdesktop.layout.GroupLayout(jDesktopPane2);
+        jDesktopPane2.setLayout(jDesktopPane2Layout);
+        jDesktopPane2Layout.setHorizontalGroup(
+            jDesktopPane2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 100, Short.MAX_VALUE)
+        );
+        jDesktopPane2Layout.setVerticalGroup(
+            jDesktopPane2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agrudados");
         setFocusCycleRoot(false);
         setFocusable(false);
 
-        telaFundo.setPreferredSize(new java.awt.Dimension(1366, 768));
+        telaFundo.setBackground(new java.awt.Color(51, 51, 51));
+        telaFundo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        javax.swing.GroupLayout telaFundoLayout = new javax.swing.GroupLayout(telaFundo);
+        labelImagemFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/telaInicial.png"))); // NOI18N
+
+        org.jdesktop.layout.GroupLayout telaFundoLayout = new org.jdesktop.layout.GroupLayout(telaFundo);
         telaFundo.setLayout(telaFundoLayout);
         telaFundoLayout.setHorizontalGroup(
-            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1366, Short.MAX_VALUE)
+            telaFundoLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(telaFundoLayout.createSequentialGroup()
+                .add(labelImagemFundo)
+                .add(0, 0, Short.MAX_VALUE))
         );
         telaFundoLayout.setVerticalGroup(
-            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 768, Short.MAX_VALUE)
+            telaFundoLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(telaFundoLayout.createSequentialGroup()
+                .add(labelImagemFundo)
+                .add(0, 0, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(telaFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(telaFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jMenuBar1.setBackground(java.awt.Color.darkGray);
+        jMenuBar1.setBorder(null);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/page.png"))); // NOI18N
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/sum.png"))); // NOI18N
         jMenu1.setText("Medidas de Tendência Central");
-
-        SimplesButtonMenuItem1.setSelected(true);
-        SimplesButtonMenuItem1.setText("Simples");
-        SimplesButtonMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/user_edit.png"))); // NOI18N
-        SimplesButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SimplesButtonMenuItem1ActionPerformed(evt);
+                jMenu1ActionPerformed(evt);
             }
         });
-        jMenu1.add(SimplesButtonMenuItem1);
+
+        botaoSimples.setSelected(true);
+        botaoSimples.setText("Simples");
+        botaoSimples.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/font.png"))); // NOI18N
+        botaoSimples.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSimplesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(botaoSimples);
 
         PonderadaButtonMenuItem2.setSelected(true);
         PonderadaButtonMenuItem2.setText("Ponderada");
-        PonderadaButtonMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/user_edit.png"))); // NOI18N
+        PonderadaButtonMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/text_letter_omega.png"))); // NOI18N
         PonderadaButtonMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PonderadaButtonMenuItem2ActionPerformed(evt);
@@ -99,12 +126,12 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/page.png"))); // NOI18N
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/application_view_tile.png"))); // NOI18N
         jMenu2.setText("AnalisedeGrandesConjntosdeDados");
 
         AnaliseGrandesConjuntosDeDadosButtonMenuItem3.setSelected(true);
         AnaliseGrandesConjuntosDeDadosButtonMenuItem3.setText("AnalisedeGrandesConjntosdeDados");
-        AnaliseGrandesConjuntosDeDadosButtonMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/user_edit.png"))); // NOI18N
+        AnaliseGrandesConjuntosDeDadosButtonMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/chart_bar.png"))); // NOI18N
         AnaliseGrandesConjuntosDeDadosButtonMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AnaliseGrandesConjuntosDeDadosButtonMenuItem3ActionPerformed(evt);
@@ -131,36 +158,35 @@ public class TelaMenu extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(layout.createSequentialGroup()
+                .add(telaFundo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(layout.createSequentialGroup()
+                .add(telaFundo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SimplesButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimplesButtonMenuItem1ActionPerformed
+    private void botaoSimplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSimplesActionPerformed
 
         medidasdetendenciacentralSimpes tela = new medidasdetendenciacentralSimpes(); 
-         telaFundo.add(tela);        
-         tela.setVisible(true);
-        
-    }//GEN-LAST:event_SimplesButtonMenuItem1ActionPerformed
+         labelImagemFundo.add(tela);        
+         tela.setVisible(true);   
+    }//GEN-LAST:event_botaoSimplesActionPerformed
 
     private void PonderadaButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PonderadaButtonMenuItem2ActionPerformed
         
          medidasdetendenciacentralPonderada tela2 = new medidasdetendenciacentralPonderada();
-         telaFundo.add(tela2);
+         labelImagemFundo.add(tela2);
          tela2.setVisible(true);
       
     }//GEN-LAST:event_PonderadaButtonMenuItem2ActionPerformed
@@ -168,16 +194,20 @@ public class TelaMenu extends javax.swing.JFrame {
     private void AnaliseGrandesConjuntosDeDadosButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnaliseGrandesConjuntosDeDadosButtonMenuItem3ActionPerformed
         
         AnalisedeGrandesConjntosdeDados tela4 = new AnalisedeGrandesConjntosdeDados();
-        telaFundo.add(tela4);
+        labelImagemFundo.add(tela4);
         tela4.setVisible(true);
     }//GEN-LAST:event_AnaliseGrandesConjuntosDeDadosButtonMenuItem3ActionPerformed
 
     private void HistoriaButtonMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistoriaButtonMenuItem4ActionPerformed
        
         Historia tela3 = new Historia();
-        telaFundo.add(tela3);
+        labelImagemFundo.add(tela3);
         tela3.setVisible(true);
     }//GEN-LAST:event_HistoriaButtonMenuItem4ActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,13 +248,15 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem AnaliseGrandesConjuntosDeDadosButtonMenuItem3;
     private javax.swing.JRadioButtonMenuItem HistoriaButtonMenuItem4;
     private javax.swing.JRadioButtonMenuItem PonderadaButtonMenuItem2;
-    private javax.swing.JRadioButtonMenuItem SimplesButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem botaoSimples;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JDesktopPane telaFundo;
+    private javax.swing.JLabel labelImagemFundo;
+    private javax.swing.JPanel telaFundo;
     // End of variables declaration//GEN-END:variables
 }

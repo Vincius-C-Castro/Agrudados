@@ -7,7 +7,10 @@ public class TelaMenu extends javax.swing.JFrame {
      */
     public TelaMenu() {
        this.carregarIconeAplicacao();
-        initComponents();
+       this.setExtendedState(MAXIMIZED_BOTH);
+       this.setUndecorated(true);
+       initComponents();
+
     }
     private void carregarIconeAplicacao(){
         ImageIcon imageIcon;
@@ -26,7 +29,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        telaFundo = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         SimplesButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
@@ -39,27 +42,36 @@ public class TelaMenu extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Agrudados");
+        setFocusCycleRoot(false);
+        setFocusable(false);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 479, Short.MAX_VALUE)
+        telaFundo.setPreferredSize(new java.awt.Dimension(1366, 768));
+
+        javax.swing.GroupLayout telaFundoLayout = new javax.swing.GroupLayout(telaFundo);
+        telaFundo.setLayout(telaFundoLayout);
+        telaFundoLayout.setHorizontalGroup(
+            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1366, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+        telaFundoLayout.setVerticalGroup(
+            telaFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 768, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(telaFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(telaFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/page.png"))); // NOI18N
@@ -123,11 +135,15 @@ public class TelaMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,7 +152,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void SimplesButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimplesButtonMenuItem1ActionPerformed
 
         medidasdetendenciacentralSimpes tela = new medidasdetendenciacentralSimpes(); 
-         jDesktopPane1.add(tela);        
+         telaFundo.add(tela);        
          tela.setVisible(true);
         
     }//GEN-LAST:event_SimplesButtonMenuItem1ActionPerformed
@@ -144,7 +160,7 @@ public class TelaMenu extends javax.swing.JFrame {
     private void PonderadaButtonMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PonderadaButtonMenuItem2ActionPerformed
         
          medidasdetendenciacentralPonderada tela2 = new medidasdetendenciacentralPonderada();
-         jDesktopPane1.add(tela2);
+         telaFundo.add(tela2);
          tela2.setVisible(true);
       
     }//GEN-LAST:event_PonderadaButtonMenuItem2ActionPerformed
@@ -152,14 +168,14 @@ public class TelaMenu extends javax.swing.JFrame {
     private void AnaliseGrandesConjuntosDeDadosButtonMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnaliseGrandesConjuntosDeDadosButtonMenuItem3ActionPerformed
         
         AnalisedeGrandesConjntosdeDados tela4 = new AnalisedeGrandesConjntosdeDados();
-        jDesktopPane1.add(tela4);
+        telaFundo.add(tela4);
         tela4.setVisible(true);
     }//GEN-LAST:event_AnaliseGrandesConjuntosDeDadosButtonMenuItem3ActionPerformed
 
     private void HistoriaButtonMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistoriaButtonMenuItem4ActionPerformed
        
         Historia tela3 = new Historia();
-        jDesktopPane1.add(tela3);
+        telaFundo.add(tela3);
         tela3.setVisible(true);
     }//GEN-LAST:event_HistoriaButtonMenuItem4ActionPerformed
 
@@ -204,11 +220,11 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem PonderadaButtonMenuItem2;
     private javax.swing.JRadioButtonMenuItem SimplesButtonMenuItem1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JDesktopPane telaFundo;
     // End of variables declaration//GEN-END:variables
 }

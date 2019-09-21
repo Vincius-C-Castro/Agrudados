@@ -10,7 +10,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
     public medidasdetendenciacentralSimpes() {
         
         initComponents();
-        jelementosTabela.setModel(tablemodel1 );
+        tabela.setModel(tablemodel1 );
     }
 
     /**
@@ -22,6 +22,10 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         ElementoTextField1 = new javax.swing.JTextField();
         EnviarButton1 = new javax.swing.JButton();
@@ -29,39 +33,35 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         AlterarButton3 = new javax.swing.JButton();
         CalcularButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jelementosTabela = new javax.swing.JTable();
+        tabela = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        MediaAritmeticaTextField2 = new javax.swing.JTextField();
-        ModaTextField3 = new javax.swing.JTextField();
-        MedianaTextField4 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        DesvioMedioTextField5 = new javax.swing.JTextField();
-        VarianciaTextField6 = new javax.swing.JTextField();
-        DesvioPadraoTextField7 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        resultModa = new javax.swing.JLabel();
+        resultMedia = new javax.swing.JLabel();
+        resultMediana = new javax.swing.JLabel();
+        resultDM = new javax.swing.JLabel();
+        resultDP = new javax.swing.JLabel();
+        resultVar = new javax.swing.JLabel();
+
+        jLabel8.setText("jLabel7");
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 
+        ElementoTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ElementoTextField1ActionPerformed(evt);
+            }
+        });
+
+        EnviarButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/database_go.png"))); // NOI18N
         EnviarButton1.setText("Enviar");
         EnviarButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +69,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         });
 
+        ExcluirButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/database_delete.png"))); // NOI18N
         ExcluirButton2.setText("Excluir");
         ExcluirButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +77,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         });
 
+        AlterarButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/database_edit.png"))); // NOI18N
         AlterarButton3.setText("Alterar");
         AlterarButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +85,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         });
 
+        CalcularButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/calculator.png"))); // NOI18N
         CalcularButton4.setText("Calcular");
         CalcularButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +93,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         });
 
-        jelementosTabela.setModel(new javax.swing.table.DefaultTableModel(
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null}
             },
@@ -98,47 +101,34 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
                 "Conjunto X="
             }
         ));
-        jScrollPane1.setViewportView(jelementosTabela);
+        jScrollPane1.setViewportView(tabela);
 
-        jLabel1.setText("Média Aritmetica");
+        jLabel1.setBackground(java.awt.SystemColor.activeCaptionText);
+        jLabel1.setText("Média: ");
 
-        jLabel2.setText("Moda");
+        jLabel2.setText("Moda: ");
 
-        jLabel3.setText("Mediana");
+        jLabel3.setText("Mediana: ");
 
-        jLabel4.setText("Desvio Medio");
+        jLabel4.setText("Desvio Medio: ");
 
-        jLabel5.setText("Variancia");
+        jLabel5.setText("Variancia: ");
 
-        jLabel6.setText("Desvio Padrão");
-
-        jLabel7.setText("Média Aritmetica");
-
-        jLabel8.setText("x1+x2+x3+....xn / Total de elementos do conjunto");
-
-        jLabel9.setText("Moda");
-
-        jLabel10.setText("Valor que ocorre com mais frequência.");
-
-        jLabel11.setText("Moda-Amotal =  Não tem Moda");
-
-        jLabel12.setText("Moda-Unimoda = Tem uma Moda");
-
-        jLabel13.setText("Moda-Bimodal = Tem duas Modas");
-
-        jLabel14.setText("Desvio Medio");
-
-        jLabel15.setText(" Desvio Medio = |x1 – x| + |x2 – x| + |x3 – x| + ... + |xn – x|  /  n");
-
-        jLabel16.setText("Variancia");
-
-        jLabel17.setText("Variancia amostral =   (x1 – x)² + (x2 – x)² + (x3 – x)² + ... + (xn – x)²    /  n – 1");
-
-        jLabel18.setText("desvio padrão");
-
-        jLabel19.setText("Desvio Padão = √ Variancia");
+        jLabel6.setText("Desvio Padrão: ");
 
         jLabel20.setText("Elementos do conjunto ( X )");
+
+        resultModa.setName("resultModa"); // NOI18N
+
+        resultMedia.setName("resultMedia"); // NOI18N
+
+        resultMediana.setName("resultMediana"); // NOI18N
+
+        resultDM.setName("resultDM"); // NOI18N
+
+        resultDP.setName("resultDP"); // NOI18N
+
+        resultVar.setName("resultVar"); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -149,159 +139,105 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ElementoTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(EnviarButton1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(ExcluirButton2)
-                                        .addGap(25, 25, 25)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(68, 68, 68)
-                                        .addComponent(CalcularButton4))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(39, 39, 39)
-                                        .addComponent(AlterarButton3))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabel20))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(ModaTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                                    .addComponent(MediaAritmeticaTextField2)
-                                    .addComponent(MedianaTextField4))
-                                .addGap(33, 33, 33)
+                                    .addComponent(EnviarButton1)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(45, 45, 45)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6))
-                                .addGap(20, 20, 20)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(DesvioMedioTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(VarianciaTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(DesvioPadraoTextField7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(ExcluirButton2)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(resultVar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(resultMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(resultModa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(resultMediana, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(resultDM, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(resultDP, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ElementoTextField1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                                .addComponent(jLabel15)
-                                .addGap(81, 81, 81))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(127, 127, 127)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel10)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel12)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(30, 30, 30)
-                                                .addComponent(jLabel7))
-                                            .addComponent(jLabel13)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(188, 188, 188)
-                                        .addComponent(jLabel9))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(92, 92, 92)
-                                        .addComponent(jLabel8))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(179, 179, 179)
-                                        .addComponent(jLabel14))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(175, 175, 175)
-                                        .addComponent(jLabel16))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(136, 136, 136)
-                                        .addComponent(jLabel19)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addGap(222, 222, 222))))))
+                            .addComponent(AlterarButton3)
+                            .addComponent(CalcularButton4)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel20)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ElementoTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CalcularButton4))
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(EnviarButton1)
-                            .addComponent(ExcluirButton2)
-                            .addComponent(AlterarButton3)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel9)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel10)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel14)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel4)
-                            .addComponent(MediaAritmeticaTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DesvioMedioTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel16)))
-                .addGap(34, 34, 34)
-                .addComponent(jLabel17)
+                .addContainerGap()
+                .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ModaTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5)
-                        .addComponent(VarianciaTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel18)
-                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(MedianaTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(DesvioPadraoTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addComponent(ElementoTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CalcularButton4))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EnviarButton1)
+                    .addComponent(ExcluirButton2)
+                    .addComponent(AlterarButton3))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(resultMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel2)
+                                                    .addComponent(resultModa, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel3))
+                                            .addComponent(resultMediana, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(30, 30, 30)
+                                        .addComponent(jLabel4))
+                                    .addComponent(resultDM, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6))
+                            .addComponent(resultDP, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(resultVar, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        resultModa.getAccessibleContext().setAccessibleName("resultModa");
+        resultMedia.getAccessibleContext().setAccessibleName("resultMedia");
+        resultMediana.getAccessibleContext().setAccessibleName("resultMediana");
+        resultDM.getAccessibleContext().setAccessibleName("resultDM");
+        resultDP.getAccessibleContext().setAccessibleName("resultDP");
+        resultVar.getAccessibleContext().setAccessibleName("resultVar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -317,77 +253,71 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(83, 83, 83))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EnviarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarButton1ActionPerformed
+    private void CalcularButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularButton4ActionPerformed
         
+    }//GEN-LAST:event_CalcularButton4ActionPerformed
+
+    private void AlterarButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarButton3ActionPerformed
+
+        if (tabela.getSelectedRow() != -1){
+
+            tablemodel1.setValueAt(ElementoTextField1.getText(),tabela.getSelectedRow(),0);
+
+        }
+    }//GEN-LAST:event_AlterarButton3ActionPerformed
+
+    private void ExcluirButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirButton2ActionPerformed
+
+        if (tabela.getSelectedRow() != -1){
+
+            tablemodel1.removeRow(tabela.getSelectedRow());
+        }
+    }//GEN-LAST:event_ExcluirButton2ActionPerformed
+
+    private void EnviarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnviarButton1ActionPerformed
+
         elementos e = new elementos();
         e.setNumeros(Double.parseDouble(ElementoTextField1.getText()));
 
         tablemodel1.addrow(e);
     }//GEN-LAST:event_EnviarButton1ActionPerformed
 
-    private void ExcluirButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirButton2ActionPerformed
-        
-            if (jelementosTabela.getSelectedRow() != -1){
-
-                tablemodel1.removeRow(jelementosTabela.getSelectedRow());
-            }
-    }//GEN-LAST:event_ExcluirButton2ActionPerformed
-
-    private void AlterarButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarButton3ActionPerformed
-        
-            if (jelementosTabela.getSelectedRow() != -1){
-            
-                tablemodel1.setValueAt(ElementoTextField1.getText(),jelementosTabela.getSelectedRow(),0);
-
-            }
-    }//GEN-LAST:event_AlterarButton3ActionPerformed
-
-    private void CalcularButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularButton4ActionPerformed
-        
-        
-    }//GEN-LAST:event_CalcularButton4ActionPerformed
+    private void ElementoTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ElementoTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ElementoTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AlterarButton3;
     private javax.swing.JButton CalcularButton4;
-    private javax.swing.JTextField DesvioMedioTextField5;
-    private javax.swing.JTextField DesvioPadraoTextField7;
     private javax.swing.JTextField ElementoTextField1;
     private javax.swing.JButton EnviarButton1;
     private javax.swing.JButton ExcluirButton2;
-    private javax.swing.JTextField MediaAritmeticaTextField2;
-    private javax.swing.JTextField MedianaTextField4;
-    private javax.swing.JTextField ModaTextField3;
-    private javax.swing.JTextField VarianciaTextField6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jelementosTabela;
+    private javax.swing.JLabel resultDM;
+    private javax.swing.JLabel resultDP;
+    private javax.swing.JLabel resultMedia;
+    private javax.swing.JLabel resultMediana;
+    private javax.swing.JLabel resultModa;
+    private javax.swing.JLabel resultVar;
+    private javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
 }

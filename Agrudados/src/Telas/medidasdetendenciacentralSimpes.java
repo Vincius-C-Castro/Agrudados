@@ -2,6 +2,7 @@ package Telas;
 
 import model.ElementosModel;
 import model.elementos;
+import calculos.MedidaTendenciaCentral;
 
 public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame {
 
@@ -12,7 +13,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
     public medidasdetendenciacentralSimpes() {
         
         initComponents();
-        tabela.setModel(tablemodel1 );
+        tabela.setModel(tablemodel1);
     }
 
     /**
@@ -58,6 +59,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         setMaximizable(true);
         setResizable(true);
         setTitle("Media Simples");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/table.png"))); // NOI18N
 
         ElementoTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +109,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         ));
         jScrollPane1.setViewportView(tabela);
+        tabela.getAccessibleContext().setAccessibleName("");
 
         jLabel1.setBackground(java.awt.SystemColor.activeCaptionText);
         jLabel1.setText("Média: ");
@@ -123,16 +126,22 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
 
         jLabel20.setText("Elementos do conjunto ( X )");
 
+        resultModa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         resultModa.setName("resultModa"); // NOI18N
 
+        resultMedia.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         resultMedia.setName("resultMedia"); // NOI18N
 
+        resultMediana.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         resultMediana.setName("resultMediana"); // NOI18N
 
+        resultDM.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         resultDM.setName("resultDM"); // NOI18N
 
+        resultDP.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         resultDP.setName("resultDP"); // NOI18N
 
+        resultVar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         resultVar.setName("resultVar"); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -146,11 +155,12 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(EnviarButton1)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(EnviarButton1)
+                                        .addGap(45, 45, 45))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(45, 45, 45)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ExcluirButton2)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -177,7 +187,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(resultDP, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(ElementoTextField1))
+                            .addComponent(ElementoTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(AlterarButton3)
@@ -186,7 +196,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
                         .addGap(43, 43, 43)
                         .addComponent(jLabel20)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,7 +231,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel3))
                                             .addComponent(resultMediana, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(30, 30, 30)
+                                        .addGap(18, 18, 18)
                                         .addComponent(jLabel4))
                                     .addComponent(resultDM, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
@@ -230,11 +240,11 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
-                            .addComponent(resultVar, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(resultVar, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         resultModa.getAccessibleContext().setAccessibleName("resultModa");
@@ -265,7 +275,21 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
     }// </editor-fold>//GEN-END:initComponents
 
     private void CalcularButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularButton4ActionPerformed
+
+        int tamTabela = tabela.getRowCount();
+        double valor[] = new double[tamTabela];
+
+        for (int i = 0; i < tamTabela; i++) {
+            valor[i] = Double.parseDouble(tabela.getValueAt(i, 0).toString());
+            
+        }
         
+        MedidaTendenciaCentral medidas = new MedidaTendenciaCentral();
+        
+        medidas.realizarCalculos(valor);
+        
+        resultMedia.setText(String.valueOf(medidas.getMedia()));
+        resultModa.setText(String.valueOf(medidas.getModa()));
     }//GEN-LAST:event_CalcularButton4ActionPerformed
 
     private void AlterarButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarButton3ActionPerformed
@@ -289,7 +313,6 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
 
         elementos e = new elementos();
         e.setNumeros(Double.parseDouble(ElementoTextField1.getText()));
-
         tablemodel1.addrow(e);
     }//GEN-LAST:event_EnviarButton1ActionPerformed
 

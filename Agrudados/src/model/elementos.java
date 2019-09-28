@@ -73,7 +73,5 @@ public class elementos {
     public void setNumeros(double numeros) {
         this.numeros = numeros;
     }
-    
-    
-    
+          
 }

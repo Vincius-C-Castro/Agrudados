@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
 public class ElementosModel extends AbstractTableModel{
     
     private List<elementos> dados = new ArrayList<>();
-    private String[] colunas = {"Conjuntos ( X ) = "};
+    private String[] colunas = {"Conjunto X"};
 
     @Override
     public String getColumnName(int column) {

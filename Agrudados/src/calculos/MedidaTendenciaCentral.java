@@ -10,52 +10,160 @@ package calculos;
  * @author viny-
  */
 public class MedidaTendenciaCentral {
-    
+
     private double media;
     private double mediana;
     private double moda;
-    
-    public void realizarCalculos(double valores[]){
-        
+    private int indiceModa;
+    private double variancia;
+    private double desvioMedio;
+    private double desvioPadrao;
+    private boolean conjuntoAmostral;
+
+    public void realizarCalculos(double valores[]) {
+
         calcularMedia(valores);
         calcularModa(valores);
-    }
-    
-    private void calcularMedia(double valores[])
-    {
-        double soma = 0;
-        
-        for(int i = 0; i < valores.length; i++)
-        {
-            soma += valores[i];
-        }
-        
-        this.setMedia(soma/valores.length);
-           
+        calcularMediana(valores);
+        calcularVariancia(valores);
+        calcularDesvioMedio(valores);
+        calcularDesvioPadrao(valores);
     }
 
-    private void calcularModa(double valores[])        
-    {
+    private void calcularMedia(double valores[]) {
+        double soma = 0;
+
+        for (int i = 0; i < valores.length; i++) {
+            soma += valores[i];
+        }
+
+        this.setMedia(soma / valores.length);
+
+    }
+
+    private void calcularModa(double valores[]) {
         int[] cont = new int[valores.length];
         int vezes = 0;
         int indice = 0;
-        for (int i=0; i < valores.length; i++) {
-            for (int j=0;j < valores.length; j++) {
-                if(valores[i] == valores[j]) {
+        int repeat = 0;
+
+        for (int i = 0; i < valores.length; i++) {
+            for (int j = 0; j < valores.length; j++) {
+                if (valores[i] == valores[j]) {
                     cont[i] = cont[i] + 1;
                 }
             }
         }
         vezes = cont[0];
-        for (int i=0; i < cont.length; i++) {
+        for (int i = 0; i < cont.length; i++) {
             if (cont[i] > vezes) {
                 vezes = cont[i];
                 indice = i;
             }
         }
-        
-        this.setModa(valores[indice]);
+
+        if (vezes > 1) {
+            for (int i = 0; i < cont.length; i++) {
+                if (cont[i] == vezes) {
+                    repeat++;
+                }
+            }
+
+            repeat /= cont[indice];
+        } else {
+            repeat = 0;
+        }
+
+        switch (repeat) {
+            case 0: {
+                this.setIndiceModa(-1);
+            }
+            break;
+
+            case 1: {
+                this.setModa(valores[indice]);
+                this.setIndiceModa(indice);
+            }
+            break;
+
+            case 2: {
+                this.setIndiceModa(-2);
+            }
+            break;
+
+            default: {
+                this.setIndiceModa(-3);
+            }
+            break;
+
+        }
     }
+
+    private void calcularMediana(double valores[]) {
+        int esq = 0;
+        int dir = valores.length - 1;
+        int meio;
+        meio = (esq + dir) / 2;
+
+        this.setMediana(valores[meio]);
+    }
+
+    private void calcularDesvioPadrao(double valores[]) {
+        if (valores.length == 1) {
+            this.setDesvioPadrao(0.0);
+        } else {
+            double soma = 0l;
+            for (int i = 0; i < valores.length; i++) {
+                double result = valores[i] - this.getMedia();
+                soma = soma + result * result;
+            }
+
+            if (isConjuntoAmostral()) {
+                this.setDesvioPadrao(Math.sqrt(((double) 1 / (valores.length - 1))
+                        * soma));
+            } else {
+                this.setDesvioPadrao(Math.sqrt(((double) 1 / (valores.length))
+                        * soma));
+            }
+
+        }
+    }
+
+    private void calcularVariancia(double valores[]) {
+        if (valores.length == 1) {
+            this.setVariancia(0.0);
+        } else {
+            double soma = 0l;
+            for (int i = 0; i < valores.length; i++) {
+                double result = valores[i] - this.getMedia();
+                soma = soma + result * result;
+            }
+
+            if (isConjuntoAmostral()) {
+                this.setVariancia(((double) 1 / (valores.length - 1))
+                        * soma);
+            } else {
+                this.setVariancia(((double) 1 / (valores.length))
+                        * soma);
+            }
+
+        }
+    }
+
+    private void calcularDesvioMedio(double valores[]) {
+        if (valores.length == 1) {
+            this.setDesvioMedio(0.0);
+        } else {
+            double soma = 0l;
+            for (int i = 0; i < valores.length; i++) {
+                double result = valores[i] - this.getMedia();
+                soma = soma + Math.abs(result);
+            }
+            this.setDesvioMedio(soma/valores.length);
+        }
+
+    }
+
     public double getMedia() {
         return media;
     }
@@ -79,5 +187,45 @@ public class MedidaTendenciaCentral {
     public void setModa(double moda) {
         this.moda = moda;
     }
-    
+
+    public int getIndiceModa() {
+        return indiceModa;
+    }
+
+    public void setIndiceModa(int indiceModa) {
+        this.indiceModa = indiceModa;
+    }
+
+    public double getDesvioPadrao() {
+        return desvioPadrao;
+    }
+
+    public void setDesvioPadrao(double desvioPadrao) {
+        this.desvioPadrao = desvioPadrao;
+    }
+
+    public boolean isConjuntoAmostral() {
+        return conjuntoAmostral;
+    }
+
+    public void setConjuntoAmostral(boolean conjuntoAmostral) {
+        this.conjuntoAmostral = conjuntoAmostral;
+    }
+
+    public double getVariancia() {
+        return variancia;
+    }
+
+    public void setVariancia(double variancia) {
+        this.variancia = variancia;
+    }
+
+    public double getDesvioMedio() {
+        return desvioMedio;
+    }
+
+    public void setDesvioMedio(double desvioMedio) {
+        this.desvioMedio = desvioMedio;
+    }
+
 }

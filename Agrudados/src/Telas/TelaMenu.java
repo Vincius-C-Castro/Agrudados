@@ -1,6 +1,5 @@
 package Telas;
 
-import java.awt.Color;
 import javax.swing.ImageIcon;
 
 public class TelaMenu extends javax.swing.JFrame {
@@ -11,7 +10,7 @@ public class TelaMenu extends javax.swing.JFrame {
     public TelaMenu() {
        this.carregarIconeAplicacao();
        this.setExtendedState(MAXIMIZED_BOTH);
-       this.setUndecorated(true);
+       this.setUndecorated(false);
        initComponents();
 
     }
@@ -322,38 +321,38 @@ public class TelaMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JDesktopPane jDesktopPane2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu12;
-    private javax.swing.JMenu jMenu13;
-    private javax.swing.JMenu jMenu14;
-    private javax.swing.JMenu jMenu15;
-    private javax.swing.JMenu jMenu16;
-    private javax.swing.JMenu jMenu17;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuBar jMenuBar4;
-    private javax.swing.JMenuBar jMenuBar5;
-    private javax.swing.JMenuBar jMenuBar6;
-    private javax.swing.JMenuBar jMenuBar7;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JLabel labelImagemFundo;
-    private javax.swing.JPanel telaFundo;
+    javax.swing.JDesktopPane jDesktopPane1;
+    javax.swing.JDesktopPane jDesktopPane2;
+    javax.swing.JMenu jMenu1;
+    javax.swing.JMenu jMenu10;
+    javax.swing.JMenu jMenu11;
+    javax.swing.JMenu jMenu12;
+    javax.swing.JMenu jMenu13;
+    javax.swing.JMenu jMenu14;
+    javax.swing.JMenu jMenu15;
+    javax.swing.JMenu jMenu16;
+    javax.swing.JMenu jMenu17;
+    javax.swing.JMenu jMenu2;
+    javax.swing.JMenu jMenu3;
+    javax.swing.JMenu jMenu4;
+    javax.swing.JMenu jMenu5;
+    javax.swing.JMenu jMenu7;
+    javax.swing.JMenu jMenu8;
+    javax.swing.JMenu jMenu9;
+    javax.swing.JMenuBar jMenuBar1;
+    javax.swing.JMenuBar jMenuBar2;
+    javax.swing.JMenuBar jMenuBar3;
+    javax.swing.JMenuBar jMenuBar4;
+    javax.swing.JMenuBar jMenuBar5;
+    javax.swing.JMenuBar jMenuBar6;
+    javax.swing.JMenuBar jMenuBar7;
+    javax.swing.JMenuItem jMenuItem1;
+    javax.swing.JMenuItem jMenuItem2;
+    javax.swing.JMenuItem jMenuItem3;
+    javax.swing.JMenuItem jMenuItem4;
+    javax.swing.JLabel labelImagemFundo;
+    javax.swing.JPanel telaFundo;
     // End of variables declaration//GEN-END:variables
 }

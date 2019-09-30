@@ -219,7 +219,7 @@ public class medidasdetendenciacentralPonderada extends javax.swing.JInternalFra
 
         jLabel20.setText("desvio padrão");
 
-        jLabel21.setText("Desvio Padão = √ Variancia");
+        jLabel21.setText("Desvio Padrão = √ Variancia");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,9 +253,8 @@ public class medidasdetendenciacentralPonderada extends javax.swing.JInternalFra
                                 .addGap(49, 49, 49)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(DesvioPadraoTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(VarianciaTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                                        .addComponent(DesvioMedioTextField4)))
+                                    .addComponent(VarianciaTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                                    .addComponent(DesvioMedioTextField4))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(155, 155, 155)

@@ -59,10 +59,8 @@
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="DesvioPadraoTextField6" pref="59" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="VarianciaTextField5" pref="59" max="32767" attributes="0"/>
-                                      <Component id="DesvioMedioTextField4" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="VarianciaTextField5" pref="59" max="32767" attributes="0"/>
+                                  <Component id="DesvioMedioTextField4" max="32767" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -457,7 +455,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel21">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Desvio Pad&#xe3;o = &#x221a; Variancia"/>
+        <Property name="text" type="java.lang.String" value="Desvio Padr&#xe3;o = &#x221a; Variancia"/>
       </Properties>
     </Component>
   </SubComponents>

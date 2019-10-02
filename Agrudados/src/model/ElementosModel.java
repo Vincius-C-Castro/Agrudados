@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package model;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -14,15 +13,14 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ElementosModel extends AbstractTableModel{
     
-    private List<elementos> dados = new ArrayList<>();
-    private String[] colunas = {"Conjunto X"};
+    private final List<elementos> dados = new ArrayList<>();
+    private final String[] colunas = {"Elementos ( X )"};
 
     @Override
     public String getColumnName(int column) {
         return colunas[column]; //To change body of generated methods, choose Tools | Templates.
     }
     
-
     @Override ///quantidade de linha está na tabela
     public int getRowCount() {
         return dados.size();

@@ -5,6 +5,8 @@
  */
 package calculos;
 
+import java.util.Arrays;
+
 /**
  *
  * @author viny-
@@ -19,6 +21,7 @@ public class MedidaTendenciaCentral {
     private double desvioMedio;
     private double desvioPadrao;
     private boolean conjuntoAmostral;
+    private double amplitude;
 
     public void realizarCalculos(double valores[]) {
 
@@ -28,6 +31,7 @@ public class MedidaTendenciaCentral {
         calcularVariancia(valores);
         calcularDesvioMedio(valores);
         calcularDesvioPadrao(valores);
+        calcularAmplitude(valores);
     }
 
     private void calcularMedia(double valores[]) {
@@ -163,6 +167,11 @@ public class MedidaTendenciaCentral {
         }
 
     }
+    
+    private void calcularAmplitude(double valores[])
+    {
+        this.setAmplitude(valores[valores.length-1] - valores[0]);
+    }
 
     public double getMedia() {
         return media;
@@ -226,6 +235,14 @@ public class MedidaTendenciaCentral {
 
     public void setDesvioMedio(double desvioMedio) {
         this.desvioMedio = desvioMedio;
+    }
+
+    public double getAmplitude() {
+        return amplitude;
+    }
+
+    public void setAmplitude(double amplitude) {
+        this.amplitude = amplitude;
     }
 
 }

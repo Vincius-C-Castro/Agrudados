@@ -163,11 +163,11 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jMenu1.setBorder(new javax.swing.border.MatteBorder(null));
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/sum.png"))); // NOI18N
-        jMenu1.setText("   Médias");
+        jMenu1.setText("   Medidas de tendências");
         jMenu1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jMenu1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jMenu1.setPreferredSize(new java.awt.Dimension(100, 50));
+        jMenu1.setPreferredSize(new java.awt.Dimension(100, 100));
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu1ActionPerformed(evt);
@@ -322,7 +322,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    javax.swing.JComboBox<String> jComboBox1;
     javax.swing.JDesktopPane jDesktopPane1;
     javax.swing.JDesktopPane jDesktopPane2;
     javax.swing.JMenu jMenu1;

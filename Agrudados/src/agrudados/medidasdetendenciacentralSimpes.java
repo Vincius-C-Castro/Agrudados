@@ -1,4 +1,4 @@
-package Telas;
+package agrudados;
 
 import model.ElementosModel;
 import model.elementos;
@@ -77,7 +77,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         setTitle("Medidas de tendências centrais");
         setToolTipText("");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/table.png"))); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table.png"))); // NOI18N
         setName("telaInternaMTC"); // NOI18N
         setNextFocusableComponent(caixaDeTexto);
         setOpaque(false);
@@ -244,7 +244,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
 
         panelElementosConjunto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Elementos do conjunto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        botaoAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/database_edit.png"))); // NOI18N
+        botaoAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table_edit.png"))); // NOI18N
         botaoAlterar.setText("Alterar");
         botaoAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,7 +252,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         });
 
-        botaoEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/database_go.png"))); // NOI18N
+        botaoEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table_go.png"))); // NOI18N
         botaoEnviar.setText("Enviar");
         botaoEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,7 +260,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         });
 
-        botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/database_delete.png"))); // NOI18N
+        botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table_delete.png"))); // NOI18N
         botaoExcluir.setText("Excluir");
         botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,7 +268,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         });
 
-        botaoCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/calculator.png"))); // NOI18N
+        botaoCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calculator.png"))); // NOI18N
         botaoCalcular.setText("Calcular");
         botaoCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

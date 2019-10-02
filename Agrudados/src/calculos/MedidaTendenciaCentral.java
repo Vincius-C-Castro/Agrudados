@@ -22,6 +22,7 @@ public class MedidaTendenciaCentral {
     private double desvioPadrao;
     private boolean conjuntoAmostral;
     private double amplitude;
+    private double coeficienteVariacao;
 
     public void realizarCalculos(double valores[]) {
 
@@ -32,6 +33,7 @@ public class MedidaTendenciaCentral {
         calcularDesvioMedio(valores);
         calcularDesvioPadrao(valores);
         calcularAmplitude(valores);
+        calcularCoeficienteVariacao();
     }
 
     private void calcularMedia(double valores[]) {
@@ -172,6 +174,11 @@ public class MedidaTendenciaCentral {
     {
         this.setAmplitude(valores[valores.length-1] - valores[0]);
     }
+    
+    private void calcularCoeficienteVariacao()
+    {
+        this.setCoeficienteVariacao((this.getDesvioPadrao() / this.getMedia()) * 100);
+    }
 
     public double getMedia() {
         return media;
@@ -243,6 +250,14 @@ public class MedidaTendenciaCentral {
 
     public void setAmplitude(double amplitude) {
         this.amplitude = amplitude;
+    }
+
+    public double getCoeficienteVariacao() {
+        return coeficienteVariacao;
+    }
+
+    public void setCoeficienteVariacao(double coeficienteVariacao) {
+        this.coeficienteVariacao = coeficienteVariacao;
     }
 
 }

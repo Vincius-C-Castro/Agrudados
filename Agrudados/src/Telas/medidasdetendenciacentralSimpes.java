@@ -3,19 +3,29 @@ package Telas;
 import model.ElementosModel;
 import model.elementos;
 import calculos.MedidaTendenciaCentral;
+import java.beans.PropertyVetoException;
 import java.util.Arrays;
 
 public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame {
 
     ElementosModel modeloTabela = new ElementosModel();
 
+    @Override
+    public void setMaximum(boolean bln) throws PropertyVetoException {
+        super.setMaximum(bln); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setMaximizable(boolean maximizable) {
+        this.maximizable = maximizable;
+    }
     /**
      * Creates new form medidasdetendenciacentralSimpes
      */
     public medidasdetendenciacentralSimpes() {
 
         initComponents();
-        tabela.setModel(modeloTabela);
+        tabela.setModel(modeloTabela);     
     }
 
     /**
@@ -41,14 +51,15 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         resultMedia = new javax.swing.JLabel();
         resultModa = new javax.swing.JLabel();
         resultMediana = new javax.swing.JLabel();
+        panelTipoConjunto = new javax.swing.JPanel();
+        conjuntoPopulacional = new javax.swing.JRadioButton();
+        conjuntoAmostral = new javax.swing.JRadioButton();
         panelDispersao = new javax.swing.JPanel();
         resultVar = new javax.swing.JLabel();
         resultDP = new javax.swing.JLabel();
         resultDM = new javax.swing.JLabel();
         resultAmplitude = new javax.swing.JLabel();
-        panelTipoConjunto = new javax.swing.JPanel();
-        conjuntoPopulacional = new javax.swing.JRadioButton();
-        conjuntoAmostral = new javax.swing.JRadioButton();
+        resultCV = new javax.swing.JLabel();
         panelElementosConjunto = new javax.swing.JPanel();
         botaoAlterar = new javax.swing.JButton();
         botaoEnviar = new javax.swing.JButton();
@@ -63,12 +74,14 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
         setTitle("Medidas de tendências centrais");
+        setToolTipText("");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/table.png"))); // NOI18N
+        setName("telaInternaMTC"); // NOI18N
+        setNextFocusableComponent(caixaDeTexto);
+        setOpaque(false);
+        setVerifyInputWhenFocusTarget(false);
 
         PainelMedTend.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Medidas de tendência", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         PainelMedTend.setForeground(java.awt.Color.gray);
@@ -84,102 +97,6 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
 
         resultMediana.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mediana", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         resultMediana.setName("resultMediana"); // NOI18N
-
-        javax.swing.GroupLayout panelCentraisLayout = new javax.swing.GroupLayout(panelCentrais);
-        panelCentrais.setLayout(panelCentraisLayout);
-        panelCentraisLayout.setHorizontalGroup(
-            panelCentraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCentraisLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelCentraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(resultMedia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resultModa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(resultMediana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        panelCentraisLayout.setVerticalGroup(
-            panelCentraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCentraisLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(resultMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(resultModa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(resultMediana, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        resultMedia.getAccessibleContext().setAccessibleName("resultMedia");
-        resultModa.getAccessibleContext().setAccessibleName("resultModa");
-        resultMediana.getAccessibleContext().setAccessibleName("resultMediana");
-
-        panelDispersao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dispersão", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
-        panelDispersao.setForeground(java.awt.Color.darkGray);
-
-        resultVar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Variância", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
-        resultVar.setName("resultVar"); // NOI18N
-
-        resultDP.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Desvio padrão", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
-        resultDP.setName("resultDP"); // NOI18N
-        resultDP.setRequestFocusEnabled(false);
-
-        resultDM.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Desvio médio", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
-        resultDM.setName("resultDM"); // NOI18N
-
-        resultAmplitude.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Amplitude", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
-        resultAmplitude.setName("resultAmplitude"); // NOI18N
-        resultAmplitude.setRequestFocusEnabled(false);
-
-        javax.swing.GroupLayout panelDispersaoLayout = new javax.swing.GroupLayout(panelDispersao);
-        panelDispersao.setLayout(panelDispersaoLayout);
-        panelDispersaoLayout.setHorizontalGroup(
-            panelDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDispersaoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(resultDM, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resultVar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resultDP, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resultAmplitude, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        panelDispersaoLayout.setVerticalGroup(
-            panelDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDispersaoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(resultDM, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(resultVar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(resultDP, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(resultAmplitude, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        resultVar.getAccessibleContext().setAccessibleName("resultVar");
-        resultDP.getAccessibleContext().setAccessibleName("resultDP");
-        resultDM.getAccessibleContext().setAccessibleName("resultDM");
-
-        javax.swing.GroupLayout PainelMedTendLayout = new javax.swing.GroupLayout(PainelMedTend);
-        PainelMedTend.setLayout(PainelMedTendLayout);
-        PainelMedTendLayout.setHorizontalGroup(
-            PainelMedTendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelMedTendLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelCentrais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(26, 26, 26)
-                .addComponent(panelDispersao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        PainelMedTendLayout.setVerticalGroup(
-            PainelMedTendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelMedTendLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PainelMedTendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelDispersao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelCentrais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
 
         panelTipoConjunto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo de conjunto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
@@ -217,6 +134,112 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
                 .addGap(6, 6, 6)
                 .addComponent(conjuntoPopulacional)
                 .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelCentraisLayout = new javax.swing.GroupLayout(panelCentrais);
+        panelCentrais.setLayout(panelCentraisLayout);
+        panelCentraisLayout.setHorizontalGroup(
+            panelCentraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCentraisLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCentraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(resultMedia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resultModa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(resultMediana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelCentraisLayout.createSequentialGroup()
+                        .addComponent(panelTipoConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        panelCentraisLayout.setVerticalGroup(
+            panelCentraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCentraisLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(resultMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resultModa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resultMediana, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelTipoConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        resultMedia.getAccessibleContext().setAccessibleName("resultMedia");
+        resultModa.getAccessibleContext().setAccessibleName("resultModa");
+        resultMediana.getAccessibleContext().setAccessibleName("resultMediana");
+
+        panelDispersao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dispersão", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        panelDispersao.setForeground(java.awt.Color.darkGray);
+
+        resultVar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Variância", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        resultVar.setName("resultVar"); // NOI18N
+
+        resultDP.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Desvio padrão", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        resultDP.setName("resultDP"); // NOI18N
+        resultDP.setRequestFocusEnabled(false);
+
+        resultDM.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Desvio médio", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        resultDM.setName("resultDM"); // NOI18N
+
+        resultAmplitude.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Amplitude", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        resultAmplitude.setName("resultAmplitude"); // NOI18N
+        resultAmplitude.setRequestFocusEnabled(false);
+
+        resultCV.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Coeficiênte de variação", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        resultCV.setName("resultCV"); // NOI18N
+        resultCV.setRequestFocusEnabled(false);
+
+        javax.swing.GroupLayout panelDispersaoLayout = new javax.swing.GroupLayout(panelDispersao);
+        panelDispersao.setLayout(panelDispersaoLayout);
+        panelDispersaoLayout.setHorizontalGroup(
+            panelDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDispersaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(resultDM, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resultVar, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resultDP, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resultAmplitude, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resultCV, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        panelDispersaoLayout.setVerticalGroup(
+            panelDispersaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDispersaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(resultDM, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resultVar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resultDP, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resultAmplitude, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(resultCV, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        resultVar.getAccessibleContext().setAccessibleName("resultVar");
+        resultDP.getAccessibleContext().setAccessibleName("resultDP");
+        resultDM.getAccessibleContext().setAccessibleName("resultDM");
+
+        javax.swing.GroupLayout PainelMedTendLayout = new javax.swing.GroupLayout(PainelMedTend);
+        PainelMedTend.setLayout(PainelMedTendLayout);
+        PainelMedTendLayout.setHorizontalGroup(
+            PainelMedTendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelMedTendLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelCentrais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addComponent(panelDispersao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        PainelMedTendLayout.setVerticalGroup(
+            PainelMedTendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelMedTendLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PainelMedTendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelDispersao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelCentrais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         panelElementosConjunto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Elementos do conjunto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
@@ -336,7 +359,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             panelConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConjuntoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -350,25 +373,20 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
                     .addComponent(panelElementosConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelTipoConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PainelMedTend, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(PainelMedTend, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPrincipalMTSLayout.setVerticalGroup(
             panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalMTSLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalMTSLayout.createSequentialGroup()
-                        .addComponent(PainelMedTend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelTipoConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelPrincipalMTSLayout.createSequentialGroup()
                         .addComponent(panelElementosConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(panelConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(panelConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(PainelMedTend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         PainelMedTend.getAccessibleContext().setAccessibleDescription("");
@@ -385,9 +403,8 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelPrincipalMTS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelPrincipalMTS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -440,6 +457,8 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         resultDM.setText(String.valueOf(medidas.getDesvioMedio()));
         
         resultAmplitude.setText(String.valueOf(medidas.getAmplitude()));
+        
+        resultCV.setText(String.valueOf(medidas.getCoeficienteVariacao()) + " %");
     }//GEN-LAST:event_botaoCalcularActionPerformed
 
     private void botaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarActionPerformed
@@ -507,6 +526,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
     private javax.swing.JPanel panelPrincipalMTS;
     private javax.swing.JPanel panelTipoConjunto;
     private javax.swing.JLabel resultAmplitude;
+    private javax.swing.JLabel resultCV;
     private javax.swing.JLabel resultDM;
     private javax.swing.JLabel resultDP;
     private javax.swing.JLabel resultMedia;

@@ -226,7 +226,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/help.png"))); // NOI18N
-        jMenuItem4.setText("Regras");
+        jMenuItem4.setText("Formulas");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);

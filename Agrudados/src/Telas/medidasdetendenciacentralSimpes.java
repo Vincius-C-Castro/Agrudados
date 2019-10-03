@@ -1,15 +1,13 @@
-package agrudados;
+package Telas;
 
-import Telas.Ajuda;
 import model.ElementosModel;
 import model.elementos;
 import calculos.MedidaTendenciaCentral;
 import java.beans.PropertyVetoException;
 import java.util.Arrays;
-import javax.swing.JFrame;
-
 
 public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame {
+    
 
     ElementosModel modeloTabela = new ElementosModel();
 
@@ -28,7 +26,8 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
     public medidasdetendenciacentralSimpes() {
 
         initComponents();
-        tabela.setModel(modeloTabela);     
+        tabela.setModel(modeloTabela); 
+        
     }
 
     /**
@@ -72,6 +71,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         panelConjunto = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
+        Ajuda = new javax.swing.JButton();
 
         jLabel8.setText("jLabel7");
 
@@ -80,7 +80,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         setTitle("Medidas de tendências centrais");
         setToolTipText("");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table.png"))); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/table.png"))); // NOI18N
         setName("telaInternaMTC"); // NOI18N
         setNextFocusableComponent(caixaDeTexto);
         setVerifyInputWhenFocusTarget(false);
@@ -246,7 +246,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
 
         panelElementosConjunto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Elementos do conjunto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        botaoAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table_edit.png"))); // NOI18N
+        botaoAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/database_edit.png"))); // NOI18N
         botaoAlterar.setText("Alterar");
         botaoAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,7 +254,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         });
 
-        botaoEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table_go.png"))); // NOI18N
+        botaoEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/database_go.png"))); // NOI18N
         botaoEnviar.setText("Enviar");
         botaoEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,7 +262,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         });
 
-        botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table_delete.png"))); // NOI18N
+        botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/database_delete.png"))); // NOI18N
         botaoExcluir.setText("Excluir");
         botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,7 +270,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         });
 
-        botaoCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calculator.png"))); // NOI18N
+        botaoCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/calculator.png"))); // NOI18N
         botaoCalcular.setText("Calcular");
         botaoCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -365,6 +365,14 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        Ajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/help.png"))); // NOI18N
+        Ajuda.setBorder(null);
+        Ajuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AjudaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelPrincipalMTSLayout = new javax.swing.GroupLayout(panelPrincipalMTS);
         panelPrincipalMTS.setLayout(panelPrincipalMTSLayout);
         panelPrincipalMTSLayout.setHorizontalGroup(
@@ -377,11 +385,16 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
                 .addGap(18, 18, 18)
                 .addComponent(PainelMedTend, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalMTSLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Ajuda)
+                .addGap(51, 51, 51))
         );
         panelPrincipalMTSLayout.setVerticalGroup(
             panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalMTSLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addComponent(Ajuda)
+                .addGap(5, 5, 5)
                 .addGroup(panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelPrincipalMTSLayout.createSequentialGroup()
                         .addComponent(panelElementosConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -405,7 +418,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelPrincipalMTS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -502,8 +515,16 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         // TODO add your handling code here:
     }//GEN-LAST:event_caixaDeTextoActionPerformed
 
+    private void AjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjudaActionPerformed
+        // TODO add your handling code here:
+         Ajuda tela5 = new Ajuda();
+         panelPrincipalMTS.add(tela5);
+         tela5.setVisible(true);
+    }//GEN-LAST:event_AjudaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Ajuda;
     private javax.swing.JPanel PainelMedTend;
     private javax.swing.JButton botaoAlterar;
     private javax.swing.JButton botaoCalcular;

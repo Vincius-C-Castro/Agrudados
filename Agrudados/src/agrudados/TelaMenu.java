@@ -1,5 +1,7 @@
 package agrudados;
 
+import Telas.Ajuda;
+import Telas.Média;
 import javax.swing.ImageIcon;
 
 public class TelaMenu extends javax.swing.JFrame {
@@ -61,6 +63,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -221,6 +224,16 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/information.png"))); // NOI18N
         jMenu3.setText("Sobre");
         jMenu3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/help.png"))); // NOI18N
+        jMenuItem4.setText("Regras");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem4);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -267,6 +280,13 @@ public class TelaMenu extends javax.swing.JFrame {
         labelImagemFundo.add(tela);
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+     Ajuda tela5 = new Ajuda();
+     labelImagemFundo.add(tela5);
+     tela5.setVisible(true);
+     
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,6 +354,7 @@ public class TelaMenu extends javax.swing.JFrame {
     javax.swing.JMenuItem jMenuItem1;
     javax.swing.JMenuItem jMenuItem2;
     javax.swing.JMenuItem jMenuItem3;
+    javax.swing.JMenuItem jMenuItem4;
     javax.swing.JLabel labelImagemFundo;
     javax.swing.JPanel telaFundo;
     // End of variables declaration//GEN-END:variables

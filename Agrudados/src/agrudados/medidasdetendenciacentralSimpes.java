@@ -1,20 +1,10 @@
 package agrudados;
 
-import Telas.Ajuda;
 import model.ElementosModel;
 import model.elementos;
 import calculos.MedidaTendenciaCentral;
-import java.awt.Color;
 import java.beans.PropertyVetoException;
 import java.util.Arrays;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.editor.ChartEditorManager;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 
 
 public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame {

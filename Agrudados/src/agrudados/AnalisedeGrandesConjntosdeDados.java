@@ -66,9 +66,10 @@ public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame 
         setClosable(true);
         setMaximizable(true);
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(1366, 768));
+        setVerifyInputWhenFocusTarget(false);
 
-        jButton1.setText("Exibir");
+        jButton1.setText("Exibir Histograma");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -81,15 +82,15 @@ public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame 
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jButton1)
-                .addContainerGap(827, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(807, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jButton1)
-                .addContainerGap(697, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(452, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("telaDadosAgrupados");
@@ -98,26 +99,26 @@ public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame 
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-               
-        JInternalFrame frame = new JInternalFrame("Olá, JFreeChart!");
+              
+        JInternalFrame frame = new JInternalFrame("Histograma");
         this.add(frame);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setClosable(true);
         
         JPanel raiz = new JPanel();
         raiz.setLayout(new BorderLayout());
-        Dimension tamanho = new Dimension(300, 300);
+        Dimension tamanho = new Dimension(600, 450);
         raiz.setPreferredSize(tamanho);
         raiz.setMinimumSize(tamanho);
         frame.add(raiz);
         frame.pack();
         
-        Dimension sd = Toolkit.getDefaultToolkit().getScreenSize();
-        frame.setLocation((sd.width - frame.getWidth()) / 2, (sd.height - frame.getHeight()) / 2);
+        frame.setLocation(170, 20);
 
         // Cria o painel aonde o gráfico será mostrado.
         JPanel primeiroGrafico = new JPanel();
-        Dimension tamanhoArea = new Dimension(300, 300);
+        Dimension tamanhoArea = new Dimension(600, 450);
         primeiroGrafico.setPreferredSize(tamanhoArea);
         primeiroGrafico.setMinimumSize(tamanhoArea);
         raiz.add(primeiroGrafico, BorderLayout.CENTER);
@@ -130,17 +131,17 @@ public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame 
        int number = 10;
        HistogramDataset dataset = new HistogramDataset();
        dataset.setType(HistogramType.RELATIVE_FREQUENCY);
-       dataset.addSeries("Histogram",value,number);
-       String plotTitle = "Histogram"; 
-       String xaxis = "number";
-       String yaxis = "value"; 
+       dataset.addSeries("Série Aleatória",value,number);
+       String plotTitle = ""; 
+       String xaxis = "Eixo X";
+       String yaxis = "Eixo Y"; 
        PlotOrientation orientation = PlotOrientation.VERTICAL; 
        boolean show = false; 
        boolean toolTips = false;
        boolean urls = false; 
        JFreeChart chart = ChartFactory.createHistogram( plotTitle, xaxis, yaxis, 
                 dataset, orientation, show, toolTips, urls);
-                ChartPanel chartPanel = new ChartPanel(chart, 300, 300,  300, 300,  300, 300, urls, toolTips, show, urls, show, toolTips);
+                ChartPanel chartPanel = new ChartPanel(chart, 600, 450,  600, 450,  600, 450, urls, toolTips, show, urls, show, toolTips);
                 primeiroGrafico.add(chartPanel);
                 primeiroGrafico.validate();
                 

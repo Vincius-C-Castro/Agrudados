@@ -67,7 +67,6 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -201,24 +200,13 @@ public class TelaMenu extends javax.swing.JFrame {
 
         jMenuItem2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/font.png"))); // NOI18N
-        jMenuItem2.setText("Simples");
+        jMenuItem2.setText("Central e Dispersão");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
         jMenu1.add(jMenuItem2);
-
-        jMenuItem1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/text_letter_omega.png"))); // NOI18N
-        jMenuItem1.setText("Ponderada");
-        jMenuItem1.setInheritsPopupMenu(true);
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
 
@@ -287,13 +275,6 @@ public class TelaMenu extends javax.swing.JFrame {
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        medidasdetendenciacentralPonderada tela2 = new medidasdetendenciacentralPonderada();
-        labelImagemFundo.add(tela2);
-        tela2.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
@@ -376,7 +357,6 @@ public class TelaMenu extends javax.swing.JFrame {
     javax.swing.JMenuBar jMenuBar6;
     javax.swing.JMenuBar jMenuBar7;
     javax.swing.JMenuBar jMenuBar8;
-    javax.swing.JMenuItem jMenuItem1;
     javax.swing.JMenuItem jMenuItem2;
     javax.swing.JMenuItem jMenuItem3;
     javax.swing.JMenuItem jMenuItem4;

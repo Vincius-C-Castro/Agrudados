@@ -1,5 +1,25 @@
 package agrudados;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.statistics.HistogramDataset;
+import org.jfree.data.statistics.HistogramType;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,6 +38,7 @@ public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame 
     public AnalisedeGrandesConjntosdeDados() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,67 +49,110 @@ public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jFrame1 = new javax.swing.JFrame();
+        jButton1 = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setClosable(true);
         setMaximizable(true);
+        setOpaque(false);
+        setPreferredSize(new java.awt.Dimension(1366, 768));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Preço(R$)", "fi", "fi%", "FI", "FI%"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Double.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        jButton1.setText("Exibir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(21, 21, 21)
+                .addComponent(jButton1)
+                .addContainerGap(827, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(jButton1)
+                .addContainerGap(697, Short.MAX_VALUE))
         );
+
+        getAccessibleContext().setAccessibleName("telaDadosAgrupados");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+               
+        JInternalFrame frame = new JInternalFrame("Olá, JFreeChart!");
+        this.add(frame);
+        frame.setResizable(false);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        JPanel raiz = new JPanel();
+        raiz.setLayout(new BorderLayout());
+        Dimension tamanho = new Dimension(300, 300);
+        raiz.setPreferredSize(tamanho);
+        raiz.setMinimumSize(tamanho);
+        frame.add(raiz);
+        frame.pack();
+        
+        Dimension sd = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.setLocation((sd.width - frame.getWidth()) / 2, (sd.height - frame.getHeight()) / 2);
+
+        // Cria o painel aonde o gráfico será mostrado.
+        JPanel primeiroGrafico = new JPanel();
+        Dimension tamanhoArea = new Dimension(300, 300);
+        primeiroGrafico.setPreferredSize(tamanhoArea);
+        primeiroGrafico.setMinimumSize(tamanhoArea);
+        raiz.add(primeiroGrafico, BorderLayout.CENTER);
+
+       double[] value = new double[100];
+       Random generator = new Random();
+       for (int i=1; i < 100; i++) {
+       value[i] = generator.nextDouble();
+       }
+       int number = 10;
+       HistogramDataset dataset = new HistogramDataset();
+       dataset.setType(HistogramType.RELATIVE_FREQUENCY);
+       dataset.addSeries("Histogram",value,number);
+       String plotTitle = "Histogram"; 
+       String xaxis = "number";
+       String yaxis = "value"; 
+       PlotOrientation orientation = PlotOrientation.VERTICAL; 
+       boolean show = false; 
+       boolean toolTips = false;
+       boolean urls = false; 
+       JFreeChart chart = ChartFactory.createHistogram( plotTitle, xaxis, yaxis, 
+                dataset, orientation, show, toolTips, urls);
+                ChartPanel chartPanel = new ChartPanel(chart, 300, 300,  300, 300,  300, 300, urls, toolTips, show, urls, show, toolTips);
+                primeiroGrafico.add(chartPanel);
+                primeiroGrafico.validate();
+                
+                frame.setVisible(true);
+                
+                
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JFrame jFrame1;
     // End of variables declaration//GEN-END:variables
 }

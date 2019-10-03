@@ -1,8 +1,9 @@
 package agrudados;
 
 import Telas.Ajuda;
-import Telas.Média;
 import javax.swing.ImageIcon;
+import javax.swing.JPopupMenu;
+
 
 public class TelaMenu extends javax.swing.JFrame {
 
@@ -54,6 +55,13 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuBar7 = new javax.swing.JMenuBar();
         jMenu16 = new javax.swing.JMenu();
         jMenu17 = new javax.swing.JMenu();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuBar8 = new javax.swing.JMenuBar();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu18 = new javax.swing.JMenu();
+        menuBar1 = new java.awt.MenuBar();
+        menu1 = new java.awt.Menu();
+        menu2 = new java.awt.Menu();
         telaFundo = new javax.swing.JPanel();
         labelImagemFundo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -130,11 +138,24 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenu17.setText("Edit");
         jMenuBar7.add(jMenu17);
 
+        jMenu6.setText("File");
+        jMenuBar8.add(jMenu6);
+
+        jMenu18.setText("Edit");
+        jMenuBar8.add(jMenu18);
+
+        menu1.setLabel("File");
+        menuBar1.add(menu1);
+
+        menu2.setLabel("Edit");
+        menuBar1.add(menu2);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agrudados");
         setFocusCycleRoot(false);
         setFocusTraversalPolicyProvider(true);
         setFocusable(false);
+        setName(""); // NOI18N
         setResizable(false);
 
         telaFundo.setBackground(new java.awt.Color(51, 51, 51));
@@ -317,6 +338,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new TelaMenu().setVisible(true);
             }
@@ -337,10 +359,12 @@ public class TelaMenu extends javax.swing.JFrame {
     javax.swing.JMenu jMenu15;
     javax.swing.JMenu jMenu16;
     javax.swing.JMenu jMenu17;
+    javax.swing.JMenu jMenu18;
     javax.swing.JMenu jMenu2;
     javax.swing.JMenu jMenu3;
     javax.swing.JMenu jMenu4;
     javax.swing.JMenu jMenu5;
+    javax.swing.JMenu jMenu6;
     javax.swing.JMenu jMenu7;
     javax.swing.JMenu jMenu8;
     javax.swing.JMenu jMenu9;
@@ -351,11 +375,16 @@ public class TelaMenu extends javax.swing.JFrame {
     javax.swing.JMenuBar jMenuBar5;
     javax.swing.JMenuBar jMenuBar6;
     javax.swing.JMenuBar jMenuBar7;
+    javax.swing.JMenuBar jMenuBar8;
     javax.swing.JMenuItem jMenuItem1;
     javax.swing.JMenuItem jMenuItem2;
     javax.swing.JMenuItem jMenuItem3;
     javax.swing.JMenuItem jMenuItem4;
+    javax.swing.JPopupMenu jPopupMenu1;
     javax.swing.JLabel labelImagemFundo;
+    java.awt.Menu menu1;
+    java.awt.Menu menu2;
+    java.awt.MenuBar menuBar1;
     javax.swing.JPanel telaFundo;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,9 +4,17 @@ import Telas.Ajuda;
 import model.ElementosModel;
 import model.elementos;
 import calculos.MedidaTendenciaCentral;
+import java.awt.Color;
 import java.beans.PropertyVetoException;
 import java.util.Arrays;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.editor.ChartEditorManager;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 
 
 public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame {
@@ -25,10 +33,9 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
     /**
      * Creates new form medidasdetendenciacentralSimpes
      */
-    public medidasdetendenciacentralSimpes() {
-
+    public medidasdetendenciacentralSimpes() {      
         initComponents();
-        tabela.setModel(modeloTabela);     
+        tabela.setModel(modeloTabela);           
     }
 
     /**
@@ -77,7 +84,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setClosable(true);
-        setTitle("Medidas de tendências centrais");
+        setTitle("Medida de tendências");
         setToolTipText("");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table.png"))); // NOI18N
@@ -85,10 +92,10 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         setNextFocusableComponent(caixaDeTexto);
         setVerifyInputWhenFocusTarget(false);
 
-        PainelMedTend.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Medidas de tendência", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        PainelMedTend.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Medidas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         PainelMedTend.setForeground(java.awt.Color.gray);
 
-        panelCentrais.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Centrais", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        panelCentrais.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Central", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         panelCentrais.setForeground(java.awt.Color.darkGray);
 
         resultMedia.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Media", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));

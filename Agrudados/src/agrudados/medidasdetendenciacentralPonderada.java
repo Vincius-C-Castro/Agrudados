@@ -24,8 +24,7 @@ public class medidasdetendenciacentralPonderada extends javax.swing.JInternalFra
     
     public medidasdetendenciacentralPonderada() {
         initComponents();
-        
-        jTable2.setModel(tablemode1);
+       
     }
 
     /**
@@ -356,34 +355,34 @@ public class medidasdetendenciacentralPonderada extends javax.swing.JInternalFra
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
-        ElementosPonderada p = new ElementosPonderada();
-        p.setNumeros(Integer.parseInt(Variaveis.getText()));
-        p.setNotas(Double.parseDouble(Pesos.getText()));
-        
-        tablemode1.addRom(p);
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+        if (jTable2.getSelectedRow()!= -1){
+            tablemode1.setValueAt(Variaveis.getText() ,jTable2.getSelectedRow(), 0);
+            tablemode1.setValueAt(Pesos.getText() ,jTable2.getSelectedRow(), 1);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         if (jTable2.getSelectedRow()!= -1){
-        
+
             tablemode1.removeRow(jTable2.getSelectedRow());
         }
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        if (jTable2.getSelectedRow()!= -1){
-        tablemode1.setValueAt(Variaveis.getText() ,jTable2.getSelectedRow(), 0);
-        tablemode1.setValueAt(Pesos.getText() ,jTable2.getSelectedRow(), 1);
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
+
+        ElementosPonderada p = new ElementosPonderada();
+        p.setNumeros(Integer.parseInt(Variaveis.getText()));
+        p.setNotas(Double.parseDouble(Pesos.getText()));
+
+        tablemode1.addRom(p);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

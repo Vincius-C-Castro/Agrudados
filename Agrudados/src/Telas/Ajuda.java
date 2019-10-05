@@ -104,7 +104,7 @@ public class Ajuda extends javax.swing.JInternalFrame {
 
         painelFormMedia.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Como calcular a média aritmética", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel6.setText("Média = 5,77");
 
         jLabel4.setText("Média = (5 + 3 + 6 + 8 + 4 + 5 + 7 + 5 + 9) / 9");

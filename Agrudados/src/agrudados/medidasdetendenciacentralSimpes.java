@@ -62,10 +62,10 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         resultCV = new javax.swing.JLabel();
         panelElementosConjunto = new javax.swing.JPanel();
         botaoAlterar = new javax.swing.JButton();
-        botaoEnviar = new javax.swing.JButton();
         botaoExcluir = new javax.swing.JButton();
         botaoCalcular = new javax.swing.JButton();
         caixaDeTexto = new javax.swing.JTextField();
+        botaoEnviar = new javax.swing.JButton();
         panelConjunto = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
@@ -251,14 +251,6 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         });
 
-        botaoEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table_go.png"))); // NOI18N
-        botaoEnviar.setText("Enviar");
-        botaoEnviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoEnviarActionPerformed(evt);
-            }
-        });
-
         botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table_delete.png"))); // NOI18N
         botaoExcluir.setText("Excluir");
         botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -288,6 +280,14 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
             }
         });
 
+        botaoEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table_go.png"))); // NOI18N
+        botaoEnviar.setText("Enviar");
+        botaoEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEnviarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelElementosConjuntoLayout = new javax.swing.GroupLayout(panelElementosConjunto);
         panelElementosConjunto.setLayout(panelElementosConjuntoLayout);
         panelElementosConjuntoLayout.setHorizontalGroup(
@@ -296,28 +296,28 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
                 .addContainerGap()
                 .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelElementosConjuntoLayout.createSequentialGroup()
-                        .addComponent(botaoEnviar)
-                        .addGap(18, 18, 18)
+                        .addComponent(botaoCalcular)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botaoExcluir))
                     .addComponent(caixaDeTexto))
                 .addGap(18, 18, 18)
-                .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoCalcular))
+                .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botaoAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                    .addComponent(botaoEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelElementosConjuntoLayout.setVerticalGroup(
             panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelElementosConjuntoLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(12, 12, 12)
+                .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(caixaDeTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoCalcular))
-                .addGap(24, 24, 24)
+                    .addComponent(botaoEnviar))
+                .addGap(18, 18, 18)
                 .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoExcluir)
                     .addComponent(botaoAlterar)
-                    .addComponent(botaoEnviar))
+                    .addComponent(botaoCalcular))
                 .addContainerGap())
         );
 
@@ -378,7 +378,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         panelPrincipalMTSLayout.setVerticalGroup(
             panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalMTSLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(50, 50, 50)
                 .addGroup(panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelPrincipalMTSLayout.createSequentialGroup()
                         .addComponent(panelElementosConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -402,7 +402,7 @@ public class medidasdetendenciacentralSimpes extends javax.swing.JInternalFrame 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(panelPrincipalMTS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 

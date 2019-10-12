@@ -326,7 +326,7 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
                 {null}
             },
             new String [] {
-                ""
+                "Elementos"
             }
         ) {
             Class[] types = new Class [] {
@@ -338,8 +338,14 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
             }
         });
         tabela.setColumnSelectionAllowed(true);
+        tabela.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        tabela.setRowSorter(new TableRowSorter(modeloTabela));
+        tabela.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabela);
         tabela.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (tabela.getColumnModel().getColumnCount() > 0) {
+            tabela.getColumnModel().getColumn(0).setResizable(false);
+        }
         tabela.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout panelConjuntoLayout = new javax.swing.GroupLayout(panelConjunto);
@@ -437,8 +443,8 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
          * Insere os valores obtidos nos cálculos nas labels da tela.
          */
         {
-            resultMedia.setText(String.valueOf(CalculosEstat.getMedia()));
-
+            //resultMedia.setText(String.valueOf(CalculosEstat.getMedia()));
+        resultMedia.setText(String.valueOf(CalculosEstat.getNumClasses()));
             if (CalculosEstat.getIndiceModa() >= 0) {
                 resultModa.setText(String.valueOf(CalculosEstat.getModa()));
             } else if (CalculosEstat.getIndiceModa() == -1) {

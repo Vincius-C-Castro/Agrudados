@@ -28,13 +28,17 @@ public class Calculos {
     private static double amplitude;
     private static double coeficienteVariacao;
 
+    // Atributos utilizados nos cálculos da distribuição de frequências.
+    private static int numClasses;
+    private static double intervalo;
 
     /**
      * Classe inicializadora dos dados necessários para realizar os cálculos.
+     *
      * @param conjunto : Vetor contendo todos elementos do conjunto.
      * @param isAmostral : Boolean que indica se o conjunto é amostral ou
      * populacional.
-     * 
+     *
      * Obs.: Este método executa os cálculos automáticamente.
      */
     public void iserirDados(double conjunto[], boolean isAmostral) {
@@ -44,22 +48,30 @@ public class Calculos {
     }
 
     private void calcularTudo() {
-        
+
         Central medidasCentral = new Central();
         Dispersao medidasDispersao = new Dispersao();
-        
+
         // Realiza os cálculos das medidas centrais.
         medidasCentral.calcular();
         // Realiza os cálculos das medidas de dispersao.
         medidasDispersao.calcular();
+
+        DistribuicaoDeFrequencias distFreq = new DistribuicaoDeFrequencias();
+
+        distFreq.calcularNumeroClasses();
+        int i = 1;
+        if (i == 0) {
+
+        }
     }
 
     public void setConjunto(double[] conjunto) {
-        this.conjunto = conjunto;
+        Calculos.conjunto = conjunto;
     }
 
     public double[] getConjunto() {
-        return this.conjunto;
+        return Calculos.conjunto;
     }
 
     public double getMedia() {
@@ -67,7 +79,7 @@ public class Calculos {
     }
 
     public void setMedia(double media) {
-        this.media = media;
+        Calculos.media = media;
     }
 
     public double getMediana() {
@@ -75,7 +87,7 @@ public class Calculos {
     }
 
     public void setMediana(double mediana) {
-        this.mediana = mediana;
+        Calculos.mediana = mediana;
     }
 
     public double getModa() {
@@ -83,7 +95,7 @@ public class Calculos {
     }
 
     public void setModa(double moda) {
-        this.moda = moda;
+        Calculos.moda = moda;
     }
 
     public int getIndiceModa() {
@@ -91,7 +103,7 @@ public class Calculos {
     }
 
     public void setIndiceModa(int indiceModa) {
-        this.indiceModa = indiceModa;
+        Calculos.indiceModa = indiceModa;
     }
 
     public double getVariancia() {
@@ -99,7 +111,7 @@ public class Calculos {
     }
 
     public void setVariancia(double variancia) {
-        this.variancia = variancia;
+        Calculos.variancia = variancia;
     }
 
     public double getDesvioMedio() {
@@ -107,7 +119,7 @@ public class Calculos {
     }
 
     public void setDesvioMedio(double desvioMedio) {
-        this.desvioMedio = desvioMedio;
+        Calculos.desvioMedio = desvioMedio;
     }
 
     public double getDesvioPadrao() {
@@ -115,7 +127,7 @@ public class Calculos {
     }
 
     public void setDesvioPadrao(double desvioPadrao) {
-        this.desvioPadrao = desvioPadrao;
+        Calculos.desvioPadrao = desvioPadrao;
     }
 
     public boolean isConjuntoAmostral() {
@@ -123,7 +135,7 @@ public class Calculos {
     }
 
     public void setConjuntoAmostral(boolean conjuntoAmostral) {
-        this.conjuntoAmostral = conjuntoAmostral;
+        Calculos.conjuntoAmostral = conjuntoAmostral;
     }
 
     public double getAmplitude() {
@@ -131,7 +143,7 @@ public class Calculos {
     }
 
     public void setAmplitude(double amplitude) {
-        this.amplitude = amplitude;
+        Calculos.amplitude = amplitude;
     }
 
     public double getCoeficienteVariacao() {
@@ -139,7 +151,22 @@ public class Calculos {
     }
 
     public void setCoeficienteVariacao(double coeficienteVariacao) {
-        this.coeficienteVariacao = coeficienteVariacao;
+        Calculos.coeficienteVariacao = coeficienteVariacao;
     }
 
+    public double getNumClasses() {
+        return numClasses;
+    }
+
+    public void setNumClasses(int numClasses) {
+        Calculos.numClasses = numClasses;
+    }
+
+    public double getIntervalo() {
+        return intervalo;
+    }
+
+    public void setIntervalo(double intervalo) {
+        Calculos.intervalo = intervalo;
+    }
 }

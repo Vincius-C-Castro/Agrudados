@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Telas;
+package telas;
 
-import agrudados.medidasdetendenciacentralSimpes;
+import agrudados.Tela_MedidasDeTendencia;
 import static java.awt.Frame.NORMAL;
 
 
@@ -23,7 +23,7 @@ public class Ajuda extends javax.swing.JInternalFrame {
         initComponents();
     }
 
-    public Ajuda(medidasdetendenciacentralSimpes aThis, boolean b) {
+    public Ajuda(Tela_MedidasDeTendencia aThis, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

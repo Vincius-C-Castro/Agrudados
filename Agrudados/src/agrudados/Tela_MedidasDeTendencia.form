@@ -29,7 +29,7 @@
       </Border>
     </Property>
     <Property name="closable" type="boolean" value="true"/>
-    <Property name="title" type="java.lang.String" value="Medida de tend&#xea;ncias"/>
+    <Property name="title" type="java.lang.String" value="Medidas de tend&#xea;ncia"/>
     <Property name="toolTipText" type="java.lang.String" value=""/>
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
       <Color id="Cursor Padr&#xe3;o"/>

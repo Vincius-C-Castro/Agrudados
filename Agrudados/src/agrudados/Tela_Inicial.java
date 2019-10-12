@@ -1,16 +1,15 @@
 package agrudados;
 
-import Telas.Ajuda;
+import telas.Ajuda;
 import javax.swing.ImageIcon;
-import javax.swing.JPopupMenu;
 
 
-public class TelaMenu extends javax.swing.JFrame {
+public class Tela_Inicial extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaMenu
      */
-    public TelaMenu() {
+    public Tela_Inicial() {
        this.carregarIconeAplicacao();
        this.setExtendedState(NORMAL);
        this.setUndecorated(false);
@@ -267,7 +266,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        AnalisedeGrandesConjntosdeDados tela4 = new AnalisedeGrandesConjntosdeDados();
+        Tela_DistribuicaoDeFrequencia tela4 = new Tela_DistribuicaoDeFrequencia();
         labelImagemFundo.add(tela4);
         tela4.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -278,7 +277,7 @@ public class TelaMenu extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        medidasdetendenciacentralSimpes tela = new medidasdetendenciacentralSimpes();
+        Tela_MedidasDeTendencia tela = new Tela_MedidasDeTendencia();
         labelImagemFundo.add(tela);
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -307,22 +306,20 @@ public class TelaMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela_Inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new TelaMenu().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Tela_Inicial().setVisible(true);
         });
     }
 

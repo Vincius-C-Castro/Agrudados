@@ -30,12 +30,12 @@ import org.jfree.data.statistics.HistogramType;
  *
  * @author Willian
  */
-public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame {
+public class Tela_DistribuicaoDeFrequencia extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form AnalisedeGrandesConjntosdeDados
      */
-    public AnalisedeGrandesConjntosdeDados() {
+    public Tela_DistribuicaoDeFrequencia() {
         initComponents();
     }
     
@@ -50,7 +50,11 @@ public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame 
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -62,6 +66,19 @@ public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame 
             jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setClosable(true);
         setMaximizable(true);
@@ -76,21 +93,59 @@ public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame 
             }
         });
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                " Classe", "Xi", "fi", "Fi", "fri", "Fri"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable2.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(jTable2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(807, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(415, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(452, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130))
         );
 
         getAccessibleContext().setAccessibleName("telaDadosAgrupados");
@@ -123,15 +178,16 @@ public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame 
         primeiroGrafico.setMinimumSize(tamanhoArea);
         raiz.add(primeiroGrafico, BorderLayout.CENTER);
 
-       double[] value = new double[100];
-       Random generator = new Random();
-       for (int i=1; i < 100; i++) {
-       value[i] = generator.nextDouble();
-       }
-       int number = 10;
+       double[] value = {150.0, 190.0, 180.0, 165.0, 155.0, 165.0, 174.0, 182.0,
+           160.0, 150.0, 151.0, 180.0, 170.0, 176.0, 172.0, 162.0, 178.0, 160.0, 189.0, 170.0};
+//       Random generator = new Random();
+//       for (int i=1; i < 100; i++) {
+//       value[i] = generator.nextDouble();
+//       }
+       int number = 5;
        HistogramDataset dataset = new HistogramDataset();
        dataset.setType(HistogramType.RELATIVE_FREQUENCY);
-       dataset.addSeries("Série Aleatória",value,number);
+       dataset.addSeries("Série Aleatória",value,number, 150, 200);
        String plotTitle = ""; 
        String xaxis = "Eixo X";
        String yaxis = "Eixo Y"; 
@@ -141,7 +197,7 @@ public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame 
        boolean urls = false; 
        JFreeChart chart = ChartFactory.createHistogram( plotTitle, xaxis, yaxis, 
                 dataset, orientation, show, toolTips, urls);
-                ChartPanel chartPanel = new ChartPanel(chart, 600, 450,  600, 450,  600, 450, urls, toolTips, show, urls, show, toolTips);
+                ChartPanel chartPanel = new ChartPanel(chart, 600, 450,  600, 450,  600, 450, urls, toolTips, show, urls, show, true);
                 primeiroGrafico.add(chartPanel);
                 primeiroGrafico.validate();
                 
@@ -155,5 +211,9 @@ public class AnalisedeGrandesConjntosdeDados extends javax.swing.JInternalFrame 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

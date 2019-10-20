@@ -10,7 +10,7 @@ package estatistica;
  * @author viny-
  */
 public class Central extends Calculos {
-
+    
     public void calcular() {
         calcularMedia();
         calcularModa();

@@ -55,20 +55,19 @@ public class Calculos {
 
         Central medidasCentral = new Central();
         Dispersao medidasDispersao = new Dispersao();
+        DistribuicaoDeFrequencias distFreq = new DistribuicaoDeFrequencias();
 
         // Realiza os cálculos das medidas centrais.
         medidasCentral.calcular();
         // Realiza os cálculos das medidas de dispersao.
         medidasDispersao.calcular();
+        
+        /**
+         * Realiza os cálculos para montagem da tabela de distribuição de 
+         * frequências.
+         */
+        distFreq.calcular();
 
-        DistribuicaoDeFrequencias distFreq = new DistribuicaoDeFrequencias();
-
-        distFreq.calcularNumeroClasses();
-        distFreq.calcularIntervalo();
-        distFreq.calcularFrequencia();
-        distFreq.calcularFreqAcumulada();
-        distFreq.calcularFreqAbsoluta();
-        distFreq.calcularFreqAbsolutaAcumulada();
     }
 
     public void setConjunto(double[] conjunto) {

@@ -11,6 +11,15 @@ package estatistica;
  */
 public class DistribuicaoDeFrequencias extends Calculos {
     
+    public void calcular()
+    {
+        calcularNumeroClasses();
+        calcularIntervalo();
+        calcularFrequencia();
+        calcularFreqAcumulada();
+        calcularFreqAbsoluta();
+        calcularFreqAbsolutaAcumulada();
+    }
     public void calcularNumeroClasses()
     {
         double valores[] = this.getConjunto();

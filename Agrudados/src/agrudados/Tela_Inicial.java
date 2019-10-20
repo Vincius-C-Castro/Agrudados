@@ -1,5 +1,6 @@
 package agrudados;
 
+import Telas.Ajuda;
 import javax.swing.ImageIcon;
 
 public class Tela_Inicial extends javax.swing.JFrame {
@@ -11,6 +12,7 @@ public class Tela_Inicial extends javax.swing.JFrame {
         this.carregarIconeAplicacao();
         this.setExtendedState(NORMAL);
         this.setUndecorated(false);
+//        this.set
         initComponents();
 
     }
@@ -282,7 +284,9 @@ public class Tela_Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-
+     Ajuda telaAjuda = new Ajuda();
+     labelImagemFundo.add(telaAjuda);
+     telaAjuda.setVisible(true);
 
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 

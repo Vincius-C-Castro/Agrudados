@@ -1,11 +1,15 @@
 package agrudados;
 
+import estatistica.Calculos;
+import estatistica.Central;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import javax.swing.table.TableRowSorter;
 import model.ElementosModel;
 import model.elementos;
@@ -27,16 +31,25 @@ import org.jfree.data.statistics.HistogramType;
  * @author Willian
  */
 public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
-
-    ElementosModel modeloTabelaDist = new ElementosModel();
+    
+    String[] colunas = {"Elementos"};
+    ElementosModel modeloTabela = new ElementosModel(colunas);
+    DefaultTableModel modelDefault = new DefaultTableModel();
     /**
      * Creates new form AnalisedeGrandesConjntosdeDados
      */
     public Tela_DistribuicaoDeFrequencias() {
         
         initComponents();
-        tabelaDistFreq.setModel(modeloTabelaDist);
-        tabelaDistFreq.setRowSorter(new TableRowSorter(modeloTabelaDist));
+        tabelaElementos.setModel(modeloTabela);
+        tabelaDistFreq.setModel(modelDefault);
+        tabelaElementos.setRowSorter(new TableRowSorter(modeloTabela));
+        modelDefault.addColumn("  Classes  ");
+        modelDefault.addColumn("Frequência");
+        modelDefault.addColumn("Freq. Acumulada");
+        modelDefault.addColumn("Freq. Absoluta");
+        modelDefault.addColumn("Freq. Abs. Acu.");
+
     }
     
     private void carregarIconeAplicacao(JFrame tela, ImageIcon img){
@@ -57,11 +70,14 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jDialog1 = new javax.swing.JDialog();
+        menuBar1 = new java.awt.MenuBar();
+        menu1 = new java.awt.Menu();
+        menu2 = new java.awt.Menu();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
         tabelaDistFreq = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tabelaElementos = new javax.swing.JTable();
         panelElementosConjunto = new javax.swing.JPanel();
         botaoAlterarDist = new javax.swing.JButton();
         botaoExcluirDist = new javax.swing.JButton();
@@ -104,10 +120,17 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        menu1.setLabel("File");
+        menuBar1.add(menu1);
+
+        menu2.setLabel("Edit");
+        menuBar1.add(menu2);
+
         setClosable(true);
+        setIconifiable(true);
         setMaximizable(true);
-        setOpaque(false);
         setVerifyInputWhenFocusTarget(false);
+        setVisible(true);
 
         jButton1.setText("Exibir Histograma");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -117,28 +140,19 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaDistFreq.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                " Classe", "Xi", "fi", "Fi", "fri", "Fri"
+                " Classe", "Frequência", "Freq. Acumulada", "fri", "Fri"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.String.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -149,11 +163,11 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.setName(""); // NOI18N
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable2);
+        tabelaDistFreq.setName(""); // NOI18N
+        tabelaDistFreq.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(tabelaDistFreq);
 
-        tabelaDistFreq.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaElementos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -178,7 +192,7 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(tabelaDistFreq);
+        jScrollPane3.setViewportView(tabelaElementos);
 
         panelElementosConjunto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Elementos do conjunto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
@@ -267,28 +281,32 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(panelElementosConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
+                    .addComponent(panelElementosConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(344, 344, 344))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelElementosConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panelElementosConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jButton1)))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("telaDadosAgrupados");
@@ -323,11 +341,11 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
         primeiroGrafico.setMinimumSize(tamanhoArea);
         raiz.add(primeiroGrafico, BorderLayout.CENTER);
 
-        int tamTabela = tabelaDistFreq.getRowCount();
+        int tamTabela = tabelaElementos.getRowCount();
         double value[] = new double[tamTabela];
         
         for (int i = 0; i < tamTabela; i++) {
-            value[i] = Double.parseDouble(tabelaDistFreq.getValueAt(i, 0).toString());
+            value[i] = Double.parseDouble(tabelaElementos.getValueAt(i, 0).toString());
         }
 
        Arrays.sort(value);
@@ -360,31 +378,57 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
 
     private void botaoAlterarDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarDistActionPerformed
 
-        if (tabelaDistFreq.getSelectedRow() != -1) {
+        if (tabelaElementos.getSelectedRow() != -1) {
 
-            modeloTabelaDist.setValueAt(caixaDeTextoDist.getText(), tabelaDistFreq.getSelectedRow(), 0);
+            modeloTabela.setValueAt(caixaDeTextoDist.getText(), tabelaElementos.getSelectedRow(), 0);
 
         }
     }//GEN-LAST:event_botaoAlterarDistActionPerformed
 
     private void botaoExcluirDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirDistActionPerformed
 
-        if (tabelaDistFreq.getSelectedRow() != -1) {
+        if (tabelaElementos.getSelectedRow() != -1) {
 
-            modeloTabelaDist.removeRow(tabelaDistFreq.getSelectedRow());
+            modeloTabela.removeRow(tabelaElementos.getSelectedRow());
         }
     }//GEN-LAST:event_botaoExcluirDistActionPerformed
 
     private void botaoCalcularDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCalcularDistActionPerformed
-
-        int tamTabela = tabelaDistFreq.getRowCount();
+        
+        int tamTabela = tabelaElementos.getRowCount();
+        Object[] novaLinha = {"", "", "", "", ""};
+        double intervalo;
+        double qtdeClasse;
+        double menorValor;
         double valor[] = new double[tamTabela];
         
         for (int i = 0; i < tamTabela; i++) {
-            valor[i] = Double.parseDouble(tabelaDistFreq.getValueAt(i, 0).toString());
+            valor[i] = Double.parseDouble(tabelaElementos.getValueAt(i, 0).toString());
         }
-
         Arrays.sort(valor);
+     
+        Calculos CalculosEstat = new Central();
+        CalculosEstat.iserirDados(valor, false);
+        qtdeClasse = CalculosEstat.getNumClasses();
+        menorValor = valor[0];
+        intervalo = CalculosEstat.getIntervalo();
+        
+
+        for(int i = 0; i < qtdeClasse; i++)
+        {
+            novaLinha[0] = "" + menorValor + " |---- " + (menorValor + intervalo);
+            menorValor += intervalo + 1;
+           
+            novaLinha[1] = (int)   CalculosEstat.getFrequencias()[i];
+            
+            novaLinha[2] = (int)   CalculosEstat.getFrequenciasAcumuladas()[i];
+            
+            novaLinha[3] = (float) CalculosEstat.getFrequenciaAbsoluta()[i];
+            
+            novaLinha[4] = (float) CalculosEstat.getFrequenciaAbsolutaAcumulada()[i];
+            modelDefault.addRow(novaLinha);
+        }
+        
         
         
 
@@ -401,7 +445,7 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
         if (evt.getKeyCode() == 10) {
             elementos e = new elementos();
             e.setNumeros(Double.parseDouble(caixaDeTextoDist.getText()));
-            modeloTabelaDist.addrow(e);
+            modeloTabela.addrow(e);
             caixaDeTextoDist.setText("");
         }
     }//GEN-LAST:event_caixaDeTextoDistKeyPressed
@@ -410,7 +454,7 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
 
         elementos e = new elementos();
         e.setNumeros(Double.parseDouble(caixaDeTextoDist.getText()));
-        modeloTabelaDist.addrow(e);
+        modeloTabela.addrow(e);
         caixaDeTextoDist.setText("");
     }//GEN-LAST:event_botaoEnviarDistActionPerformed
 
@@ -428,8 +472,11 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private java.awt.Menu menu1;
+    private java.awt.Menu menu2;
+    private java.awt.MenuBar menuBar1;
     private javax.swing.JPanel panelElementosConjunto;
     private javax.swing.JTable tabelaDistFreq;
+    private javax.swing.JTable tabelaElementos;
     // End of variables declaration//GEN-END:variables
 }

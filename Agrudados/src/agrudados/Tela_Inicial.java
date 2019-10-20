@@ -2,20 +2,20 @@ package agrudados;
 
 import javax.swing.ImageIcon;
 
-
 public class Tela_Inicial extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaMenu
      */
     public Tela_Inicial() {
-       this.carregarIconeAplicacao();
-       this.setExtendedState(NORMAL);
-       this.setUndecorated(false);
-       initComponents();
+        this.carregarIconeAplicacao();
+        this.setExtendedState(NORMAL);
+        this.setUndecorated(false);
+        initComponents();
 
     }
-    private void carregarIconeAplicacao(){
+
+    private void carregarIconeAplicacao() {
         ImageIcon imageIcon;
         imageIcon = new ImageIcon(getClass().getResource("/imagens/agrudadosIco.png"));
         this.setIconImage(imageIcon.getImage());
@@ -282,21 +282,16 @@ public class Tela_Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-     Ajuda tela5 = new Ajuda();
-     labelImagemFundo.add(tela5);
-     tela5.setVisible(true);
-     
+
+
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
+        /* Set Nimbus Look and Feel. */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -304,21 +299,13 @@ public class Tela_Inicial extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_Inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_Inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_Inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Tela_Inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Tela_Inicial().setVisible(true);
+
         });
     }
 

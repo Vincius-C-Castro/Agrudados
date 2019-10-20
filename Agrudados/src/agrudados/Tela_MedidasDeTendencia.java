@@ -10,7 +10,8 @@ import javax.swing.table.TableRowSorter;
 
 public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
 
-    ElementosModel modeloTabela = new ElementosModel();
+    String[] colunas = {"Elementos"};
+    ElementosModel modeloTabela = new ElementosModel(colunas);
 
     @Override
     public void setMaximum(boolean bln) throws PropertyVetoException {
@@ -69,7 +70,7 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
 
         jLabel8.setText("jLabel7");
 
-        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         setClosable(true);
         setTitle("Medidas de tendência");
         setToolTipText("");
@@ -77,7 +78,13 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table.png"))); // NOI18N
         setName("telaInternaMTC"); // NOI18N
         setNextFocusableComponent(caixaDeTexto);
+        try {
+            setSelected(true);
+        } catch (java.beans.PropertyVetoException e1) {
+            e1.printStackTrace();
+        }
         setVerifyInputWhenFocusTarget(false);
+        setVisible(true);
 
         PainelMedTend.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Medidas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         PainelMedTend.setForeground(java.awt.Color.gray);
@@ -405,87 +412,12 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(panelPrincipalMTS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void conjuntoAmostralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoAmostralActionPerformed
-        conjuntoPopulacional.setSelected(false);
-    }//GEN-LAST:event_conjuntoAmostralActionPerformed
-
-    private void conjuntoPopulacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoPopulacionalActionPerformed
-        conjuntoAmostral.setSelected(false);
-    }//GEN-LAST:event_conjuntoPopulacionalActionPerformed
-
-    private void botaoCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCalcularActionPerformed
-
-        int tamTabela = tabela.getRowCount();
-        double valor[] = new double[tamTabela];
-        boolean isConjuntoAmostral = conjuntoAmostral.isSelected();
-
-        for (int i = 0; i < tamTabela; i++) {
-            valor[i] = Double.parseDouble(tabela.getValueAt(i, 0).toString());
-        }
-
-        Arrays.sort(valor);
-
-        Calculos CalculosEstat = new Central();
-
-        /**
-         * Insere todos valores necessários para realização de cálculos.
-         */
-        CalculosEstat.iserirDados(valor, isConjuntoAmostral);
-
-        /**
-         * Insere os valores obtidos nos cálculos nas labels da tela.
-         */
-        {
-            //resultMedia.setText(String.valueOf(CalculosEstat.getMedia()));
-        resultMedia.setText(String.valueOf(CalculosEstat.getNumClasses()));
-            if (CalculosEstat.getIndiceModa() >= 0) {
-                resultModa.setText(String.valueOf(CalculosEstat.getModa()));
-            } else if (CalculosEstat.getIndiceModa() == -1) {
-                resultModa.setText("Amodal");
-            } else if (CalculosEstat.getIndiceModa() == -2) {
-                resultModa.setText("Bimodal");
-            } else {
-                resultModa.setText("Multimodal");
-            }
-
-            resultMediana.setText(String.valueOf(CalculosEstat.getMediana()));
-
-            resultVar.setText(String.valueOf(CalculosEstat.getVariancia()));
-
-            resultDP.setText(String.valueOf(CalculosEstat.getDesvioPadrao()));
-
-            resultDM.setText(String.valueOf(CalculosEstat.getDesvioMedio()));
-
-            resultAmplitude.setText(String.valueOf(CalculosEstat.getAmplitude()));
-
-            resultCV.setText(String.valueOf(CalculosEstat.getCoeficienteVariacao()) + " %");
-        }
-
-    }//GEN-LAST:event_botaoCalcularActionPerformed
-
-    private void botaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarActionPerformed
-
-        if (tabela.getSelectedRow() != -1) {
-
-            modeloTabela.setValueAt(caixaDeTexto.getText(), tabela.getSelectedRow(), 0);
-
-        }
-    }//GEN-LAST:event_botaoAlterarActionPerformed
-
-    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-
-        if (tabela.getSelectedRow() != -1) {
-
-            modeloTabela.removeRow(tabela.getSelectedRow());
-        }
-    }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
 
@@ -508,6 +440,81 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
     private void caixaDeTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaDeTextoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_caixaDeTextoActionPerformed
+
+    private void botaoCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCalcularActionPerformed
+
+        int tamTabela = tabela.getRowCount();
+        double valor[] = new double[tamTabela];
+        boolean isConjuntoAmostral = conjuntoAmostral.isSelected();
+
+        for (int i = 0; i < tamTabela; i++) {
+            valor[i] = Double.parseDouble(tabela.getValueAt(i, 0).toString());
+        }
+
+        Arrays.sort(valor);
+
+        Calculos CalculosEstat = new Central();
+
+        /**
+        * Insere todos valores necessários para realização de cálculos.
+        */
+        CalculosEstat.iserirDados(valor, isConjuntoAmostral);
+
+        /**
+        * Insere os valores obtidos nos cálculos nas labels da tela.
+        */
+        {
+            resultMedia.setText(String.valueOf((float)CalculosEstat.getMedia()));
+            //resultMedia.setText(String.valueOf(CalculosEstat.getNumClasses()));
+
+            if (CalculosEstat.getIndiceModa() >= 0) {
+                resultModa.setText(String.valueOf((float)CalculosEstat.getModa()));
+            } else if (CalculosEstat.getIndiceModa() == -1) {
+                resultModa.setText("Amodal");
+            } else if (CalculosEstat.getIndiceModa() == -2) {
+                resultModa.setText("Bimodal");
+            } else {
+                resultModa.setText("Multimodal");
+            }
+
+            resultMediana.setText(String.valueOf((float)CalculosEstat.getMediana()));
+
+            resultVar.setText(String.valueOf((float)CalculosEstat.getVariancia()));
+
+            resultDP.setText(String.valueOf((float)CalculosEstat.getDesvioPadrao()));
+
+            resultDM.setText(String.valueOf((float)CalculosEstat.getDesvioMedio()));
+
+            resultAmplitude.setText(String.valueOf((float)CalculosEstat.getAmplitude()));
+
+            resultCV.setText(String.valueOf((float)CalculosEstat.getCoeficienteVariacao()) + " %");
+        }
+    }//GEN-LAST:event_botaoCalcularActionPerformed
+
+    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
+
+        if (tabela.getSelectedRow() != -1) {
+
+            modeloTabela.removeRow(tabela.getSelectedRow());
+        }
+    }//GEN-LAST:event_botaoExcluirActionPerformed
+
+    private void botaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarActionPerformed
+
+        if (tabela.getSelectedRow() != -1) {
+
+            modeloTabela.setValueAt(caixaDeTexto.getText(), tabela.getSelectedRow(), 0);
+
+        }
+    }//GEN-LAST:event_botaoAlterarActionPerformed
+
+    private void conjuntoAmostralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoAmostralActionPerformed
+        conjuntoPopulacional.setSelected(false);
+    }//GEN-LAST:event_conjuntoAmostralActionPerformed
+
+    private void conjuntoPopulacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoPopulacionalActionPerformed
+        conjuntoAmostral.setSelected(false);
+    }//GEN-LAST:event_conjuntoPopulacionalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

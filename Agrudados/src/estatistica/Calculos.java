@@ -29,8 +29,12 @@ public class Calculos {
     private static double coeficienteVariacao;
 
     // Atributos utilizados nos cálculos da distribuição de frequências.
-    private static int numClasses;
-    private static double intervalo;
+    private static int      numClasses;
+    private static int      intervalo;
+    private static int[]    frequencias;
+    private static int[]    frequenciasAcumuladas;
+    private static double[] frequenciaAbsoluta;
+    private static double[] frequenciaAbsolutaAcumulada;
 
     /**
      * Classe inicializadora dos dados necessários para realizar os cálculos.
@@ -60,10 +64,11 @@ public class Calculos {
         DistribuicaoDeFrequencias distFreq = new DistribuicaoDeFrequencias();
 
         distFreq.calcularNumeroClasses();
-        int i = 1;
-        if (i == 0) {
-
-        }
+        distFreq.calcularIntervalo();
+        distFreq.calcularFrequencia();
+        distFreq.calcularFreqAcumulada();
+        distFreq.calcularFreqAbsoluta();
+        distFreq.calcularFreqAbsolutaAcumulada();
     }
 
     public void setConjunto(double[] conjunto) {
@@ -154,7 +159,7 @@ public class Calculos {
         Calculos.coeficienteVariacao = coeficienteVariacao;
     }
 
-    public double getNumClasses() {
+    public int getNumClasses() {
         return numClasses;
     }
 
@@ -162,11 +167,44 @@ public class Calculos {
         Calculos.numClasses = numClasses;
     }
 
-    public double getIntervalo() {
+    public int getIntervalo() {
         return intervalo;
     }
 
-    public void setIntervalo(double intervalo) {
+    public void setIntervalo(int intervalo) {
         Calculos.intervalo = intervalo;
     }
+    
+    public int[] getFrequencias() {
+        return frequencias;
+    }
+
+    public void setFrequencias(int[] frequencias) {
+        Calculos.frequencias = frequencias;
+    }
+
+    public int[] getFrequenciasAcumuladas() {
+        return frequenciasAcumuladas;
+    }
+
+    public void setFrequenciasAcumuladas(int[] frequenciasAcumuladas) {
+        Calculos.frequenciasAcumuladas = frequenciasAcumuladas;
+    }
+
+    public double[] getFrequenciaAbsoluta() {
+        return frequenciaAbsoluta;
+    }
+
+    public void setFrequenciaAbsoluta(double[] frequenciaAbsoluta) {
+        Calculos.frequenciaAbsoluta = frequenciaAbsoluta;
+    }
+
+    public double[] getFrequenciaAbsolutaAcumulada() {
+        return frequenciaAbsolutaAcumulada;
+    }
+
+    public void setFrequenciaAbsolutaAcumulada(double[] frequenciaAbsolutaAcumulada) {
+        Calculos.frequenciaAbsolutaAcumulada = frequenciaAbsolutaAcumulada;
+    }
+    
 }

@@ -17,6 +17,15 @@ public class elementos {
     private  double desviomedio;
     private  double variancia;
     private  double desviopadrao;
+    private  String textoIntervalo;
+
+    public String getTextoIntervalo() {
+        return textoIntervalo;
+    }
+
+    public void setTextoIntervalo(String textoIntervalo) {
+        this.textoIntervalo = textoIntervalo;
+    }
 
     public double getMedia() {
         return media;

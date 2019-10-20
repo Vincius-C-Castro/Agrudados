@@ -64,15 +64,24 @@ public class Dispersao extends Calculos {
     }
 
     private void calcularDesvioMedio() {
+        
         double valores[] = this.getConjunto();
+        
         if (valores.length == 1) {
+            
             this.setDesvioMedio(0.0);
-        } else {
-            double soma = 0l;
-            for (int i = 0; i < valores.length; i++) {
-                double result = valores[i] - this.getMedia();
-                soma = soma + Math.abs(result);
-            }
+            
+        }
+        else
+        {
+                double soma = 0;
+                
+                for (int i = 0; i < valores.length; i++)
+                {
+                    double result = valores[i] - this.getMedia();
+                    soma = soma + Math.abs(result);
+                }
+                
             this.setDesvioMedio(soma / valores.length);
         }
 

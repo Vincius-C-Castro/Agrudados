@@ -14,7 +14,11 @@ import javax.swing.table.AbstractTableModel;
 public class ElementosModel extends AbstractTableModel{
     
     private final List<elementos> dados = new ArrayList<>();
-    private final String[] colunas = {"Elementos ( X )"};
+    private final String[] colunas;
+
+    public ElementosModel(String[] colunas) {
+        this.colunas = colunas;
+    }
 
     @Override
     public String getColumnName(int column) {
@@ -52,7 +56,7 @@ public class ElementosModel extends AbstractTableModel{
                 dados.get(linha).setNumeros(Double.parseDouble((String)valor));
                 break;
        } 
-      this.fireTableRowsUpdated(linha, linha);
+      this.fireTableRowsUpdated(linha, coluna);
     }
     
     

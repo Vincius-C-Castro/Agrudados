@@ -3,13 +3,15 @@ package agrudados;
 import estatistica.Calculos;
 import estatistica.Central;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import javax.swing.table.TableRowSorter;
 import model.ElementosModel;
 import model.elementos;
@@ -17,6 +19,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;
 
@@ -25,21 +28,21 @@ import org.jfree.data.statistics.HistogramType;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Willian
  */
 public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
-    
+
     String[] colunas = {"Elementos"};
     ElementosModel modeloTabela = new ElementosModel(colunas);
     DefaultTableModel modelDefault = new DefaultTableModel();
+
     /**
      * Creates new form AnalisedeGrandesConjntosdeDados
      */
     public Tela_DistribuicaoDeFrequencias() {
-        
+
         initComponents();
         tabelaElementos.setModel(modeloTabela);
         tabelaDistFreq.setModel(modelDefault);
@@ -51,11 +54,10 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
         modelDefault.addColumn("Freq. Abs. Acu.");
 
     }
-    
-    private void carregarIconeAplicacao(JFrame tela, ImageIcon img){
+
+    private void carregarIconeAplicacao(JFrame tela, ImageIcon img) {
         tela.setIconImage(img.getImage());
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,7 +75,10 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
         menuBar1 = new java.awt.MenuBar();
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
-        jButton1 = new javax.swing.JButton();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaDistFreq = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -84,6 +89,10 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
         botaoCalcularDist = new javax.swing.JButton();
         caixaDeTextoDist = new javax.swing.JTextField();
         botaoEnviarDist = new javax.swing.JButton();
+        barraFerramenta = new javax.swing.JToolBar();
+        btnHistograma = new javax.swing.JButton();
+        btnPareto = new javax.swing.JButton();
+        painelGrafico = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -126,19 +135,19 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
         menu2.setLabel("Edit");
         menuBar1.add(menu2);
 
+        jMenu1.setText("jMenu1");
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
+
+        jMenu2.setText("jMenu2");
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setVerifyInputWhenFocusTarget(false);
         setVisible(true);
-
-        jButton1.setText("Exibir Histograma");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         tabelaDistFreq.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -274,39 +283,85 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        barraFerramenta.setRollover(true);
+
+        btnHistograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/chart_bar.png"))); // NOI18N
+        btnHistograma.setText("Histograma");
+        btnHistograma.setFocusable(false);
+        btnHistograma.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnHistograma.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnHistograma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistogramaActionPerformed(evt);
+            }
+        });
+        barraFerramenta.add(btnHistograma);
+
+        btnPareto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/chart_curve.png"))); // NOI18N
+        btnPareto.setText("Ogiva");
+        btnPareto.setFocusable(false);
+        btnPareto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPareto.setMaximumSize(new java.awt.Dimension(78, 48));
+        btnPareto.setMinimumSize(new java.awt.Dimension(78, 48));
+        btnPareto.setPreferredSize(new java.awt.Dimension(78, 48));
+        btnPareto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPareto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnParetoActionPerformed(evt);
+            }
+        });
+        barraFerramenta.add(btnPareto);
+
+        painelGrafico.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gráfico", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        javax.swing.GroupLayout painelGraficoLayout = new javax.swing.GroupLayout(painelGrafico);
+        painelGrafico.setLayout(painelGraficoLayout);
+        painelGraficoLayout.setHorizontalGroup(
+            painelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        painelGraficoLayout.setVerticalGroup(
+            painelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelElementosConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelElementosConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                        .addComponent(barraFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 363, Short.MAX_VALUE))
+                    .addComponent(painelGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelElementosConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelElementosConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(169, 169, 169))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jButton1)))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                        .addComponent(barraFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(painelGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         getAccessibleContext().setAccessibleName("telaDadosAgrupados");
@@ -314,67 +369,67 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-              
-        JFrame frame = new JFrame("Histograma");
-        frame.setResizable(false);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        ImageIcon imageIcon;
-        imageIcon = new ImageIcon(getClass().getResource("/imagens/chart_bar.png"));
-        carregarIconeAplicacao(frame, imageIcon);
+    private void btnHistogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistogramaActionPerformed
 
-        
+        painelGrafico.removeAll();
+        JInternalFrame frame = new JInternalFrame("Histograma");
+        frame.setResizable(false);
+        ((BasicInternalFrameUI) frame.getUI()).setNorthPane(null); //retirar o painel superior janela.setBorder(null);
+        frame.setBorder(null);
+        painelGrafico.add(frame);
+
         JPanel raiz = new JPanel();
         raiz.setLayout(new BorderLayout());
-        Dimension tamanho = new Dimension(600, 450);
+        Dimension tamanho = new Dimension(590, 447);
         raiz.setPreferredSize(tamanho);
         raiz.setMinimumSize(tamanho);
         frame.add(raiz);
         frame.pack();
-        
-        frame.setLocation(170, 20);
+
+        frame.setLocation(7, 20);
 
         // Cria o painel aonde o gráfico será mostrado.
         JPanel primeiroGrafico = new JPanel();
-        Dimension tamanhoArea = new Dimension(600, 450);
+        Dimension tamanhoArea = new Dimension(590, 447);
         primeiroGrafico.setPreferredSize(tamanhoArea);
         primeiroGrafico.setMinimumSize(tamanhoArea);
         raiz.add(primeiroGrafico, BorderLayout.CENTER);
+        Calculos calc = new Calculos();
 
         int tamTabela = tabelaElementos.getRowCount();
         double value[] = new double[tamTabela];
-        
+
         for (int i = 0; i < tamTabela; i++) {
             value[i] = Double.parseDouble(tabelaElementos.getValueAt(i, 0).toString());
         }
+        Arrays.sort(value);
+        calc.iserirDados(value, false);
 
-       Arrays.sort(value);
-       
-       
-       int number = tamTabela;
-       HistogramDataset dataset = new HistogramDataset();
-       dataset.setType(HistogramType.RELATIVE_FREQUENCY);
-       dataset.addSeries("Série Aleatória",value, number);
+        int number = calc.getNumClasses();
+        HistogramDataset dataset = new HistogramDataset();
 
-       String plotTitle = ""; 
-       String xaxis = "Eixo X";
-       String yaxis = "Eixo Y"; 
-       PlotOrientation orientation = PlotOrientation.VERTICAL; 
-       boolean show = false; 
-       boolean toolTips = false;
-       boolean urls = false; 
-       JFreeChart chart = ChartFactory.createHistogram( plotTitle, xaxis, yaxis, 
+        dataset.setType(HistogramType.FREQUENCY);
+        dataset.addSeries("", value, number);
+        String plotTitle = "Histograma";
+        String xaxis = "Dados";
+        String yaxis = "Freqência";
+        PlotOrientation orientation = PlotOrientation.VERTICAL;
+
+        boolean show = false;
+        boolean toolTips = false;
+        boolean urls = false;
+        int tamX = 590;
+        int tamY = 447;
+        JFreeChart chart = ChartFactory.createHistogram(plotTitle, xaxis, yaxis,
                 dataset, orientation, show, toolTips, urls);
-        ChartPanel chartPanel = new ChartPanel(chart, 600, 450,  600, 450,  600, 450, urls, toolTips, show, urls, show, true);
+        chart.setBackgroundPaint(Color.white);
+
+        ChartPanel chartPanel = new ChartPanel(chart, tamX, tamY, tamX, tamY, tamX, tamY, urls, toolTips, show, urls, show, true);
         primeiroGrafico.add(chartPanel);
         primeiroGrafico.validate();
 
         frame.setVisible(true);
-
-                
-                
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnHistogramaActionPerformed
 
     private void botaoAlterarDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarDistActionPerformed
 
@@ -394,46 +449,40 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botaoExcluirDistActionPerformed
 
     private void botaoCalcularDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCalcularDistActionPerformed
-        
+
         int tamTabela = tabelaElementos.getRowCount();
         Object[] novaLinha = {"", "", "", "", ""};
         double intervalo;
         double qtdeClasse;
         double menorValor;
+
         double valor[] = new double[tamTabela];
-        
         for (int i = 0; i < tamTabela; i++) {
             valor[i] = Double.parseDouble(tabelaElementos.getValueAt(i, 0).toString());
         }
         Arrays.sort(valor);
-     
+
         Calculos CalculosEstat = new Central();
         CalculosEstat.iserirDados(valor, false);
         qtdeClasse = CalculosEstat.getNumClasses();
         menorValor = valor[0];
         intervalo = CalculosEstat.getIntervalo();
-        
 
-        for(int i = 0; i < qtdeClasse; i++)
-        {
+        for (int i = 0; i < qtdeClasse; i++) {
             novaLinha[0] = "" + menorValor + " |---- " + (menorValor + intervalo);
             menorValor += intervalo + 1;
-           
-            novaLinha[1] = (int)   CalculosEstat.getFrequencias()[i];
-            
-            novaLinha[2] = (int)   CalculosEstat.getFrequenciasAcumuladas()[i];
-            
+
+            novaLinha[1] = (int) CalculosEstat.getFrequencias()[i];
+
+            novaLinha[2] = (int) CalculosEstat.getFrequenciasAcumuladas()[i];
+
             novaLinha[3] = (float) CalculosEstat.getFrequenciaAbsoluta()[i];
-            
+
             novaLinha[4] = (float) CalculosEstat.getFrequenciaAbsolutaAcumulada()[i];
             modelDefault.addRow(novaLinha);
         }
-        
-        
-        
 
-        
-        
+
     }//GEN-LAST:event_botaoCalcularDistActionPerformed
 
     private void caixaDeTextoDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaDeTextoDistActionPerformed
@@ -458,16 +507,88 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
         caixaDeTextoDist.setText("");
     }//GEN-LAST:event_botaoEnviarDistActionPerformed
 
+    private void btnParetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParetoActionPerformed
+        // TODO add your handling code here:
+        painelGrafico.removeAll();
+        Calculos calc = new Calculos();
+
+        JInternalFrame frame = new JInternalFrame("Histograma");
+        frame.setResizable(false);
+        ((BasicInternalFrameUI) frame.getUI()).setNorthPane(null); //retirar o painel superior janela.setBorder(null);
+        frame.setBorder(null);
+        painelGrafico.add(frame);
+
+        JPanel raiz = new JPanel();
+        raiz.setLayout(new BorderLayout());
+        Dimension tamanho = new Dimension(590, 447);
+        raiz.setPreferredSize(tamanho);
+        raiz.setMinimumSize(tamanho);
+        frame.add(raiz);
+        frame.pack();
+
+        frame.setLocation(7, 20);
+
+        // Cria o painel aonde o gráfico será mostrado.
+        JPanel primeiroGrafico = new JPanel();
+        Dimension tamanhoArea = new Dimension(590, 447);
+        primeiroGrafico.setPreferredSize(tamanhoArea);
+        primeiroGrafico.setMinimumSize(tamanhoArea);
+        raiz.add(primeiroGrafico, BorderLayout.CENTER);
+
+        int tamTabela = tabelaElementos.getRowCount();
+        double value[] = new double[tamTabela];
+
+        for (int i = 0; i < tamTabela; i++) {
+            value[i] = Double.parseDouble(tabelaElementos.getValueAt(i, 0).toString());
+        }
+        Arrays.sort(value);
+
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        
+        calc.iserirDados(value, false);
+        double menorValor = value[0];
+        double intervalo = calc.getIntervalo();
+        int numClasses = calc.getNumClasses();
+
+        for (int i = 0; i < numClasses; i++) {
+            String text = "" + menorValor + " |---- " + (menorValor + intervalo);
+            dataset.addValue(calc.getFrequenciaAbsolutaAcumulada()[i], "", text);
+            menorValor += intervalo + 1;
+        }
+        String plotTitle = "Ogiva";
+        String xaxis = "Classes";
+        String yaxis = "Frequências";
+        PlotOrientation orientation = PlotOrientation.VERTICAL;
+        boolean show = false;
+        boolean toolTips = false;
+        boolean urls = false;
+        int tamX = 590;
+        int tamY = 447;
+
+        JFreeChart lineChart = ChartFactory.createLineChart(plotTitle, xaxis, yaxis, dataset, orientation, urls, toolTips, urls);
+        ChartPanel chartPanel = new ChartPanel(lineChart, tamX, tamY, tamX, tamY, tamX, tamY, urls, toolTips, show, urls, show, true);
+        primeiroGrafico.add(chartPanel);
+        primeiroGrafico.validate();
+
+        frame.setVisible(true);
+    }//GEN-LAST:event_btnParetoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToolBar barraFerramenta;
     private javax.swing.JButton botaoAlterarDist;
     private javax.swing.JButton botaoCalcularDist;
     private javax.swing.JButton botaoEnviarDist;
     private javax.swing.JButton botaoExcluirDist;
+    private javax.swing.JButton btnHistograma;
+    private javax.swing.JButton btnPareto;
     private javax.swing.JTextField caixaDeTextoDist;
-    private javax.swing.JButton jButton1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -475,6 +596,7 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
+    private javax.swing.JPanel painelGrafico;
     private javax.swing.JPanel panelElementosConjunto;
     private javax.swing.JTable tabelaDistFreq;
     private javax.swing.JTable tabelaElementos;

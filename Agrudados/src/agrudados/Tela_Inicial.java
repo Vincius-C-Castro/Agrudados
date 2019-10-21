@@ -12,7 +12,6 @@ public class Tela_Inicial extends javax.swing.JFrame {
         this.carregarIconeAplicacao();
         this.setExtendedState(NORMAL);
         this.setUndecorated(false);
-//        this.set
         initComponents();
 
     }

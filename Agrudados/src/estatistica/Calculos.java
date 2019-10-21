@@ -30,7 +30,7 @@ public class Calculos {
 
     // Atributos utilizados nos cálculos da distribuição de frequências.
     private static int      numClasses;
-    private static int      intervalo;
+    private static double   intervalo;
     private static int[]    frequencias;
     private static int[]    frequenciasAcumuladas;
     private static double[] frequenciaAbsoluta;
@@ -166,11 +166,11 @@ public class Calculos {
         Calculos.numClasses = numClasses;
     }
 
-    public int getIntervalo() {
+    public double getIntervalo() {
         return intervalo;
     }
 
-    public void setIntervalo(int intervalo) {
+    public void setIntervalo(double intervalo) {
         Calculos.intervalo = intervalo;
     }
     

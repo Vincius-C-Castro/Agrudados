@@ -29,14 +29,14 @@ public class DistribuicaoDeFrequencias extends Calculos {
     
     public void calcularIntervalo()
     {
-        this.setIntervalo((int)(this.getAmplitude() / this.getNumClasses()));
+        this.setIntervalo((this.getAmplitude() / (double)this.getNumClasses()));
     }
     
     public void calcularFrequencia()
     {
         int qtdeClasses = this.getNumClasses();
         
-        int valIntervalo = this.getIntervalo();
+        double valIntervalo = this.getIntervalo();
         double valores[] = this.getConjunto();
         int frequencias[] = new int[qtdeClasses];
         int intervalo = (int)valores[0];

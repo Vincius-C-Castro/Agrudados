@@ -266,9 +266,9 @@ public class Tela_Inicial extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        Tela_DistribuicaoDeFrequencias tela4 = new Tela_DistribuicaoDeFrequencias();
-        labelImagemFundo.add(tela4);
-        tela4.setVisible(true);
+        Tela_DistribuicaoDeFrequencias telaDistFreq = new Tela_DistribuicaoDeFrequencias();
+        labelImagemFundo.add(telaDistFreq);
+        telaDistFreq.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
@@ -277,9 +277,9 @@ public class Tela_Inicial extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        Tela_MedidasDeTendencia tela = new Tela_MedidasDeTendencia();
-        labelImagemFundo.add(tela);
-        tela.setVisible(true);
+        Tela_MedidasDeTendencia telaMedTendencia = new Tela_MedidasDeTendencia();
+        labelImagemFundo.add(telaMedTendencia);
+        telaMedTendencia.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -308,7 +308,6 @@ public class Tela_Inicial extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Tela_Inicial().setVisible(true);
-
         });
     }
 

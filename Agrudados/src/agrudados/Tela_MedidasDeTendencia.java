@@ -10,15 +10,15 @@ import java.util.Arrays;
 import javax.swing.table.TableRowSorter;
 
 public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
-
+    
     String[] colunas = {"Elementos"};
     ElementosModel modeloTabela = new ElementosModel(colunas);
-
+    
     @Override
     public void setMaximum(boolean bln) throws PropertyVetoException {
         super.setMaximum(bln); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
     public void setMaximizable(boolean maximizable) {
         this.maximizable = maximizable;
@@ -65,6 +65,7 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         botaoCalcular = new javax.swing.JButton();
         caixaDeTexto = new javax.swing.JTextField();
         botaoEnviar = new javax.swing.JButton();
+        infoLabel = new javax.swing.JLabel();
         panelConjunto = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
@@ -93,12 +94,15 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         panelCentrais.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Central", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         panelCentrais.setForeground(java.awt.Color.darkGray);
 
+        resultMedia.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         resultMedia.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Media", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         resultMedia.setName("resultMedia"); // NOI18N
 
+        resultModa.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         resultModa.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Moda", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         resultModa.setName("resultModa"); // NOI18N
 
+        resultMediana.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         resultMediana.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mediana", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         resultMediana.setName("resultMediana"); // NOI18N
 
@@ -175,20 +179,25 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         panelDispersao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dispersão", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         panelDispersao.setForeground(java.awt.Color.darkGray);
 
+        resultVar.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         resultVar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Variância", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         resultVar.setName("resultVar"); // NOI18N
 
+        resultDP.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         resultDP.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Desvio padrão", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         resultDP.setName("resultDP"); // NOI18N
         resultDP.setRequestFocusEnabled(false);
 
+        resultDM.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         resultDM.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Desvio médio", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         resultDM.setName("resultDM"); // NOI18N
 
+        resultAmplitude.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         resultAmplitude.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Amplitude", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         resultAmplitude.setName("resultAmplitude"); // NOI18N
         resultAmplitude.setRequestFocusEnabled(false);
 
+        resultCV.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         resultCV.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Coeficiênte de variação", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         resultCV.setName("resultCV"); // NOI18N
         resultCV.setRequestFocusEnabled(false);
@@ -293,6 +302,8 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
             }
         });
 
+        infoLabel.setForeground(java.awt.Color.red);
+
         javax.swing.GroupLayout panelElementosConjuntoLayout = new javax.swing.GroupLayout(panelElementosConjunto);
         panelElementosConjunto.setLayout(panelElementosConjuntoLayout);
         panelElementosConjuntoLayout.setHorizontalGroup(
@@ -304,7 +315,8 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
                         .addComponent(botaoCalcular)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botaoExcluir))
-                    .addComponent(caixaDeTexto))
+                    .addComponent(caixaDeTexto)
+                    .addComponent(infoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(botaoAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
@@ -314,11 +326,13 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         panelElementosConjuntoLayout.setVerticalGroup(
             panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelElementosConjuntoLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(6, 6, 6)
+                .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(caixaDeTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoEnviar))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(infoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoExcluir)
                     .addComponent(botaoAlterar)
@@ -349,6 +363,11 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         tabela.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         tabela.setRowSorter(new TableRowSorter(modeloTabela));
         tabela.getTableHeader().setReorderingAllowed(false);
+        tabela.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                keyDelete(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabela);
         tabela.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tabela.getColumnModel().getColumnCount() > 0) {
@@ -362,7 +381,7 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
             panelConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConjuntoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelConjuntoLayout.setVerticalGroup(
@@ -377,26 +396,22 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         panelPrincipalMTS.setLayout(panelPrincipalMTSLayout);
         panelPrincipalMTSLayout.setHorizontalGroup(
             panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPrincipalMTSLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalMTSLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelElementosConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(PainelMedTend, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         panelPrincipalMTSLayout.setVerticalGroup(
             panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPrincipalMTSLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelPrincipalMTSLayout.createSequentialGroup()
-                        .addComponent(panelElementosConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(panelConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(PainelMedTend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalMTSLayout.createSequentialGroup()
+                .addComponent(panelElementosConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panelConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(PainelMedTend, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         PainelMedTend.getAccessibleContext().setAccessibleDescription("");
@@ -413,28 +428,57 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelPrincipalMTS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void conjuntoAmostralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoAmostralActionPerformed
+        conjuntoPopulacional.setSelected(false);
+    }//GEN-LAST:event_conjuntoAmostralActionPerformed
+
+    private void conjuntoPopulacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoPopulacionalActionPerformed
+        conjuntoAmostral.setSelected(false);
+    }//GEN-LAST:event_conjuntoPopulacionalActionPerformed
+
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
 
-        elementos e = new elementos();
-        e.setNumeros(Double.parseDouble(caixaDeTexto.getText()));
-        modeloTabela.addrow(e);
-        caixaDeTexto.setText("");
+        // Verifica se há alguma coisa na caixa de texto.
+        if (!caixaDeTexto.getText().isEmpty()) {
+
+            // Tenta inserir na tabela o que foi digitado.
+            try {
+                elementos e = new elementos();
+                e.setNumeros(Double.parseDouble(caixaDeTexto.getText()));
+                modeloTabela.addrow(e);
+                caixaDeTexto.setText("");
+                infoLabel.setText("");
+            } catch (NumberFormatException exception) {
+                infoLabel.setText("Entrada Inválida!");
+            }
+        }
+
     }//GEN-LAST:event_botaoEnviarActionPerformed
 
     private void caixaDeTextoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caixaDeTextoKeyPressed
-
+        // Precionou a tecla "enter"?
         if (evt.getKeyCode() == 10) {
-            elementos e = new elementos();
-            e.setNumeros(Double.parseDouble(caixaDeTexto.getText()));
-            modeloTabela.addrow(e);
-            caixaDeTexto.setText("");
+            // Verifica se há alguma coisa na caixa de texto.
+            if (!caixaDeTexto.getText().isEmpty()) {
+
+                // Tenta inserir na tabela o que foi digitado.
+                try {
+                    elementos e = new elementos();
+                    e.setNumeros(Double.parseDouble(caixaDeTexto.getText()));
+                    modeloTabela.addrow(e);
+                    caixaDeTexto.setText("");
+                    infoLabel.setText("");
+                } catch (NumberFormatException exception) {
+                    infoLabel.setText("Entrada Inválida!");
+                }
+            }
         }
     }//GEN-LAST:event_caixaDeTextoKeyPressed
 
@@ -443,28 +487,28 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_caixaDeTextoActionPerformed
 
     private void botaoCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCalcularActionPerformed
+        
+        try {
+            int tamTabela = tabela.getRowCount();
+            double valor[] = new double[tamTabela];
+            boolean isConjuntoAmostral = conjuntoAmostral.isSelected();
+            
+            for (int i = 0; i < tamTabela; i++) {
+                valor[i] = Double.parseDouble(tabela.getValueAt(i, 0).toString());
+            }
+            
+            Arrays.sort(valor);
+            
+            Calculos CalculosEstat = new Central();
 
-        int tamTabela = tabela.getRowCount();
-        double valor[] = new double[tamTabela];
-        boolean isConjuntoAmostral = conjuntoAmostral.isSelected();
+            /**
+             * Insere todos valores necessários para realização de cálculos.
+             */
+            CalculosEstat.iserirDados(valor, isConjuntoAmostral);
 
-        for (int i = 0; i < tamTabela; i++) {
-            valor[i] = Double.parseDouble(tabela.getValueAt(i, 0).toString());
-        }
-
-        Arrays.sort(valor);
-
-        Calculos CalculosEstat = new Central();
-
-        /**
-        * Insere todos valores necessários para realização de cálculos.
-        */
-        CalculosEstat.iserirDados(valor, isConjuntoAmostral);
-
-        /**
-        * Insere os valores obtidos nos cálculos nas labels da tela.
-        */
-        {
+            /**
+             * Insere os valores obtidos nos cálculos nas labels da tela.
+             */
             resultMedia.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getMedia())));
             //resultMedia.setText(String.valueOf(CalculosEstat.getNumClasses()));
 
@@ -477,45 +521,48 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
             } else {
                 resultModa.setText("Multimodal");
             }
-
+            
             resultMediana.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getMediana())));
-
+            
             resultVar.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getVariancia())));
             
             resultDP.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getDesvioPadrao())));
-
+            
             resultDM.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getDesvioMedio())));
-
+            
             resultAmplitude.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getAmplitude())));
-
+            
             resultCV.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getCoeficienteVariacao())) + " %");
+        } catch (ArrayIndexOutOfBoundsException exception) {
+            infoLabel.setText("Tabela Vazia!");
         }
+        
+
     }//GEN-LAST:event_botaoCalcularActionPerformed
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-
+        
         if (tabela.getSelectedRow() != -1) {
-
+            
             modeloTabela.removeRow(tabela.getSelectedRow());
         }
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarActionPerformed
-
+        
         if (tabela.getSelectedRow() != -1) {
-
+            
             modeloTabela.setValueAt(caixaDeTexto.getText(), tabela.getSelectedRow(), 0);
-
+            
         }
     }//GEN-LAST:event_botaoAlterarActionPerformed
 
-    private void conjuntoAmostralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoAmostralActionPerformed
-        conjuntoPopulacional.setSelected(false);
-    }//GEN-LAST:event_conjuntoAmostralActionPerformed
-
-    private void conjuntoPopulacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoPopulacionalActionPerformed
-        conjuntoAmostral.setSelected(false);
-    }//GEN-LAST:event_conjuntoPopulacionalActionPerformed
+    private void keyDelete(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keyDelete
+        // A tecla precionada foi a tecla "delete"?
+        if (evt.getKeyCode() == 127) {
+            modeloTabela.removeRow(tabela.getSelectedRow());
+        }
+    }//GEN-LAST:event_keyDelete
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -531,6 +578,7 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
     private javax.swing.JTextField caixaDeTexto;
     private javax.swing.JRadioButton conjuntoAmostral;
     private javax.swing.JRadioButton conjuntoPopulacional;
+    private javax.swing.JLabel infoLabel;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;

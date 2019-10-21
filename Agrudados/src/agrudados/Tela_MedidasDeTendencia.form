@@ -73,7 +73,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="panelPrincipalMTS" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -85,32 +85,26 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="panelElementosConjunto" max="32767" attributes="0"/>
-                      <Component id="panelConjunto" max="32767" attributes="0"/>
+                      <Component id="panelConjunto" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="PainelMedTend" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="panelElementosConjunto" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="panelConjunto" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="PainelMedTend" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <Component id="panelElementosConjunto" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Component id="panelConjunto" max="32767" attributes="0"/>
               </Group>
+              <Component id="PainelMedTend" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -203,6 +197,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="resultMedia">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder justification="2" title="Media"/>
@@ -216,6 +211,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="resultModa">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder justification="2" title="Moda"/>
@@ -229,6 +225,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="resultMediana">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder justification="2" title="Mediana"/>
@@ -344,6 +341,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="resultVar">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder justification="2" title="Vari&#xe2;ncia"/>
@@ -357,6 +355,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="resultDP">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder justification="2" title="Desvio padr&#xe3;o"/>
@@ -371,6 +370,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="resultDM">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder justification="2" title="Desvio m&#xe9;dio"/>
@@ -384,6 +384,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="resultAmplitude">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder justification="2" title="Amplitude"/>
@@ -395,6 +396,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="resultCV">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder justification="2" title="Coefici&#xea;nte de varia&#xe7;&#xe3;o"/>
@@ -420,7 +422,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
@@ -429,8 +431,9 @@
                               <Component id="botaoExcluir" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="caixaDeTexto" max="32767" attributes="0"/>
+                          <Component id="infoLabel" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="botaoAlterar" pref="97" max="32767" attributes="0"/>
                           <Component id="botaoEnviar" max="32767" attributes="0"/>
@@ -442,12 +445,14 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="caixaDeTexto" min="-2" max="-2" attributes="0"/>
-                          <Component id="botaoEnviar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="caixaDeTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoEnviar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="infoLabel" min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="botaoExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="botaoAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -517,6 +522,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoEnviarActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="infoLabel">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" id="red" palette="1" red="ff" type="palette"/>
+                </Property>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panelConjunto">
@@ -533,7 +545,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="307" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -591,6 +603,9 @@
                   <AccessibilityProperties>
                     <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
                   </AccessibilityProperties>
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="keyDelete"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

@@ -49,9 +49,15 @@ public class DistribuicaoDeFrequencias extends Calculos {
                 {
                    frequencias[i]++;
                 }
+                else if (i == qtdeClasses - 1)
+                {
+                    if ((valores[j] >= truncate(intervalo)) && (valores[j] <= truncate(intervalo + valIntervalo))) {
+                        frequencias[i]++;
+                    }
+                }
             }
             
-            intervalo += this.getIntervalo();
+            intervalo = truncate(this.getIntervalo() + intervalo);
             
         }
         this.setFrequencias(frequencias);

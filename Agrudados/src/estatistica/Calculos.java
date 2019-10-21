@@ -29,10 +29,10 @@ public class Calculos {
     private static double coeficienteVariacao;
 
     // Atributos utilizados nos cálculos da distribuição de frequências.
-    private static int      numClasses;
-    private static double   intervalo;
-    private static int[]    frequencias;
-    private static int[]    frequenciasAcumuladas;
+    private static int numClasses;
+    private static double intervalo;
+    private static int[] frequencias;
+    private static int[] frequenciasAcumuladas;
     private static double[] frequenciaAbsoluta;
     private static double[] frequenciaAbsolutaAcumulada;
 
@@ -61,9 +61,9 @@ public class Calculos {
         medidasCentral.calcular();
         // Realiza os cálculos das medidas de dispersao.
         medidasDispersao.calcular();
-        
+
         /**
-         * Realiza os cálculos para montagem da tabela de distribuição de 
+         * Realiza os cálculos para montagem da tabela de distribuição de
          * frequências.
          */
         distFreq.calcular();
@@ -173,7 +173,7 @@ public class Calculos {
     public void setIntervalo(double intervalo) {
         Calculos.intervalo = intervalo;
     }
-    
+
     public int[] getFrequencias() {
         return frequencias;
     }
@@ -205,5 +205,9 @@ public class Calculos {
     public void setFrequenciaAbsolutaAcumulada(double[] frequenciaAbsolutaAcumulada) {
         Calculos.frequenciaAbsolutaAcumulada = frequenciaAbsolutaAcumulada;
     }
-    
+
+    public static double truncate(double value) {
+        double valorArredondado = Math.round(value * 100) / 100d;
+        return valorArredondado;
+    }
 }

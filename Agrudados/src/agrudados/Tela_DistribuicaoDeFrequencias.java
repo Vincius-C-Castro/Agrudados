@@ -2,6 +2,7 @@ package agrudados;
 
 import estatistica.Calculos;
 import estatistica.Central;
+import estatistica.DistribuicaoDeFrequencias;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -465,20 +466,20 @@ public class Tela_DistribuicaoDeFrequencias extends javax.swing.JInternalFrame {
         Calculos CalculosEstat = new Central();
         CalculosEstat.iserirDados(valor, false);
         qtdeClasse = CalculosEstat.getNumClasses();
-        menorValor = valor[0];
+        menorValor = DistribuicaoDeFrequencias.truncate(valor[0]);
         intervalo = CalculosEstat.getIntervalo();
 
         for (int i = 0; i < qtdeClasse; i++) {
-            novaLinha[0] = "" + menorValor + " |---- " + (menorValor + intervalo);
-            menorValor += intervalo + 1;
+            novaLinha[0] = "" + menorValor + " |--- " + (menorValor + intervalo);
+            menorValor += intervalo;
 
             novaLinha[1] = (int) CalculosEstat.getFrequencias()[i];
 
             novaLinha[2] = (int) CalculosEstat.getFrequenciasAcumuladas()[i];
 
-            novaLinha[3] = (float) CalculosEstat.getFrequenciaAbsoluta()[i];
+            novaLinha[3] = DistribuicaoDeFrequencias.truncate(CalculosEstat.getFrequenciaAbsoluta()[i]);
 
-            novaLinha[4] = (float) CalculosEstat.getFrequenciaAbsolutaAcumulada()[i];
+            novaLinha[4] = DistribuicaoDeFrequencias.truncate(CalculosEstat.getFrequenciaAbsolutaAcumulada()[i]);
             modelDefault.addRow(novaLinha);
         }
 

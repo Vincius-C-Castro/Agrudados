@@ -29,30 +29,29 @@ public class DistribuicaoDeFrequencias extends Calculos {
     
     public void calcularIntervalo()
     {
-        this.setIntervalo((this.getAmplitude() / (double)this.getNumClasses()));
+        this.setIntervalo(truncate((this.getAmplitude() / (double)this.getNumClasses())));
     }
     
     public void calcularFrequencia()
     {
         int qtdeClasses = this.getNumClasses();
         
-        double valIntervalo = this.getIntervalo();
+        double valIntervalo = truncate(this.getIntervalo());
         double valores[] = this.getConjunto();
         int frequencias[] = new int[qtdeClasses];
-        int intervalo = (int)valores[0];
+        double intervalo = truncate(valores[0]);
         
         for(int i = 0; i < qtdeClasses; i++)
         {
             for(int j = 0; j < valores.length; j++)
             {
-                if( (valores[j] >= intervalo) && (valores[j] <= intervalo + valIntervalo))
+                if( (valores[j] >= intervalo) && (valores[j] < intervalo + valIntervalo))
                 {
                    frequencias[i]++;
                 }
             }
             
             intervalo += this.getIntervalo();
-            intervalo++;
             
         }
         this.setFrequencias(frequencias);
@@ -85,7 +84,7 @@ public class DistribuicaoDeFrequencias extends Calculos {
         
         for(int i = 0; i < freq.length; i++)
         {
-            freqAbsoluta[i] = (double) freq[i] / somatorio;
+            freqAbsoluta[i] = truncate((double) freq[i] / somatorio);
         }
         
         this.setFrequenciaAbsoluta(freqAbsoluta);
@@ -104,4 +103,10 @@ public class DistribuicaoDeFrequencias extends Calculos {
         
         this.setFrequenciaAbsolutaAcumulada(freqAcumulada);
     }
+    
+    public static double truncate(double value) {
+        double valor = Math.round(value * 1000) / 1000d;
+        return valor;
+    }
+
 }

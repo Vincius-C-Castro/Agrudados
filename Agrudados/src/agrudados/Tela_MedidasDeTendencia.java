@@ -4,6 +4,7 @@ import estatistica.Calculos;
 import model.ElementosModel;
 import model.elementos;
 import estatistica.Central;
+import estatistica.DistribuicaoDeFrequencias;
 import java.beans.PropertyVetoException;
 import java.util.Arrays;
 import javax.swing.table.TableRowSorter;
@@ -464,11 +465,11 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         * Insere os valores obtidos nos cálculos nas labels da tela.
         */
         {
-            resultMedia.setText(String.valueOf((float)CalculosEstat.getMedia()));
+            resultMedia.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getMedia())));
             //resultMedia.setText(String.valueOf(CalculosEstat.getNumClasses()));
 
             if (CalculosEstat.getIndiceModa() >= 0) {
-                resultModa.setText(String.valueOf((float)CalculosEstat.getModa()));
+                resultModa.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getModa())));
             } else if (CalculosEstat.getIndiceModa() == -1) {
                 resultModa.setText("Amodal");
             } else if (CalculosEstat.getIndiceModa() == -2) {
@@ -477,17 +478,17 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
                 resultModa.setText("Multimodal");
             }
 
-            resultMediana.setText(String.valueOf((float)CalculosEstat.getMediana()));
+            resultMediana.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getMediana())));
 
-            resultVar.setText(String.valueOf((float)CalculosEstat.getVariancia()));
+            resultVar.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getVariancia())));
+            
+            resultDP.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getDesvioPadrao())));
 
-            resultDP.setText(String.valueOf((float)CalculosEstat.getDesvioPadrao()));
+            resultDM.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getDesvioMedio())));
 
-            resultDM.setText(String.valueOf((float)CalculosEstat.getDesvioMedio()));
+            resultAmplitude.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getAmplitude())));
 
-            resultAmplitude.setText(String.valueOf((float)CalculosEstat.getAmplitude()));
-
-            resultCV.setText(String.valueOf((float)CalculosEstat.getCoeficienteVariacao()) + " %");
+            resultCV.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getCoeficienteVariacao())) + " %");
         }
     }//GEN-LAST:event_botaoCalcularActionPerformed
 

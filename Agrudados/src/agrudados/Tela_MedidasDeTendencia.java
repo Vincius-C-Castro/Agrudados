@@ -437,10 +437,12 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
 
     private void conjuntoAmostralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoAmostralActionPerformed
         conjuntoPopulacional.setSelected(false);
+        conjuntoAmostral.setSelected(true);
     }//GEN-LAST:event_conjuntoAmostralActionPerformed
 
     private void conjuntoPopulacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoPopulacionalActionPerformed
         conjuntoAmostral.setSelected(false);
+        conjuntoPopulacional.setSelected(true);
     }//GEN-LAST:event_conjuntoPopulacionalActionPerformed
 
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed

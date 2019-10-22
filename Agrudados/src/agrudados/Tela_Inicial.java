@@ -1,6 +1,7 @@
 package agrudados;
 
 import Telas.Ajuda;
+import java.util.Arrays;
 import javax.swing.ImageIcon;
 
 public class Tela_Inicial extends javax.swing.JFrame {
@@ -289,6 +290,11 @@ public class Tela_Inicial extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+//    public void ordenarTabela(double[] elementos)
+//    {
+//        Arrays.sort(elementos);
+//        return elementos;
+//    }
     /**
      * @param args the command line arguments
      */

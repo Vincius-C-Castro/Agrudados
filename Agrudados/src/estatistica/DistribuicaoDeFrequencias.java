@@ -39,7 +39,7 @@ public class DistribuicaoDeFrequencias extends Calculos {
         
         double valIntervalo = truncate(this.getIntervalo());
         double valores[] = this.getConjunto();
-        int frequencias[] = new int[qtdeClasses];
+        double frequencias[] = new double[qtdeClasses];
         double intervalo = truncate(valores[0]);
         
         for(int i = 0; i < qtdeClasses; i++)
@@ -66,8 +66,8 @@ public class DistribuicaoDeFrequencias extends Calculos {
     
     public void calcularFreqAcumulada()
     {
-        int freqAcumulada[] = this.getFrequencias().clone();
-        int anterior = 0;
+        double freqAcumulada[] = this.getFrequencias().clone();
+        double anterior = 0;
         
         for(int i = 0; i < freqAcumulada.length; i++)
         {
@@ -80,7 +80,7 @@ public class DistribuicaoDeFrequencias extends Calculos {
     
     public void calcularFreqAbsoluta()
     {
-        int freq[] = this.getFrequencias().clone();
+        double freq[] = this.getFrequencias().clone();
         double freqAbsoluta[] = new double[freq.length];
         int somatorio = 0;
         

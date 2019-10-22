@@ -35,6 +35,7 @@ public class Calculos {
     private static int[] frequenciasAcumuladas;
     private static double[] frequenciaAbsoluta;
     private static double[] frequenciaAbsolutaAcumulada;
+    private static double[] mediaClasses;
 
     /**
      * Classe inicializadora dos dados necessários para realizar os cálculos.
@@ -205,6 +206,16 @@ public class Calculos {
     public void setFrequenciaAbsolutaAcumulada(double[] frequenciaAbsolutaAcumulada) {
         Calculos.frequenciaAbsolutaAcumulada = frequenciaAbsolutaAcumulada;
     }
+
+    public double[] getMediaClasses() {
+        return mediaClasses;
+    }
+
+    public void setMediaClasses(double[] mediaClasses) {
+        Calculos.mediaClasses = mediaClasses;
+    }
+    
+    
 
     public static double truncate(double value) {
         double valorArredondado = Math.round(value * 100) / 100d;

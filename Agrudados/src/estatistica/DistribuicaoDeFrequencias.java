@@ -19,6 +19,7 @@ public class DistribuicaoDeFrequencias extends Calculos {
         calcularFreqAcumulada();
         calcularFreqAbsoluta();
         calcularFreqAbsolutaAcumulada();
+        calcularPontoMedio();
     }
     public void calcularNumeroClasses()
     {
@@ -51,7 +52,7 @@ public class DistribuicaoDeFrequencias extends Calculos {
                 }
                 else if (i == qtdeClasses - 1)
                 {
-                    if ((valores[j] >= truncate(intervalo)) && (valores[j] <= truncate(intervalo + valIntervalo))) {
+                    if ((valores[j] >= truncate(intervalo)) && (valores[j] <= truncate(valores[valores.length-1]))) {
                         frequencias[i]++;
                     }
                 }
@@ -108,6 +109,22 @@ public class DistribuicaoDeFrequencias extends Calculos {
         }
         
         this.setFrequenciaAbsolutaAcumulada(freqAcumulada);
+    }
+    
+    public void calcularPontoMedio()
+    {
+        double value[] = this.getConjunto().clone();
+        double mediasClasses[] = new double[this.getNumClasses()];
+        double menorValor = value[0];
+        double intervalo = this.getIntervalo();
+  
+        for(int i = 0; i < this.getNumClasses(); i++)
+        {
+            mediasClasses[i] = (menorValor + (menorValor + intervalo))/2;
+            menorValor += intervalo;
+        }
+        
+        this.setMediaClasses(mediasClasses);
     }
     
     public static double truncate(double value) {

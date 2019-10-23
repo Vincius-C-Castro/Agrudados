@@ -11,12 +11,18 @@ package estatistica;
  */
 public class Central extends Calculos {
     
+    /**
+     * Realiza todos os cálculos centrais.
+     */
     public void calcular() {
         calcularMedia();
         calcularModa();
         calcularMediana();
     }
 
+    /**
+     * Calcula a média.
+     */
     private void calcularMedia() {
         double valores[] = this.getConjunto();
         double soma = 0;
@@ -29,6 +35,9 @@ public class Central extends Calculos {
 
     }
 
+    /**
+     * Calcuma a moda.
+     */
     private void calcularModa() {
         double valores[] = this.getConjunto();
         int[] cont = new int[valores.length];
@@ -88,6 +97,9 @@ public class Central extends Calculos {
         }
     }
 
+    /**
+     * Calcula a mediana.
+     */
     private void calcularMediana() {
         double valores[] = this.getConjunto();
         int esq = 0;

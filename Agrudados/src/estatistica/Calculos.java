@@ -52,6 +52,9 @@ public class Calculos {
         calcularTudo();
     }
 
+    /**
+     * Realiza todos os cálculos.
+     */
     private void calcularTudo() {
 
         Central medidasCentral = new Central();
@@ -71,6 +74,18 @@ public class Calculos {
 
     }
 
+    /**
+     * Método responsável por definir a quantidade de casas decimais.
+     * Define o máximo de casas decimais para 3.
+     * @param value
+     * @return 
+     */
+    public static double truncate(double value) {
+        double valorArredondado = Math.round(value * 1000) / 1000d;
+        return valorArredondado;
+    }
+
+    // Getters e Setters da classe.
     public void setConjunto(double[] conjunto) {
         Calculos.conjunto = conjunto;
     }
@@ -214,11 +229,5 @@ public class Calculos {
     public void setMediaClasses(double[] mediaClasses) {
         Calculos.mediaClasses = mediaClasses;
     }
-    
-    
 
-    public static double truncate(double value) {
-        double valorArredondado = Math.round(value * 100) / 100d;
-        return valorArredondado;
-    }
 }

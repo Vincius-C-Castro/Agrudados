@@ -11,6 +11,9 @@ package estatistica;
  */
 public class Dispersao extends Calculos {
     
+    /**
+     * Realiza todos os cálculos de dispersão.
+     */
     public void calcular() {
         calcularVariancia();
         calcularDesvioMedio();
@@ -19,6 +22,9 @@ public class Dispersao extends Calculos {
         calcularCoeficienteVariacao();
     }
 
+    /**
+     * Calcula o desvio padrão.
+     */
     private void calcularDesvioPadrao() {
         double valores[] = this.getConjunto();
         if (valores.length == 1) {
@@ -41,6 +47,9 @@ public class Dispersao extends Calculos {
         }
     }
 
+    /**
+     * Calcula a variância.
+     */
     private void calcularVariancia() {
         double valores[] = this.getConjunto();
         if (valores.length == 1) {
@@ -63,6 +72,9 @@ public class Dispersao extends Calculos {
         }
     }
 
+    /**
+     * Calcula o desvio médio.
+     */
     private void calcularDesvioMedio() {
         
         double valores[] = this.getConjunto();
@@ -87,11 +99,17 @@ public class Dispersao extends Calculos {
 
     }
 
+    /**
+     * Calcula a amplitude.
+     */
     private void calcularAmplitude() {
         double valores[] = this.getConjunto();
         this.setAmplitude(valores[valores.length - 1] - valores[0]);
     }
 
+    /**
+     * Calcula o coeficiênte de variação.
+     */
     private void calcularCoeficienteVariacao() {
         this.setCoeficienteVariacao((this.getDesvioPadrao() / this.getMedia()) * 100);
     }

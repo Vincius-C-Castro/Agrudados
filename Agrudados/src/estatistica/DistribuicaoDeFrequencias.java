@@ -11,6 +11,10 @@ package estatistica;
  */
 public class DistribuicaoDeFrequencias extends Calculos {
     
+    /**
+     * Realiza todos os cálculos para montagem da tabela de
+     * distribuição de frequência.
+     */
     public void calcular()
     {
         calcularNumeroClasses();
@@ -21,6 +25,10 @@ public class DistribuicaoDeFrequencias extends Calculos {
         calcularFreqAbsolutaAcumulada();
         calcularPontoMedio();
     }
+    
+    /**
+     * Contabiliza o número de classes.
+     */
     public void calcularNumeroClasses()
     {
         double valores[] = this.getConjunto();
@@ -28,11 +36,17 @@ public class DistribuicaoDeFrequencias extends Calculos {
         this.setNumClasses((int) ( 1 + 3.3 * log)); 
     }
     
+    /**
+     * Calcula o intervalo das classes.
+     */
     public void calcularIntervalo()
     {
         this.setIntervalo(truncate((this.getAmplitude() / (double)this.getNumClasses())));
     }
     
+   /**
+    * Calcula a frequência.
+    */
     public void calcularFrequencia()
     {
         int qtdeClasses = this.getNumClasses();
@@ -64,6 +78,9 @@ public class DistribuicaoDeFrequencias extends Calculos {
         this.setFrequencias(frequencias);
     }
     
+    /**
+     * Monta um vetor contendo as freqências acumuladas.
+     */
     public void calcularFreqAcumulada()
     {
         double freqAcumulada[] = this.getFrequencias().clone();
@@ -78,6 +95,9 @@ public class DistribuicaoDeFrequencias extends Calculos {
         this.setFrequenciasAcumuladas(freqAcumulada);
     }
     
+    /**
+     * Calcula a frequência absoluta.
+     */
     public void calcularFreqAbsoluta()
     {
         double freq[] = this.getFrequencias().clone();
@@ -97,6 +117,9 @@ public class DistribuicaoDeFrequencias extends Calculos {
         this.setFrequenciaAbsoluta(freqAbsoluta);
     }
     
+    /**
+     * Armazena a freqência absoluta acumulada.
+     */
     public void calcularFreqAbsolutaAcumulada()
     {
         double freqAcumulada[] = this.getFrequenciaAbsoluta().clone();
@@ -111,6 +134,9 @@ public class DistribuicaoDeFrequencias extends Calculos {
         this.setFrequenciaAbsolutaAcumulada(freqAcumulada);
     }
     
+    /**
+     * Calcula o ponto médio das classes.
+     */
     public void calcularPontoMedio()
     {
         double value[] = this.getConjunto().clone();
@@ -127,9 +153,4 @@ public class DistribuicaoDeFrequencias extends Calculos {
         this.setMediaClasses(mediasClasses);
     }
     
-    public static double truncate(double value) {
-        double valor = Math.round(value * 1000) / 1000d;
-        return valor;
-    }
-
 }

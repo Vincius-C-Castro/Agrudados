@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package modelostabelas;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -70,12 +70,5 @@ public class ElementosModel extends AbstractTableModel{
      this.dados.remove(linha);
      this.fireTableRowsDeleted(linha, linha);
     
-    }
-    public void calculo(){
-     
-   
-        
-    }
-    
-    
+    }  
 }

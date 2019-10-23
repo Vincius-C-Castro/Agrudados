@@ -1,38 +1,30 @@
 package agrudados;
 
 import estatistica.Calculos;
-import model.ElementosModel;
-import model.elementos;
+import modelostabelas.ElementosModel;
+import modelostabelas.elementos;
 import estatistica.Central;
 import estatistica.DistribuicaoDeFrequencias;
-import java.beans.PropertyVetoException;
 import java.util.Arrays;
-import javax.swing.table.TableRowSorter;
 
-public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
-    
-    String[] colunas = {"Elementos"};
+public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
+
+    // Inicializa o modelo da tabela.
+    String[] colunas = {""};
     ElementosModel modeloTabela = new ElementosModel(colunas);
-    
-    @Override
-    public void setMaximum(boolean bln) throws PropertyVetoException {
-        super.setMaximum(bln); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    @Override
-    public void setMaximizable(boolean maximizable) {
-        this.maximizable = maximizable;
+
+    /**
+     * Inicializa os componentes da tela de medidas de tendências.
+     */
+    public TelaMedidasDeTendencia() {
+        initComponents();
+        tabela.setModel(modeloTabela);
+        
     }
 
     /**
-     * Creates new form medidasdetendenciacentralSimpes
+     * Inicialização dos componentes.
      */
-    public Tela_MedidasDeTendencia() {
-        initComponents();
-        tabela.setModel(modeloTabela);
-        tabela.setRowSorter(new TableRowSorter(modeloTabela));
-    }
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -66,9 +58,12 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         caixaDeTexto = new javax.swing.JTextField();
         botaoEnviar = new javax.swing.JButton();
         infoLabel = new javax.swing.JLabel();
-        panelConjunto = new javax.swing.JPanel();
+        btnDeletConj = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
+        btnOrdenar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jLabel8.setText("jLabel7");
 
@@ -88,9 +83,14 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         setVerifyInputWhenFocusTarget(false);
         setVisible(true);
 
+        panelPrincipalMTS.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color2"));
+        panelPrincipalMTS.setForeground(new java.awt.Color(51, 102, 255));
+
+        PainelMedTend.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color2"));
         PainelMedTend.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Medidas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         PainelMedTend.setForeground(java.awt.Color.gray);
 
+        panelCentrais.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color2"));
         panelCentrais.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Central", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         panelCentrais.setForeground(java.awt.Color.darkGray);
 
@@ -106,8 +106,10 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         resultMediana.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mediana", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         resultMediana.setName("resultMediana"); // NOI18N
 
+        panelTipoConjunto.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color2"));
         panelTipoConjunto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo de conjunto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
+        conjuntoPopulacional.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color2"));
         conjuntoPopulacional.setText("Conjunto Populacional");
         conjuntoPopulacional.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +117,7 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
             }
         });
 
+        conjuntoAmostral.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color2"));
         conjuntoAmostral.setSelected(true);
         conjuntoAmostral.setText("Conjunto Amostral");
         conjuntoAmostral.addActionListener(new java.awt.event.ActionListener() {
@@ -168,14 +171,16 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
                 .addComponent(resultModa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(resultMediana, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelTipoConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(panelTipoConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         resultMedia.getAccessibleContext().setAccessibleName("resultMedia");
         resultModa.getAccessibleContext().setAccessibleName("resultModa");
         resultMediana.getAccessibleContext().setAccessibleName("resultMediana");
 
+        panelDispersao.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color2"));
         panelDispersao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dispersão", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         panelDispersao.setForeground(java.awt.Color.darkGray);
 
@@ -227,8 +232,9 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
                 .addComponent(resultDP, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(resultAmplitude, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(resultCV, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(resultCV, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         resultVar.getAccessibleContext().setAccessibleName("resultVar");
@@ -255,7 +261,8 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
                     .addComponent(panelCentrais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        panelElementosConjunto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Elementos do conjunto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        panelElementosConjunto.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color2"));
+        panelElementosConjunto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Insira os elementos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         botaoAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table_edit.png"))); // NOI18N
         botaoAlterar.setText("Alterar");
@@ -274,7 +281,7 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         });
 
         botaoCalcular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calculator.png"))); // NOI18N
-        botaoCalcular.setText("Calcular");
+        botaoCalcular.setText("Calcular medidas");
         botaoCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCalcularActionPerformed(evt);
@@ -283,11 +290,6 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
 
         caixaDeTexto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         caixaDeTexto.setOpaque(false);
-        caixaDeTexto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixaDeTextoActionPerformed(evt);
-            }
-        });
         caixaDeTexto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 caixaDeTextoKeyPressed(evt);
@@ -304,114 +306,137 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
 
         infoLabel.setForeground(java.awt.Color.red);
 
+        btnDeletConj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/delete.png"))); // NOI18N
+        btnDeletConj.setText("Deletar conjunto");
+        btnDeletConj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletConjActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color2"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Elementos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        tabela.setBorder(new javax.swing.border.MatteBorder(null));
+        tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tabela.setAutoscrolls(false);
+        tabela.getTableHeader().setReorderingAllowed(false);
+        tabela.setUpdateSelectionOnSort(false);
+        tabela.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tabelaKeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabela);
+        if (tabela.getColumnModel().getColumnCount() > 0) {
+            tabela.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+
+        btnOrdenar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/table_sort.png"))); // NOI18N
+        btnOrdenar.setText("Ordenar tabela");
+        btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelElementosConjuntoLayout = new javax.swing.GroupLayout(panelElementosConjunto);
         panelElementosConjunto.setLayout(panelElementosConjuntoLayout);
         panelElementosConjuntoLayout.setHorizontalGroup(
             panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelElementosConjuntoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(botaoCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(infoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(caixaDeTexto))
+                    .addComponent(btnDeletConj, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelElementosConjuntoLayout.createSequentialGroup()
-                        .addComponent(botaoCalcular)
+                        .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botaoEnviar)
+                            .addComponent(botaoExcluir))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoExcluir))
-                    .addComponent(caixaDeTexto)
-                    .addComponent(infoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(botaoAlterar))
+                    .addComponent(btnOrdenar))
                 .addGap(18, 18, 18)
-                .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botaoAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                    .addComponent(botaoEnviar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
         panelElementosConjuntoLayout.setVerticalGroup(
             panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelElementosConjuntoLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addGap(11, 11, 11)
                 .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(caixaDeTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoEnviar))
+                    .addComponent(botaoEnviar)
+                    .addComponent(botaoAlterar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(infoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoExcluir)
-                    .addComponent(botaoAlterar)
                     .addComponent(botaoCalcular))
-                .addContainerGap())
-        );
-
-        panelConjunto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Conjunto", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
-
-        tabela.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null}
-            },
-            new String [] {
-                "Elementos"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tabela.setColumnSelectionAllowed(true);
-        tabela.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-        tabela.setRowSorter(new TableRowSorter(modeloTabela));
-        tabela.getTableHeader().setReorderingAllowed(false);
-        tabela.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                keyDelete(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tabela);
-        tabela.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (tabela.getColumnModel().getColumnCount() > 0) {
-            tabela.getColumnModel().getColumn(0).setResizable(false);
-        }
-        tabela.getAccessibleContext().setAccessibleName("");
-
-        javax.swing.GroupLayout panelConjuntoLayout = new javax.swing.GroupLayout(panelConjunto);
-        panelConjunto.setLayout(panelConjuntoLayout);
-        panelConjuntoLayout.setHorizontalGroup(
-            panelConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelConjuntoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        panelConjuntoLayout.setVerticalGroup(
-            panelConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelConjuntoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelElementosConjuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDeletConj)
+                    .addComponent(btnOrdenar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelElementosConjuntoLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        jLabel1.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.color2"));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/agrudados.png"))); // NOI18N
 
         javax.swing.GroupLayout panelPrincipalMTSLayout = new javax.swing.GroupLayout(panelPrincipalMTS);
         panelPrincipalMTS.setLayout(panelPrincipalMTSLayout);
         panelPrincipalMTSLayout.setHorizontalGroup(
             panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalMTSLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelElementosConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrincipalMTSLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(panelElementosConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(PainelMedTend, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(15, 15, 15))
         );
         panelPrincipalMTSLayout.setVerticalGroup(
             panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalMTSLayout.createSequentialGroup()
-                .addComponent(panelElementosConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelConjunto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(PainelMedTend, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelPrincipalMTSLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelPrincipalMTSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PainelMedTend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelPrincipalMTSLayout.createSequentialGroup()
+                        .addComponent(panelElementosConjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6)))
+                .addContainerGap())
         );
 
         PainelMedTend.getAccessibleContext().setAccessibleDescription("");
@@ -421,30 +446,42 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelPrincipalMTS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelPrincipalMTS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelPrincipalMTS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelPrincipalMTS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Tratamento do botão que indica que o conjunto é amostral.
+     * @param evt 
+     */
     private void conjuntoAmostralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoAmostralActionPerformed
         conjuntoPopulacional.setSelected(false);
         conjuntoAmostral.setSelected(true);
     }//GEN-LAST:event_conjuntoAmostralActionPerformed
 
+    /**
+     * Tratamento do botão que indica que o conjunto é populacional.
+     * @param evt 
+     */
     private void conjuntoPopulacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoPopulacionalActionPerformed
         conjuntoAmostral.setSelected(false);
         conjuntoPopulacional.setSelected(true);
     }//GEN-LAST:event_conjuntoPopulacionalActionPerformed
 
+    /**
+     * Método utilizado para enviar o valor digitado na caixa de texto 
+     * para a tabela.
+     * @param evt 
+     */
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
 
         // Verifica se há alguma coisa na caixa de texto.
@@ -458,12 +495,18 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
                 caixaDeTexto.setText("");
                 infoLabel.setText("");
             } catch (NumberFormatException exception) {
+                // Se foi algum caractere inválido exibirá o erro.
                 infoLabel.setText("Entrada Inválida!");
             }
         }
 
     }//GEN-LAST:event_botaoEnviarActionPerformed
 
+    /**
+     * Método utilizado para captar os comandos dados na caixa de texto.
+     * Se precionou a tecla Enter, envia o valor para a tabela automaticamente.
+     * @param evt 
+     */
     private void caixaDeTextoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caixaDeTextoKeyPressed
         // Precionou a tecla "enter"?
         if (evt.getKeyCode() == 10) {
@@ -478,29 +521,36 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
                     caixaDeTexto.setText("");
                     infoLabel.setText("");
                 } catch (NumberFormatException exception) {
+                    // Se foi digitado um caractere inválido exibe o erro.
                     infoLabel.setText("Entrada Inválida!");
                 }
             }
         }
     }//GEN-LAST:event_caixaDeTextoKeyPressed
 
-    private void caixaDeTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaDeTextoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caixaDeTextoActionPerformed
-
+    /**
+     * Método que é chamado ao clicar no botão Calcular medidas.
+     * Realiza todos os cálculos necessário e exibe os resultados obtidos.
+     * @param evt 
+     */
     private void botaoCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCalcularActionPerformed
-        
+
         try {
+            // Obtém o tamanho da tabela.
             int tamTabela = tabela.getRowCount();
             double valor[] = new double[tamTabela];
+            // Verifica se o conjunto é amostral ou não.
             boolean isConjuntoAmostral = conjuntoAmostral.isSelected();
-            
+
+            // Copia os valores presentes na tabela para o vetor.
             for (int i = 0; i < tamTabela; i++) {
                 valor[i] = Double.parseDouble(tabela.getValueAt(i, 0).toString());
             }
-            
+
+            // Ordena o vetor.
             Arrays.sort(valor);
-            
+
+            // Instancia da classe que realiazará os cálculos.
             Calculos CalculosEstat = new Central();
 
             /**
@@ -511,11 +561,17 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
             /**
              * Insere os valores obtidos nos cálculos nas labels da tela.
              */
-            resultMedia.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getMedia())));
-            //resultMedia.setText(String.valueOf(CalculosEstat.getNumClasses()));
+            resultMedia.setText(String.valueOf(
+                    DistribuicaoDeFrequencias.truncate(CalculosEstat.getMedia())));
 
+            /**
+             * Obtém o índice no vetor que corresponde ao valor modal.
+             * Se o índice for menor que zero, quer dizer que o conjunto
+             * é amodal, bimodal ou multimodal.
+             */
             if (CalculosEstat.getIndiceModa() >= 0) {
-                resultModa.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getModa())));
+                resultModa.setText(String.valueOf(
+                        DistribuicaoDeFrequencias.truncate(CalculosEstat.getModa())));
             } else if (CalculosEstat.getIndiceModa() == -1) {
                 resultModa.setText("Amodal");
             } else if (CalculosEstat.getIndiceModa() == -2) {
@@ -523,49 +579,119 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
             } else {
                 resultModa.setText("Multimodal");
             }
+
+            /**
+             * Inserção dos demais valores obtidos nas devidas labels.
+             */
+            resultMediana.setText(String.valueOf(
+                    DistribuicaoDeFrequencias.truncate(CalculosEstat.getMediana())));
+            resultVar.setText(String.valueOf(
+                    DistribuicaoDeFrequencias.truncate(CalculosEstat.getVariancia())));
+            resultDP.setText(String.valueOf(
+                    DistribuicaoDeFrequencias.truncate(CalculosEstat.getDesvioPadrao())));
+            resultDM.setText(String.valueOf(
+                    DistribuicaoDeFrequencias.truncate(CalculosEstat.getDesvioMedio())));
+            resultAmplitude.setText(String.valueOf(
+                    DistribuicaoDeFrequencias.truncate(CalculosEstat.getAmplitude())));
+            resultCV.setText(String.valueOf(
+                    DistribuicaoDeFrequencias.truncate(
+                            CalculosEstat.getCoeficienteVariacao())) + " %");
             
-            resultMediana.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getMediana())));
-            
-            resultVar.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getVariancia())));
-            
-            resultDP.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getDesvioPadrao())));
-            
-            resultDM.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getDesvioMedio())));
-            
-            resultAmplitude.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getAmplitude())));
-            
-            resultCV.setText(String.valueOf(DistribuicaoDeFrequencias.truncate(CalculosEstat.getCoeficienteVariacao())) + " %");
         } catch (ArrayIndexOutOfBoundsException exception) {
+            // Indica erro caso a tabela de elementos esteja vazia.
             infoLabel.setText("Tabela Vazia!");
         }
-        
+
 
     }//GEN-LAST:event_botaoCalcularActionPerformed
 
+    /**
+     * Método chamado ao clicar no botão Excluir.
+     * Remove o elemento selecionado na tabela.
+     * @param evt 
+     */
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        
+
         if (tabela.getSelectedRow() != -1) {
-            
+
             modeloTabela.removeRow(tabela.getSelectedRow());
         }
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
+    /**
+     * Método chamado ao clicar no botão Alterar.
+     * Insere o valor digitado na caixa de texto na linha selecionada na tabela.
+     * @param evt 
+     */
     private void botaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarActionPerformed
-        
+
         if (tabela.getSelectedRow() != -1) {
-            
+
             modeloTabela.setValueAt(caixaDeTexto.getText(), tabela.getSelectedRow(), 0);
-            
+
         }
     }//GEN-LAST:event_botaoAlterarActionPerformed
 
-    private void keyDelete(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keyDelete
+    /**
+     * Método chamado ao precionar alguma tecla na tabela.
+     * Exclúi o elemento da tabela selecionado.
+     * @param evt 
+     */
+    private void tabelaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaKeyPressed
         // A tecla precionada foi a tecla "delete"?
         if (evt.getKeyCode() == 127) {
             modeloTabela.removeRow(tabela.getSelectedRow());
         }
-    }//GEN-LAST:event_keyDelete
+    }//GEN-LAST:event_tabelaKeyPressed
 
+    /**
+     * Método chamado ao precinar o botão Deletar conjunto.
+     * Remove todos elementos da tabela.
+     * @param evt 
+     */
+    private void btnDeletConjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletConjActionPerformed
+        int tamTabela = modeloTabela.getRowCount();
+        for (int i = 0; i < tamTabela; i++) {
+            modeloTabela.removeRow(0);
+        }
+    }//GEN-LAST:event_btnDeletConjActionPerformed
+
+    /**
+     * Método chamado ao precionar o botão Ordenar tabela.
+     * Ordena a tabela.
+     * @param evt 
+     */
+    private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
+        ordenaTabela();
+    }//GEN-LAST:event_btnOrdenarActionPerformed
+
+    /**
+     * Método responsável por ordenar a tabela.
+     * Remove todos elementos da tabela e insere ordenadamente.
+     */
+    private void ordenaTabela() {
+        // Obtèm o tamanho da tabela.
+        int tamTabela = modeloTabela.getRowCount();
+        double valor[] = new double[tamTabela];
+        // Copia os elementos da tabela para o vetor.
+        for (int i = 0; i < tamTabela; i++) {
+            valor[i] = Double.parseDouble(modeloTabela.getValueAt(i, 0).toString());
+        }
+        // Ordena os dados no vetor.
+        Arrays.sort(valor);
+
+        // Remove todos elementos da tabela.
+        for (int i = 0; i < tamTabela; i++) {
+            modeloTabela.removeRow(0);
+        }
+
+        // Insere os valores ordenados na tabela.
+        for (int i = 0; i < tamTabela; i++) {
+            elementos e = new elementos();
+            e.setNumeros(valor[i]);
+            modeloTabela.addrow(e);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PainelMedTend;
@@ -573,6 +699,8 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
     private javax.swing.JButton botaoCalcular;
     private javax.swing.JButton botaoEnviar;
     private javax.swing.JButton botaoExcluir;
+    private javax.swing.JButton btnDeletConj;
+    private javax.swing.JButton btnOrdenar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -581,13 +709,14 @@ public class Tela_MedidasDeTendencia extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton conjuntoAmostral;
     private javax.swing.JRadioButton conjuntoPopulacional;
     private javax.swing.JLabel infoLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelCentrais;
-    private javax.swing.JPanel panelConjunto;
     private javax.swing.JPanel panelDispersao;
     private javax.swing.JPanel panelElementosConjunto;
     private javax.swing.JPanel panelPrincipalMTS;

@@ -6,10 +6,14 @@ import javax.swing.UIManager;
 
 public class TelaInicial extends javax.swing.JFrame {
 
+    // Insância das telas.
+    TelaMedidasDeTendencia telaMedTendencia = new TelaMedidasDeTendencia();
+    TelaAnaliseDeDados telaDistFreq = new TelaAnaliseDeDados();
+    TelaFormulas telaAjuda = new TelaFormulas();
 
-    /***
-     * Construtor da classe TelaInicial.
-     * Inicializa os componentes da tela.
+    /**
+     * *
+     * Construtor da classe TelaInicial. Inicializa os componentes da tela.
      */
     public TelaInicial() {
         this.carregarIconeAplicacao();
@@ -19,7 +23,8 @@ public class TelaInicial extends javax.swing.JFrame {
 
     }
 
-    /***
+    /**
+     * *
      * Método utilizado para carregar o ícone da aplicação.
      */
     private void carregarIconeAplicacao() {
@@ -27,9 +32,10 @@ public class TelaInicial extends javax.swing.JFrame {
         imageIcon = new ImageIcon(getClass().getResource("/imagens/agrudadosIco.png"));
         this.setIconImage(imageIcon.getImage());
     }
-    
-    /***
-     * Inicialização dos componentes. 
+
+    /**
+     * *
+     * Inicialização dos componentes.
      */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -262,36 +268,44 @@ public class TelaInicial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /***
+    /**
+     * *
      * Exibição da tela de distribuição de freqências.
-     * @param evt 
+     *
+     * @param evt
      */
     private void itemAnaliseDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAnaliseDadosActionPerformed
 
-        TelaAnaliseDeDados telaDistFreq = new TelaAnaliseDeDados();
         labelImagemFundo.add(telaDistFreq);
         telaDistFreq.setVisible(true);
+        telaDistFreq.setFocusable(true);
     }//GEN-LAST:event_itemAnaliseDadosActionPerformed
 
-    /***
+    /**
+     * *
      * Exibição da tela de medidas de tendências.
-     * @param evt 
+     *
+     * @param evt
      */
     private void itemCentralDispersaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCentralDispersaoActionPerformed
         // TODO add your handling code here:
-        TelaMedidasDeTendencia telaMedTendencia = new TelaMedidasDeTendencia();
+
         labelImagemFundo.add(telaMedTendencia);
         telaMedTendencia.setVisible(true);
+        telaMedTendencia.setFocusable(true);
     }//GEN-LAST:event_itemCentralDispersaoActionPerformed
 
-    /***
+    /**
+     * *
      * Exibição da tela de fórmulas.
-     * @param evt 
+     *
+     * @param evt
      */
     private void itemFormulasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemFormulasActionPerformed
-     TelaFormulas telaAjuda = new TelaFormulas();
-     labelImagemFundo.add(telaAjuda);
-     telaAjuda.setVisible(true);
+
+        labelImagemFundo.add(telaAjuda);
+        telaAjuda.setVisible(true);
+        telaAjuda.setFocusable(true);
 
     }//GEN-LAST:event_itemFormulasActionPerformed
 
@@ -302,21 +316,21 @@ public class TelaInicial extends javax.swing.JFrame {
 
 
         /* Inicia as cores para o Nimbus Look and Feel */
-        UIManager.put( "control", new Color( 128, 128, 128) );
-        UIManager.put( "info", new Color(128,128,128) );
-        UIManager.put( "nimbusBase", new Color( 18, 30, 49) );
-        UIManager.put( "nimbusAlertYellow", new Color( 248, 187, 0) );
-        UIManager.put( "nimbusDisabledText", new Color( 128, 128, 128) );
-        UIManager.put( "nimbusFocus", new Color(115,164,209) );
-        UIManager.put( "nimbusGreen", new Color(176,179,50) );
-        UIManager.put( "nimbusInfoBlue", new Color( 66, 139, 221) );
-        UIManager.put( "nimbusLightBackground", new Color( 18, 30, 49) );
-        UIManager.put( "nimbusOrange", new Color(191,98,4) );
-        UIManager.put( "nimbusRed", new Color(169,46,34) );
-        UIManager.put( "nimbusSelectedText", new Color( 255, 255, 255) );
-        UIManager.put( "nimbusSelectionBackground", new Color( 104, 93, 156) );
-        UIManager.put( "text", new Color( 230, 230, 230) );
-        
+        UIManager.put("control", new Color(128, 128, 128));
+        UIManager.put("info", new Color(128, 128, 128));
+        UIManager.put("nimbusBase", new Color(18, 30, 49));
+        UIManager.put("nimbusAlertYellow", new Color(248, 187, 0));
+        UIManager.put("nimbusDisabledText", new Color(128, 128, 128));
+        UIManager.put("nimbusFocus", new Color(115, 164, 209));
+        UIManager.put("nimbusGreen", new Color(176, 179, 50));
+        UIManager.put("nimbusInfoBlue", new Color(66, 139, 221));
+        UIManager.put("nimbusLightBackground", new Color(18, 30, 49));
+        UIManager.put("nimbusOrange", new Color(191, 98, 4));
+        UIManager.put("nimbusRed", new Color(169, 46, 34));
+        UIManager.put("nimbusSelectedText", new Color(255, 255, 255));
+        UIManager.put("nimbusSelectionBackground", new Color(104, 93, 156));
+        UIManager.put("text", new Color(230, 230, 230));
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -332,7 +346,7 @@ public class TelaInicial extends javax.swing.JFrame {
             new TelaInicial().setVisible(true);
         });
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JMenu graficosETabela;

@@ -143,6 +143,7 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
         jMenu2.setText("jMenu2");
 
         setClosable(true);
+        setTitle("Análise de dados");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/application_view_tile.png"))); // NOI18N
         setOpaque(false);
         try {

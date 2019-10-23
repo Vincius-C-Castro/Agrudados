@@ -694,7 +694,15 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
 
         try {
             // Obtém o tamanho da tabela.
-            int tamTabela = tabelaElementos.getRowCount();
+            
+                    // Deleta a tabela de distribuição de frequências.
+                    
+        int tamTabela = modelDefault.getRowCount();
+        for (int i = 0; i < tamTabela; i++) {
+            modelDefault.removeRow(0);
+        }
+            
+        tamTabela = tabelaElementos.getRowCount();
             Object[] novaLinha = {"", "", "", "", ""};
             double intervalo;
             double qtdeClasse;

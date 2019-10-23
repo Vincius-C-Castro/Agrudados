@@ -1,6 +1,5 @@
 package agrudados;
 
-import Telas.Ajuda;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
@@ -290,7 +289,7 @@ public class TelaInicial extends javax.swing.JFrame {
      * @param evt 
      */
     private void itemFormulasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemFormulasActionPerformed
-     Ajuda telaAjuda = new Ajuda();
+     TelaFormulas telaAjuda = new TelaFormulas();
      labelImagemFundo.add(telaAjuda);
      telaAjuda.setVisible(true);
 

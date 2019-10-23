@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Telas;
+package agrudados;
 
 
 
@@ -11,12 +11,12 @@ package Telas;
  *
  * @author Willian
  */
-public class Ajuda extends javax.swing.JInternalFrame {
+public class TelaFormulas extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ajuda
      */
-    public Ajuda() {
+    public TelaFormulas() {
       
         initComponents();
     }

@@ -19,8 +19,10 @@ public class TelaInicial extends javax.swing.JFrame {
         this.carregarIconeAplicacao();
         this.setExtendedState(NORMAL);
         this.setUndecorated(false);
-        initComponents();
 
+        initComponents();
+        painelCamadas.add(telaFundo);
+        painelCamadas.setLayer(telaFundo, 0);
     }
 
     /**
@@ -70,9 +72,10 @@ public class TelaInicial extends javax.swing.JFrame {
         menuBar1 = new java.awt.MenuBar();
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
+        painelCamadas = new javax.swing.JLayeredPane();
         telaFundo = new javax.swing.JPanel();
         labelImagemFundo = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        barraMenu = new javax.swing.JMenuBar();
         medTend = new javax.swing.JMenu();
         itemCentralDispersao = new javax.swing.JMenuItem();
         graficosETabela = new javax.swing.JMenu();
@@ -165,6 +168,20 @@ public class TelaInicial extends javax.swing.JFrame {
         setName(""); // NOI18N
         setResizable(false);
 
+        painelCamadas.setMinimumSize(new java.awt.Dimension(1366, 768));
+        painelCamadas.setRequestFocusEnabled(false);
+
+        org.jdesktop.layout.GroupLayout painelCamadasLayout = new org.jdesktop.layout.GroupLayout(painelCamadas);
+        painelCamadas.setLayout(painelCamadasLayout);
+        painelCamadasLayout.setHorizontalGroup(
+            painelCamadasLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 1366, Short.MAX_VALUE)
+        );
+        painelCamadasLayout.setVerticalGroup(
+            painelCamadasLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 768, Short.MAX_VALUE)
+        );
+
         telaFundo.setBackground(new java.awt.Color(51, 51, 51));
         telaFundo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -176,22 +193,22 @@ public class TelaInicial extends javax.swing.JFrame {
             telaFundoLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(telaFundoLayout.createSequentialGroup()
                 .add(labelImagemFundo)
-                .add(0, 0, Short.MAX_VALUE))
+                .add(0, 6, Short.MAX_VALUE))
         );
         telaFundoLayout.setVerticalGroup(
             telaFundoLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(telaFundoLayout.createSequentialGroup()
-                .add(labelImagemFundo)
+                .add(labelImagemFundo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 768, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(0, 0, Short.MAX_VALUE))
         );
 
-        jMenuBar1.setBackground(java.awt.Color.darkGray);
-        jMenuBar1.setBorder(new javax.swing.border.MatteBorder(null));
-        jMenuBar1.setForeground(new java.awt.Color(222, 52, 52));
-        jMenuBar1.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
-        jMenuBar1.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        jMenuBar1.setMinimumSize(new java.awt.Dimension(2, 4));
-        jMenuBar1.setPreferredSize(new java.awt.Dimension(507, 35));
+        barraMenu.setBackground(java.awt.Color.darkGray);
+        barraMenu.setBorder(new javax.swing.border.MatteBorder(null));
+        barraMenu.setForeground(new java.awt.Color(222, 52, 52));
+        barraMenu.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        barraMenu.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        barraMenu.setMinimumSize(new java.awt.Dimension(2, 4));
+        barraMenu.setPreferredSize(new java.awt.Dimension(507, 35));
 
         medTend.setBorder(new javax.swing.border.MatteBorder(null));
         medTend.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sum.png"))); // NOI18N
@@ -211,7 +228,7 @@ public class TelaInicial extends javax.swing.JFrame {
         });
         medTend.add(itemCentralDispersao);
 
-        jMenuBar1.add(medTend);
+        barraMenu.add(medTend);
 
         graficosETabela.setBorder(new javax.swing.border.MatteBorder(null));
         graficosETabela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/application_view_tile.png"))); // NOI18N
@@ -230,7 +247,7 @@ public class TelaInicial extends javax.swing.JFrame {
         });
         graficosETabela.add(itemAnaliseDados);
 
-        jMenuBar1.add(graficosETabela);
+        barraMenu.add(graficosETabela);
 
         sobre.setBorder(new javax.swing.border.MatteBorder(null));
         sobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/information.png"))); // NOI18N
@@ -246,23 +263,29 @@ public class TelaInicial extends javax.swing.JFrame {
         });
         sobre.add(itemFormulas);
 
-        jMenuBar1.add(sobre);
+        barraMenu.add(sobre);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(barraMenu);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(telaFundo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(0, 0, Short.MAX_VALUE))
+            .add(telaFundo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .add(painelCamadas, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(telaFundo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(0, 0, Short.MAX_VALUE))
+            .add(telaFundo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .add(painelCamadas, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -276,7 +299,8 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     private void itemAnaliseDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAnaliseDadosActionPerformed
 
-        labelImagemFundo.add(telaDistFreq);
+        painelCamadas.add(telaDistFreq);
+        painelCamadas.setLayer(telaDistFreq, 1);
         telaDistFreq.setVisible(true);
         telaDistFreq.setFocusable(true);
     }//GEN-LAST:event_itemAnaliseDadosActionPerformed
@@ -288,9 +312,8 @@ public class TelaInicial extends javax.swing.JFrame {
      * @param evt
      */
     private void itemCentralDispersaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCentralDispersaoActionPerformed
-        // TODO add your handling code here:
-
-        labelImagemFundo.add(telaMedTendencia);
+        painelCamadas.add(telaMedTendencia);
+        painelCamadas.setLayer(telaMedTendencia, 2);
         telaMedTendencia.setVisible(true);
         telaMedTendencia.setFocusable(true);
     }//GEN-LAST:event_itemCentralDispersaoActionPerformed
@@ -302,11 +325,10 @@ public class TelaInicial extends javax.swing.JFrame {
      * @param evt
      */
     private void itemFormulasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemFormulasActionPerformed
-
-        labelImagemFundo.add(telaAjuda);
+        painelCamadas.add(telaAjuda);
+        painelCamadas.setLayer(telaAjuda, 3);
         telaAjuda.setVisible(true);
         telaAjuda.setFocusable(true);
-
     }//GEN-LAST:event_itemFormulasActionPerformed
 
     /**
@@ -341,6 +363,7 @@ public class TelaInicial extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new TelaInicial().setVisible(true);
@@ -349,6 +372,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    javax.swing.JMenuBar barraMenu;
     javax.swing.JMenu graficosETabela;
     javax.swing.JMenuItem itemAnaliseDados;
     javax.swing.JMenuItem itemCentralDispersao;
@@ -372,7 +396,6 @@ public class TelaInicial extends javax.swing.JFrame {
     javax.swing.JMenu jMenu7;
     javax.swing.JMenu jMenu8;
     javax.swing.JMenu jMenu9;
-    javax.swing.JMenuBar jMenuBar1;
     javax.swing.JMenuBar jMenuBar2;
     javax.swing.JMenuBar jMenuBar3;
     javax.swing.JMenuBar jMenuBar4;
@@ -386,6 +409,7 @@ public class TelaInicial extends javax.swing.JFrame {
     java.awt.Menu menu1;
     java.awt.Menu menu2;
     java.awt.MenuBar menuBar1;
+    javax.swing.JLayeredPane painelCamadas;
     javax.swing.JMenu sobre;
     javax.swing.JPanel telaFundo;
     // End of variables declaration//GEN-END:variables

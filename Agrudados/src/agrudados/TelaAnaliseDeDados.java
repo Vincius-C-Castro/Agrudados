@@ -33,10 +33,8 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
     ElementosModel modeloTabela = new ElementosModel(colunas);
     DefaultTableModel modelDefault = new DefaultTableModel();
 
-
     /**
-     * Construtor da classe.
-     * Inicializa os componetes.
+     * Construtor da classe. Inicializa os componetes.
      */
     public TelaAnaliseDeDados() {
 
@@ -48,7 +46,6 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
         modelDefault.addColumn("Freq. Acumulada");
         modelDefault.addColumn("Freq. Absoluta");
         modelDefault.addColumn("Freq. Abs. Acum.");
-
     }
 
     /**
@@ -524,24 +521,25 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Método chamado ao clicar no botão Histograma.
-     * Exibe o histograma utilizando os dados inseridos na tabela.
-     * @param evt 
+     * Método chamado ao clicar no botão Histograma. Exibe o histograma
+     * utilizando os dados inseridos na tabela.
+     *
+     * @param evt
      */
     private void btnHistogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistogramaActionPerformed
 
         try {
             // Remove os componentes dependentes do painelGrafico.
             painelGrafico.removeAll();
-            
+
             // Cria a nova tela que ficará contido o gráfico.
             JInternalFrame frame = new JInternalFrame();
             frame.setResizable(false);
-            
+
             // Remove as bordas da nova tela criada.
             ((BasicInternalFrameUI) frame.getUI()).setNorthPane(null);
             frame.setBorder(null);
-            
+
             // Adiciona a tela criada no painelGrafico.
             painelGrafico.add(frame);
 
@@ -569,7 +567,7 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
 
             // Obtém o tamanho da tabela.
             int tamTabela = tabelaElementos.getRowCount();
-            
+
 ///* Vetor utilizado para testes. */
 //            double value[] = {89.0, 68.0, 65.0, 61.0, 63.0, 63.0, 61.0, 61.0, 59.0, 60.0, 54.0, 55.0, 54.0, 49.0, 53.0, 55.0, 59.0, 50.0,
 //                52.0, 48.0, 53.0, 46.0, 55.0, 57.0, 48.0, 47.0, 48.0, 46.0, 44.0, 50.0, 55.0, 48.0, 45.0, 44.0, 46.0, 46.0,
@@ -578,7 +576,6 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
 //                35.0, 32.0, 32.0, 32.0, 33.0, 33.0, 33.0, 32.0, 34.0, 31.0, 31.0, 30.0, 34.0, 32.0, 31.0, 27.0, 32.0, 26.0,
 //                28.0, 29.0, 28.0, 29.0, 31.0, 27.0, 29.0, 28.0, 27.0, 30.0, 25.0, 23.0, 24.0, 26.0, 22.0, 25.0, 20.0, 21.0,
 //                21.0, 22.0, 21.0, 24.0, 21.0, 17.0, 15.0, 18.0, 18.0, 15.0, 15.0,};
-
             double value[] = new double[tamTabela];
 
             // Obtém os dados inserídos na tabela.
@@ -587,10 +584,10 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
             }
             // Ordena os valores.
             Arrays.sort(value);
-            
+
             // Inicia os cálculos.
             calc.iserirDados(value, false);
-            
+
             // Obtém o número de classes.
             int number = calc.getNumClasses();
 
@@ -601,8 +598,8 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
             HistogramDataset dataset = new HistogramDataset();
 
             /**
-             * Define se deverá montar o gráfico utilizando frequência 
-             * absoluta ou não;
+             * Define se deverá montar o gráfico utilizando frequência absoluta
+             * ou não;
              */
             if (freqAbsoluta.isSelected()) {
                 dataset.setType(HistogramType.RELATIVE_FREQUENCY);
@@ -617,10 +614,10 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
 
             // Título do gráfico.
             String plotTitle = "Histograma";
-            
+
             // Nome do eixo X.
             String xaxis = "Dados";
-            
+
             // Define o gráfico como vertical.
             PlotOrientation orientation = PlotOrientation.VERTICAL;
 
@@ -629,18 +626,18 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
             boolean urls = false;
             int tamX = 590;
             int tamY = 450;
-            
+
             // Cria o gráfico.
             JFreeChart chart = ChartFactory.createHistogram(plotTitle, xaxis, yaxis,
                     dataset, orientation, show, toolTips, urls);
-            
+
             // Define a cor de fundo do gráfico.
             chart.setBackgroundPaint(Color.GRAY);
 
             // Criação do painél do gráfico.
             ChartPanel chartPanel = new ChartPanel(chart, tamX, tamY, tamX,
                     tamY, tamX, tamY, urls, toolTips, show, urls, show, true);
-            
+
             // Define a cor do painel.
             chartPanel.setBackground(Color.GRAY);
 
@@ -658,9 +655,10 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnHistogramaActionPerformed
 
     /**
-     * Método chamado ao precionar o botão Alterar.
-     * Altera a linha selecionada na tabela.
-     * @param evt 
+     * Método chamado ao precionar o botão Alterar. Altera a linha selecionada
+     * na tabela.
+     *
+     * @param evt
      */
     private void botaoAlterarDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarDistActionPerformed
 
@@ -672,9 +670,10 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botaoAlterarDistActionPerformed
 
     /**
-     * Método chamado ao clicar no botão Excluir.
-     * Exclúi a linha selecionada na tabela.
-     * @param evt 
+     * Método chamado ao clicar no botão Excluir. Exclúi a linha selecionada na
+     * tabela.
+     *
+     * @param evt
      */
     private void botaoExcluirDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirDistActionPerformed
 
@@ -685,10 +684,11 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botaoExcluirDistActionPerformed
 
     /**
-     * Método chamado ao clicar no botão Montar tabela.
-     * Obtém os valores contidos na tabela de elemtos para montar a tabela
-     * de distribuição de frequências.
-     * @param evt 
+     * Método chamado ao clicar no botão Montar tabela. Obtém os valores
+     * contidos na tabela de elemtos para montar a tabela de distribuição de
+     * frequências.
+     *
+     * @param evt
      */
     private void botaoCalcularDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCalcularDistActionPerformed
 
@@ -720,13 +720,13 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
 
             Calculos CalculosEstat = new Calculos();
             CalculosEstat.iserirDados(valor, false);
-            
+
             // Armazena o número de classes.
             qtdeClasse = CalculosEstat.getNumClasses();
-            
+
             // Obtém o menor valor do conjunto.
             menorValor = DistribuicaoDeFrequencias.truncate(valor[0]);
-            
+
             // Obtém o valor do intervalo das classes.
             intervalo = CalculosEstat.getIntervalo();
 
@@ -776,9 +776,10 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botaoCalcularDistActionPerformed
 
     /**
-     * Evento gerado ao precinar uma tecla na caixa de text.
-     * Insere o valor na tabela se precionou a tecla Enter.
-     * @param evt 
+     * Evento gerado ao precinar uma tecla na caixa de text. Insere o valor na
+     * tabela se precionou a tecla Enter.
+     *
+     * @param evt
      */
     private void caixaDeTextoDistKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caixaDeTextoDistKeyPressed
 
@@ -802,9 +803,10 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_caixaDeTextoDistKeyPressed
 
     /**
-     * Método utilizado para enviar o valor digitado na caixa de texto 
-     * para a tabela.
-     * @param evt 
+     * Método utilizado para enviar o valor digitado na caixa de texto para a
+     * tabela.
+     *
+     * @param evt
      */
     private void botaoEnviarDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarDistActionPerformed
 
@@ -825,9 +827,10 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botaoEnviarDistActionPerformed
 
     /**
-     * Método chamado ao clicar no botão Ogiva.
-     * Obtém os valores digitados na tabela e monta o gráfico de ogiva.
-     * @param evt 
+     * Método chamado ao clicar no botão Ogiva. Obtém os valores digitados na
+     * tabela e monta o gráfico de ogiva.
+     *
+     * @param evt
      */
     private void btnOgivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOgivaActionPerformed
 
@@ -840,7 +843,7 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
             frame.setResizable(false);
             ((BasicInternalFrameUI) frame.getUI()).setNorthPane(null);
             frame.setBorder(null);
-            
+
             // Adiciona o componente criado.
             painelGrafico.add(frame);
 
@@ -878,7 +881,7 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
             for (int i = 0; i < tamTabela; i++) {
                 value[i] = Double.parseDouble(tabelaElementos.getValueAt(i, 0).toString());
             }
-            
+
             // Ordena os valores.
             Arrays.sort(value);
 
@@ -924,7 +927,7 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
 
             // Título do gráfico.
             String plotTitle = "Ogiva";
-            
+
             // Nome do eixo X.
             String xaxis = "Limite Superior da Classe";
             PlotOrientation orientation = PlotOrientation.VERTICAL;
@@ -937,14 +940,14 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
             // Cria o gráfico.
             JFreeChart lineChart = ChartFactory.createLineChart(plotTitle,
                     xaxis, yaxis, dataset, orientation, urls, toolTips, urls);
-            
+
             // Define a cor do gráfico.
             lineChart.setBackgroundPaint(Color.GRAY);
 
             // Cria o painel do gráfico.
             ChartPanel chartPanel = new ChartPanel(lineChart, tamX, tamY,
                     tamX, tamY, tamX, tamY, urls, toolTips, show, urls, show, true);
-            
+
             // Define a cor do painel.
             chartPanel.setBackground(Color.GRAY);
 
@@ -958,10 +961,11 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnOgivaActionPerformed
 
-     /**
-     * Método chamado ao precionar alguma tecla na tabela.
-     * Exclúi o elemento da tabela selecionado.
-     * @param evt 
+    /**
+     * Método chamado ao precionar alguma tecla na tabela. Exclúi o elemento da
+     * tabela selecionado.
+     *
+     * @param evt
      */
     private void tabelaElementosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaElementosKeyPressed
 
@@ -972,15 +976,16 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tabelaElementosKeyPressed
 
     /**
-     * Método chamado ao precionar o botão Polígono.
-     * Contrói o gráfico polígono de frequência.
-     * @param evt 
+     * Método chamado ao precionar o botão Polígono. Contrói o gráfico polígono
+     * de frequência.
+     *
+     * @param evt
      */
     private void btnPoligonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPoligonoActionPerformed
         try {
             // Remove as dependências do painelGrafico.
             painelGrafico.removeAll();
-            
+
             Calculos calc = new Calculos();
 
             // Contrução do painel que armazenará as dependências do gráfico.
@@ -1018,14 +1023,13 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
 //                35.0, 32.0, 32.0, 32.0, 33.0, 33.0, 33.0, 32.0, 34.0, 31.0, 31.0, 30.0, 34.0, 32.0, 31.0, 27.0, 32.0, 26.0,
 //                28.0, 29.0, 28.0, 29.0, 31.0, 27.0, 29.0, 28.0, 27.0, 30.0, 25.0, 23.0, 24.0, 26.0, 22.0, 25.0, 20.0, 21.0,
 //                21.0, 22.0, 21.0, 24.0, 21.0, 17.0, 15.0, 18.0, 18.0, 15.0, 15.0,};
-
             double value[] = new double[tamTabela];
 
             // Obtém os valores da tabela.
             for (int i = 0; i < tamTabela; i++) {
                 value[i] = Double.parseDouble(tabelaElementos.getValueAt(i, 0).toString());
             }
-            
+
             // Ordena os valores.
             Arrays.sort(value);
 
@@ -1070,7 +1074,7 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
 
             // Título do gráfico.
             String plotTitle = "Polígono de frequência";
-            
+
             // Nome do eixo X.
             String xaxis = "Ponto Médio da classe";
             PlotOrientation orientation = PlotOrientation.VERTICAL;
@@ -1081,19 +1085,19 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
             int tamY = 450;
 
             // Cria o gráfico.
-            JFreeChart lineChart = ChartFactory.createLineChart(plotTitle, 
+            JFreeChart lineChart = ChartFactory.createLineChart(plotTitle,
                     xaxis, yaxis, dataset, orientation, urls, toolTips, urls);
-            
+
             // Define a cor do gráfico.
             lineChart.setBackgroundPaint(Color.GRAY);
-            
+
             // Cria o painel do gráfico.
             ChartPanel chartPanel = new ChartPanel(lineChart, tamX, tamY, tamX,
                     tamY, tamX, tamY, urls, toolTips, show, urls, show, true);
-            
+
             // Define a cor do painel.
             chartPanel.setBackground(Color.GRAY);
-            
+
             primeiroGrafico.add(chartPanel);
             primeiroGrafico.validate();
 
@@ -1105,19 +1109,21 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPoligonoActionPerformed
 
     /**
-     * Método chamado ao precionar o botao Absoluta.
-     * Define o tipo de frequência na montagem de gráficos.
-     * @param evt 
+     * Método chamado ao precionar o botao Absoluta. Define o tipo de frequência
+     * na montagem de gráficos.
+     *
+     * @param evt
      */
     private void freqAbsolutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_freqAbsolutaActionPerformed
         freqRelativa.setSelected(false);
         freqAbsoluta.setSelected(true);
     }//GEN-LAST:event_freqAbsolutaActionPerformed
 
-     /**
-     * Método chamado ao precionar o botao Relativa.
-     * Define o tipo de frequência na montagem de gráficos.
-     * @param evt 
+    /**
+     * Método chamado ao precionar o botao Relativa. Define o tipo de frequência
+     * na montagem de gráficos.
+     *
+     * @param evt
      */
     private void freqRelativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_freqRelativaActionPerformed
         freqAbsoluta.setSelected(false);
@@ -1125,18 +1131,19 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_freqRelativaActionPerformed
 
     /**
-     * Método chamado ao precionar o botão Deletar conjunto.
-     * Remove todos elementos de todas as tabelas e remove o gráfico exibido.
-     * @param evt 
+     * Método chamado ao precionar o botão Deletar conjunto. Remove todos
+     * elementos de todas as tabelas e remove o gráfico exibido.
+     *
+     * @param evt
      */
     private void btnDeleteConjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteConjActionPerformed
-        
+
         // Deleta a tabela de elementos.
         int tamTabela = modeloTabela.getRowCount();
         for (int i = 0; i < tamTabela; i++) {
             modeloTabela.removeRow(0);
         }
-        
+
         // Deleta a tabela de distribuição de frequências.
         tamTabela = modelDefault.getRowCount();
         for (int i = 0; i < tamTabela; i++) {
@@ -1149,17 +1156,18 @@ public class TelaAnaliseDeDados extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnDeleteConjActionPerformed
 
     /**
-     * Método chamado ao precionar o botão Ordenar.
-     * Ordena a tablela.
-     * @param evt 
+     * Método chamado ao precionar o botão Ordenar. Ordena a tablela.
+     *
+     * @param evt
      */
     private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
         // Método responsável por ordenar a tabela.
         ordenaTabela();
     }//GEN-LAST:event_btnOrdenarActionPerformed
-    
+
     /**
      * Método utilizado para ordenar os elementos da tabela.
+     *
      * @param void
      * @return
      */

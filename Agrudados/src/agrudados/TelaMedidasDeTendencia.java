@@ -19,7 +19,7 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
     public TelaMedidasDeTendencia() {
         initComponents();
         tabela.setModel(modeloTabela);
-        
+
     }
 
     /**
@@ -481,7 +481,8 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
 
     /**
      * Tratamento do botão que indica que o conjunto é amostral.
-     * @param evt 
+     *
+     * @param evt
      */
     private void conjuntoAmostralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoAmostralActionPerformed
         conjuntoPopulacional.setSelected(false);
@@ -490,7 +491,8 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
 
     /**
      * Tratamento do botão que indica que o conjunto é populacional.
-     * @param evt 
+     *
+     * @param evt
      */
     private void conjuntoPopulacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conjuntoPopulacionalActionPerformed
         conjuntoAmostral.setSelected(false);
@@ -498,9 +500,10 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_conjuntoPopulacionalActionPerformed
 
     /**
-     * Método utilizado para enviar o valor digitado na caixa de texto 
-     * para a tabela.
-     * @param evt 
+     * Método utilizado para enviar o valor digitado na caixa de texto para a
+     * tabela.
+     *
+     * @param evt
      */
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
 
@@ -523,9 +526,10 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botaoEnviarActionPerformed
 
     /**
-     * Método utilizado para captar os comandos dados na caixa de texto.
-     * Se precionou a tecla Enter, envia o valor para a tabela automaticamente.
-     * @param evt 
+     * Método utilizado para captar os comandos dados na caixa de texto. Se
+     * precionou a tecla Enter, envia o valor para a tabela automaticamente.
+     *
+     * @param evt
      */
     private void caixaDeTextoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caixaDeTextoKeyPressed
         // Precionou a tecla "enter"?
@@ -549,9 +553,10 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_caixaDeTextoKeyPressed
 
     /**
-     * Método que é chamado ao clicar no botão Calcular medidas.
-     * Realiza todos os cálculos necessário e exibe os resultados obtidos.
-     * @param evt 
+     * Método que é chamado ao clicar no botão Calcular medidas. Realiza todos
+     * os cálculos necessário e exibe os resultados obtidos.
+     *
+     * @param evt
      */
     private void botaoCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCalcularActionPerformed
 
@@ -585,9 +590,9 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
                     DistribuicaoDeFrequencias.truncate(CalculosEstat.getMedia())));
 
             /**
-             * Obtém o índice no vetor que corresponde ao valor modal.
-             * Se o índice for menor que zero, quer dizer que o conjunto
-             * é amodal, bimodal ou multimodal.
+             * Obtém o índice no vetor que corresponde ao valor modal. Se o
+             * índice for menor que zero, quer dizer que o conjunto é amodal,
+             * bimodal ou multimodal.
              */
             if (CalculosEstat.getIndiceModa() >= 0) {
                 resultModa.setText(String.valueOf(
@@ -616,7 +621,7 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
             resultCV.setText(String.valueOf(
                     DistribuicaoDeFrequencias.truncate(
                             CalculosEstat.getCoeficienteVariacao())) + " %");
-            
+
         } catch (ArrayIndexOutOfBoundsException exception) {
             // Indica erro caso a tabela de elementos esteja vazia.
             infoLabel.setText("Tabela Vazia!");
@@ -626,9 +631,10 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botaoCalcularActionPerformed
 
     /**
-     * Método chamado ao clicar no botão Excluir.
-     * Remove o elemento selecionado na tabela.
-     * @param evt 
+     * Método chamado ao clicar no botão Excluir. Remove o elemento selecionado
+     * na tabela.
+     *
+     * @param evt
      */
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
 
@@ -639,9 +645,10 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     /**
-     * Método chamado ao clicar no botão Alterar.
-     * Insere o valor digitado na caixa de texto na linha selecionada na tabela.
-     * @param evt 
+     * Método chamado ao clicar no botão Alterar. Insere o valor digitado na
+     * caixa de texto na linha selecionada na tabela.
+     *
+     * @param evt
      */
     private void botaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlterarActionPerformed
 
@@ -653,9 +660,10 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botaoAlterarActionPerformed
 
     /**
-     * Método chamado ao precionar alguma tecla na tabela.
-     * Exclúi o elemento da tabela selecionado.
-     * @param evt 
+     * Método chamado ao precionar alguma tecla na tabela. Exclúi o elemento da
+     * tabela selecionado.
+     *
+     * @param evt
      */
     private void tabelaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaKeyPressed
         // A tecla precionada foi a tecla "delete"?
@@ -665,9 +673,10 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tabelaKeyPressed
 
     /**
-     * Método chamado ao precinar o botão Deletar conjunto.
-     * Remove todos elementos da tabela.
-     * @param evt 
+     * Método chamado ao precinar o botão Deletar conjunto. Remove todos
+     * elementos da tabela.
+     *
+     * @param evt
      */
     private void btnDeletConjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletConjActionPerformed
         int tamTabela = modeloTabela.getRowCount();
@@ -677,17 +686,17 @@ public class TelaMedidasDeTendencia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnDeletConjActionPerformed
 
     /**
-     * Método chamado ao precionar o botão Ordenar tabela.
-     * Ordena a tabela.
-     * @param evt 
+     * Método chamado ao precionar o botão Ordenar tabela. Ordena a tabela.
+     *
+     * @param evt
      */
     private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
         ordenaTabela();
     }//GEN-LAST:event_btnOrdenarActionPerformed
 
     /**
-     * Método responsável por ordenar a tabela.
-     * Remove todos elementos da tabela e insere ordenadamente.
+     * Método responsável por ordenar a tabela. Remove todos elementos da tabela
+     * e insere ordenadamente.
      */
     private void ordenaTabela() {
         // Obtèm o tamanho da tabela.

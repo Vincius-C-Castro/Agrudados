@@ -5,21 +5,17 @@
  */
 package agrudados;
 
-
-
 /**
  *
  * @author Willian
  */
 public class TelaFormulas extends javax.swing.JInternalFrame {
 
-
     /**
-     * Contrutor da classe.
-     * Inicializa os componentes.
+     * Contrutor da classe. Inicializa os componentes.
      */
     public TelaFormulas() {
-      
+
         initComponents();
     }
 
@@ -95,6 +91,16 @@ public class TelaFormulas extends javax.swing.JInternalFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/vcard.png"))); // NOI18N
         setPreferredSize(new java.awt.Dimension(875, 421));
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         painelFormMedia.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Como calcular a média aritmética", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
@@ -625,6 +631,14 @@ public class TelaFormulas extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+
+    }//GEN-LAST:event_formFocusGained
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
